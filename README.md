@@ -1,79 +1,60 @@
-<!-- PROJECT LOGO -->
-<br />
+<h1 align="center">🌐 NICMUN 2025</h1>
+
+<p align="center">
+  <img src="https://iili.io/3mCduu2.md.png" alt="NICMUN Logo" width="150" />
+</p>
+
+<p align="center">
+  <strong>Official website for the NICMUN 2025 Model United Nations conference</strong> <br/>
+  Designed & developed by <strong>Camilo Quirós Mendoza</strong>
+</p>
+
+<p align="center">
+  <a href="https://5slnf2.mimo.run/index.html"><img src="https://img.shields.io/badge/🌍 Live%20Demo-5slnf2.mimo.run-brightgreen?style=for-the-badge"></a>
+  <a href="#📌-about-the-project"><img src="https://img.shields.io/badge/About%20Project-📌-blue?style=for-the-badge"></a>
+  <a href="#🚀-features"><img src="https://img.shields.io/badge/Features-🚀-purple?style=for-the-badge"></a>
+  <a href="#🛠️-tech-stack"><img src="https://img.shields.io/badge/Tech%20Stack-🛠️-orange?style=for-the-badge"></a>
+  <a href="#📬-contact"><img src="https://img.shields.io/badge/Contact-📬-yellow?style=for-the-badge"></a>
+</p>
+
+---
+
+## 📌 About the Project
+
 <div align="center">
-  <a href="https://5slnf2.mimo.run/index.html">
-    <img src="https://iili.io/3mCduu2.md.png" alt="Logo" width="150">
-  </a>
-
-  <h3 align="center">NICMUN 2025</h3>
-
-  <p align="center">
-    Official website for the NICMUN 2025 Model United Nations conference
-    <br />
-    <a href="https://5slnf2.mimo.run/index.html"><strong>View Live Site »</strong></a>
-    <br />
-    <br />
-    <a href="#about-the-project">About The Project</a>
-    ·
-    <a href="#built-with">Built With</a>
-    ·
-    <a href="#getting-started">Getting Started</a>
-    ·
-    <a href="#roadmap">Roadmap</a>
-    ·
-    <a href="#contact">Contact</a>
-  </p>
+  <img src="https://iili.io/3mCdMuV.md.jpg" alt="Site Preview" width="80%" />
 </div>
 
----
-
-## 📌 About The Project
-
-![Product Screenshot](https://iili.io/3mCdMuV.md.jpg)
-
-NICMUN 2025 is a fully responsive and interactive website designed for a two-day MUN conference. It allows students to:
-
-- Explore committees and agendas
-- Register and find their assignments
-- Access downloadable guides and conference resources
-- View a live schedule and student portal
-
-This project demonstrates my front-end skills in HTML, CSS, and JavaScript, and reflects real-world web development structure.
+**NICMUN 2025** is an immersive digital platform that presents all the key components of a modern MUN conference. Built with clean HTML/CSS/JS, it supports committee overviews, student tools, event schedules, and downloadable resources — all in a sleek, mobile-friendly interface.
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Features
 
-🌐 **[Visit the site →](https://5slnf2.mimo.run/index.html)**
-
----
-
-## 🔧 Built With
-
-This website is powered by the following technologies:
-
-- [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- Fully hand-coded from scratch
+- 🌍 Responsive homepage with hero banner and schedule
+- 🧭 Modal system for committees and countries
+- 🧾 Student registration portal (mock database)
+- 📅 Conference schedule with day tabs
+- 📚 Resource downloads: position papers, etiquette, and more
+- 🎯 Optimized for desktop & mobile with smooth UX
 
 ---
 
-## 🛠️ Features
+## 🛠️ Tech Stack
 
-- Responsive navigation bar and layout
-- Committee modal system with country tags
-- Dynamic conference schedule (tabs by day)
-- Student portal form with demo database
-- Downloadable PDFs, documents, and links
-- Mobile-friendly and SEO-ready structure
+- **HTML5**
+- **CSS3 (Flexbox + Grid)**
+- **Vanilla JavaScript**
+- **Responsive Web Design**
+- Deployed via [Mimo.run](https://5slnf2.mimo.run)
 
 ---
 
-## 🏁 Getting Started
+## 🧰 Getting Started
 
-To view locally:
+Clone and run the project locally with:
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/YOURUSERNAME/NICMUN-2025.git
+```bash
+git clone https://github.com/YOURUSERNAME/NICMUN-2025.git
+cd NICMUN-2025
+open index.html
