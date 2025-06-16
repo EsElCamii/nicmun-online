@@ -1,9 +1,21 @@
-
 /* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Adjust hero title size and positioning for larger viewports */
+@media (min-width: 1200px) {
+  .hero-main-title {
+    font-size: 8vw; /* Adjust the size to fit well within the viewport */
+    padding-bottom: 20px; /* Add padding to separate title from paragraph */
+  }
+
+  .hero-paragraph {
+    font-size: 1.75rem;
+    margin-top: 30px; /* Increase margin to avoid overlap with title */
+  }
 }
 
 body {
@@ -175,19 +187,19 @@ body {
 }
 
 .event-stat-card.blue {
-  background: linear-gradient(145deg, #0000d7, #0036d7);
+  background: linear-gradient(145deg, #0000D7, #0036D7);
 }
 
 .event-stat-card.blue2 {
-  background: linear-gradient(145deg, #0036d7, #005ad7);
+  background: linear-gradient(145deg, #0036D7, #005AD7);
 }
 
 .event-stat-card.blue3 {
-  background: linear-gradient(145deg, #0036d7, #005ad7);
+  background: linear-gradient(145deg, #0036D7, #005AD7);
 }
 
 .event-stat-card.blue4 {
-  background: linear-gradient(145deg, #008cd7, #00b0d7);
+  background: linear-gradient(145deg, #008CD7, #00B0D7);
 }
 
 .event-stat-number {
@@ -242,7 +254,7 @@ body {
 
   .event-theme-title {
     font-size: 1.25rem;
-    color: ;
+    color:;
   }
 
   .event-stats-grid {
@@ -467,7 +479,7 @@ body {
 }
 
 #home-button {
-  color: #0000d7;
+  color: #0000D7;
   background-color: rgba(59, 130, 246, 0.1);
   box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
 }
@@ -588,11 +600,35 @@ body {
   margin-top: 50px;
 }
 
+.hero-main-title {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 10vw;
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 1000;
+  transform: scale(1.3, 2.5); /* Scale 0.8 horizontally and 1.5 vertically */
+}
+
 .hero-title {
-  font-size: 5.5rem;
   font-weight: bold;
   margin-bottom: 20px;
   line-height: 1.1;
+}
+
+.hero-year {
+  padding: 0px 1rem;
+  height: 65%;
+  display: flex;
+  align-items: center; /* Centers vertically */
+  justify-content: center; /* Centers horizontally */
+  text-align: center;
+  line-height: 45px;
+  background: #FF0064;
+  color: blue;
 }
 
 .hero-paragraph {
@@ -643,12 +679,23 @@ body {
 
 .blue-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
 }
 
-.white-button {
-  background-color: #FFFFFF;
-  color: #2563EB;
+.pink-button {
+  background: linear-gradient(145deg, #FF0064, #FF4D94);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pink-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 0, 100, 0.4);
 }
 
 /* What is MUN Section */
@@ -704,6 +751,23 @@ body {
 
   .mun-cards {
     grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 768px) {
+    .hero-main-title {
+      margin-top: 100px;
+      flex-direction: column; /* Stack titles vertically for mobile devices */
+      align-items: center; /* Center the titles horizontally */
+    }
+
+    .hero-year {
+      margin-top: -30px;
+      margin-bottom: 50px;
+    }
+
+    .hero-paragraph {
+      display: none;
+    }
   }
 }
 
@@ -823,8 +887,8 @@ body {
 }
 
 .committee-size {
-  background: #fff0f5;
-  color: #ff0064;
+  background: #FFF0F5;
+  color: #FF0064;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
 }
@@ -864,7 +928,7 @@ body {
 
 .schedule-item {
   display: flex;
-  align-items: center;  /* Align items vertically center */
+  align-items: center; /* Align items vertically center */
   margin-bottom: 1.5rem;
   background: white;
   padding: 1.5rem;
