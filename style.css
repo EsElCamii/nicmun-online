@@ -414,9 +414,13 @@ body {
 
 .section-title {
   font-size: 2.5rem;
-  text-align: center;
+  text-align: left;
+  margin-left: 1rem;
+  font-family: "Special Gothic Expanded One", sans-serif;
+  transform: scale(1.3, 2.5) translateX(100px);
   margin-bottom: 3rem;
-  color: #2C3E50;
+  color: #FF0064;
+  text-transform: uppercase;
 }
 
 /* Navigation */
@@ -683,7 +687,7 @@ body {
 }
 
 .pink-button {
-  background: linear-gradient(145deg, #FF0064, #FF4D94);
+  background: linear-gradient(145deg, #FF0064, #fc3987);
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
@@ -804,16 +808,18 @@ body {
 }
 
 .committee-card {
+  display: flex; /* Add flexbox */
+  flex-direction: column; /* Set vertical layout */
+  justify-content: space-between; /* Push the content to top and bottom */
+  height: 40vh;
   background: white;
   padding: 2rem;
-  border-radius: 16px;
+  border-radius: 15%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(52, 152, 219, 0.5); /* Light, subtle color */
-  border-style: solid; /* Modern subtle border style */
+  border: 1px solid #0036D7;
 }
 
 .committee-card::before {
@@ -851,46 +857,56 @@ body {
 .committee-card h3 {
   font-size: 1.4rem;
   margin-bottom: 1rem;
-  color: #2C3E50;
-  font-weight: 600;
+  color: #0000D7;
+  font-weight: 700;
 }
 
 .committee-description {
-  color: #666;
+  color: #000000;
   margin-bottom: 1.5rem;
   line-height: 1.6;
   font-size: 0.95rem;
+    flex-grow: 1; /* Allow the description to take up space */
+
 }
 
 .committee-meta {
   display: flex;
   justify-content: space-between;
   font-size: 0.9rem;
-  color: #777;
   padding-top: 1rem;
-  border-top: 1px solid #EEE;
+  border-top: 1px solid #0000D7;
 }
 
-.committee-type {
-  background: #3498DB;
+.view-more {
+  margin-right: 2px;
+  background: #242beb;
   color: white;
   padding: 0.4rem 1rem;
   border-radius: 25px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .committee-size {
-  background: #F8F9FA;
-  padding: 0.4rem 1rem;
-  border-radius: 25px;
+  position: relative; /* Ensure the circle aligns with the text */
+  display: flex;
+  align-items: center; /* Vertically centers the text and the circle */
+  background: #FF0064;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
   font-weight: 500;
 }
 
-.committee-size {
-  background: #FFF0F5;
-  color: #FF0064;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
+.committee-size::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #27AE60; /* Green color for the 'online' status */
+  border-radius: 50%;
+  margin-right: 8px; /* Space between circle and text */
 }
 
 /* Schedule Section */
