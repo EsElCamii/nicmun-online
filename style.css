@@ -125,6 +125,17 @@ body {
   margin-bottom: 16px;
 }
 
+.section-title-right {
+  font-size: 2.5rem;
+  text-align: left;
+  margin-left: 1rem;
+  font-family: "Special Gothic Expanded One", sans-serif;
+  transform: scale(1.3, 2.5) translateX(35%);
+  margin-bottom: 3rem;
+  color: #0000D7;
+  text-transform: uppercase;
+}
+
 .event-objectives-list {
   list-style: none;
   display: flex;
@@ -408,16 +419,12 @@ body {
   }
 }
 
-.bg-gray {
-  background-color: #F8F9FA;
-}
-
 .section-title {
   font-size: 2.5rem;
   text-align: left;
   margin-left: 1rem;
   font-family: "Special Gothic Expanded One", sans-serif;
-  transform: scale(1.3, 2.5) translateX(100px);
+  transform: scale(1.3, 2.5) translateX(10%);
   margin-bottom: 3rem;
   color: #FF0064;
   text-transform: uppercase;
@@ -687,7 +694,7 @@ body {
 }
 
 .pink-button {
-  background: linear-gradient(145deg, #FF0064, #fc3987);
+  background: linear-gradient(145deg, #FF0064, #FC3987);
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
@@ -814,7 +821,7 @@ body {
   height: 40vh;
   background: white;
   padding: 2rem;
-  border-radius: 15%;
+  border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
@@ -866,8 +873,7 @@ body {
   margin-bottom: 1.5rem;
   line-height: 1.6;
   font-size: 0.95rem;
-    flex-grow: 1; /* Allow the description to take up space */
-
+  flex-grow: 1; /* Allow the description to take up space */
 }
 
 .committee-meta {
@@ -880,7 +886,7 @@ body {
 
 .view-more {
   margin-right: 2px;
-  background: #242beb;
+  background: #242BEB;
   color: white;
   padding: 0.4rem 1rem;
   border-radius: 25px;
@@ -900,7 +906,7 @@ body {
 }
 
 .committee-size::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -918,20 +924,26 @@ body {
 }
 
 .tab-button {
+  height: auto;
+  width: auto;
+  font-size: large;
+  text-decoration: underline;
   padding: 12px 24px;
-  border: 2px solid #3498DB;
+  border: 1px solid black;
   background: white;
-  color: #3498DB;
-  border-radius: 8px;
+  color: #0000d7;
+  border-radius: 15px;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.3s;
 }
 
+
 .tab-button.active,
 .tab-button:hover {
-  background: #3498DB;
+  background: #FF0064;
   color: white;
+  border: #FF0064 1px solid;
 }
 
 .schedule-day {
@@ -950,6 +962,8 @@ body {
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: #0000D7 1px solid;
+
 }
 
 .schedule-time {
@@ -960,9 +974,18 @@ body {
   font-size: 1.1rem;
 }
 
+.schedule-content{
+  border-left: #0000D7 1px solid;
+  padding-left: 40px;
+}
+
 .schedule-content h3 {
-  margin-bottom: 0.5rem;
-  color: #2C3E50;
+  color: #0000D7;
+  font-size: 2.5rem;
+}
+
+.schedule-content p {
+  font-size: 1.25rem;
 }
 
 /* Student Portal */
