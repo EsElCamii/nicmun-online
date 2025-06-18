@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap');
+    </style>
     <link rel="icon" type="image/png" href="https://iili.io/3mCduu2.md.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,17 +15,17 @@
       content="Join NICMUN 2025 for an extraordinary Model United Nations experience where future leaders engage in diplomatic discourse and shape tomorrow's world."
     />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/3a881d41eb.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-brand">
-          <img
-            src="https://iili.io/3mCduu2.md.png"
-            alt="3mCduu2.md.png"
-            width="50%"
-          />
+          <img src="https://iili.io/3mCduu2.md.png" alt="Logo" width="50%" />
         </div>
         <div class="nav-links">
           <a
@@ -60,9 +65,7 @@
         </div>
         <div class="mobile-menu">
           <button class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
           </button>
         </div>
       </div>
@@ -73,10 +76,11 @@
       <div class="background-image"></div>
       <div class="overlay"></div>
       <div class="hero-content">
-        <h1 class="hero-title">NICMUN 2025</h1>
-        <p class="hero-paragraph">
-          Your journey into world affairs starts here.
-        </p>
+        <div class="hero-main-title">
+          <h1 class="hero-title">NICMUN</h1>
+          <h1 class="hero-title hero-year">2025</h1>
+        </div>
+        <p class="hero-paragraph">"If there is no way, create one"</p>
         <div class="button-wrapper">
           <button
             class="hero-button blue-button"
@@ -85,160 +89,17 @@
             View Schedule
           </button>
           <button
-            class="hero-button white-button"
+            class="hero-button pink-button"
             onclick="scrollToSection('committees')"
           >
             Check Your Committee
           </button>
           <button
-            class="hero-button white-button"
+            class="hero-button blue-button"
             onclick="scrollToSection('resources')"
           >
             Paper Guidelines
           </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- What is MUN Section -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-title">What is Model United Nations?</h2>
-        <div class="mun-layout">
-          <div class="mun-photo">
-            <!-- Add your photo here -->
-            <img
-              src="https://images.unsplash.com/photo-1732770246723-bb6267799251?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="MUN Conference"
-              class="mun-image"
-            />
-          </div>
-          <div class="mun-cards">
-            <div class="mun-card">
-              <h3>🌍 Global Perspective</h3>
-              <p>
-                Gain insights into international relations, diplomacy, and
-                global issues affecting our world today.
-              </p>
-            </div>
-            <div class="mun-card">
-              <h3>🎯 Leadership Skills</h3>
-              <p>
-                Develop critical thinking, public speaking, and negotiation
-                skills essential for future leaders.
-              </p>
-            </div>
-            <div class="mun-card">
-              <h3>🤝 Collaboration</h3>
-              <p>
-                Work with delegates from diverse backgrounds to find solutions
-                to complex global challenges.
-              </p>
-            </div>
-            <div class="mun-card">
-              <h3>📚 Research & Analysis</h3>
-              <p>
-                Conduct in-depth research on your assigned country's policies
-                and international positions.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="overview" class="event-overview-section">
-      <div class="container">
-        <div class="event-overview-grid">
-          <div class="event-text-content">
-            <h2 class="event-main-title">MUN 2025 Event Overview</h2>
-            <div class="event-content-blocks">
-              <div class="event-theme-block">
-                <h3 class="event-theme-title">
-                  Theme: "Building Bridges in a Divided World"
-                </h3>
-                <p class="event-theme-description">
-                  In an era of increasing global challenges, this year's MUN
-                  focuses on fostering understanding, cooperation, and
-                  innovative solutions to bridge divides between nations,
-                  cultures, and ideologies.
-                </p>
-              </div>
-
-              <div class="event-date-block">
-                <div class="event-date-icon">📅</div>
-                <h4 class="event-section-title">Event Dates</h4>
-                <div class="event-date-info">
-                  <h3>March 15-16, 2025</h3>
-                  <p>Two intensive days of diplomatic engagement</p>
-                </div>
-              </div>
-
-              <div class="event-objectives-block">
-                <h4 class="event-section-title">Objectives</h4>
-                <ul class="event-objectives-list">
-                  <li class="event-objective-item">
-                    <span class="event-check-icon">✓</span>
-                    <span>Enhance diplomatic and negotiation skills</span>
-                  </li>
-                  <li class="event-objective-item">
-                    <span class="event-check-icon">✓</span>
-                    <span
-                      >Foster cross-cultural understanding and cooperation</span
-                    >
-                  </li>
-                  <li class="event-objective-item">
-                    <span class="event-check-icon">✓</span>
-                    <span
-                      >Develop practical solutions to global challenges</span
-                    >
-                  </li>
-                  <li class="event-objective-item">
-                    <span class="event-check-icon">✓</span>
-                    <span>Build leadership and public speaking confidence</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="event-why-matters-block">
-                <h4 class="event-section-title">Why This Event Matters</h4>
-                <p class="event-description">
-                  As future leaders, today's students need platforms to engage
-                  with complex global issues. MUN 2025 provides an immersive
-                  experience that bridges academic learning with real-world
-                  application, preparing participants for leadership roles in an
-                  interconnected world.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="event-visual-content">
-            <img
-              src="https://iili.io/3mCdl3b.md.jpg"
-              alt="UN headquarters with international flags"
-              class="event-main-image"
-            />
-
-            <div class="event-stats-grid">
-              <div class="event-stat-card blue">
-                <div class="event-stat-number">500+</div>
-                <div class="event-stat-label">Participants</div>
-              </div>
-              <div class="event-stat-card blue2">
-                <div class="event-stat-number">8</div>
-                <div class="event-stat-label">Committees</div>
-              </div>
-              <div class="event-stat-card blue3">
-                <div class="event-stat-number">193</div>
-                <div class="event-stat-label">Countries</div>
-              </div>
-              <div class="event-stat-card blue4">
-                <div class="event-stat-number">2</div>
-                <div class="event-stat-label">Days</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -248,74 +109,81 @@
       <div class="container">
         <h2 class="section-title">Committees</h2>
         <div class="committees-grid">
-          <div class="committee-card" onclick="openCommitteeModal('CPD')">
+          <div class="committee-card">
             <h3>Commission on Population and Development</h3>
             <p class="committee-description">
               Addressing global population trends, demographic transitions, and
               sustainable development challenges in the 21st century.
             </p>
             <div class="committee-meta">
-              <span class="committee-type">Economic and Social Council</span>
+              <div class="view-more" onclick="openCommitteeModal('CPD')">
+                View More <small><i class="fa-solid fa-eye"></i></small>
+              </div>
               <span class="committee-size">24 delegates</span>
             </div>
           </div>
-
-          <div class="committee-card" onclick="openCommitteeModal('UNSC')">
+          <div class="committee-card">
             <h3>United Nations Security Council</h3>
             <p class="committee-description">
               Maintaining international peace and security through diplomatic
               solutions to global conflicts and threats.
             </p>
             <div class="committee-meta">
-              <span class="committee-type">Principal Organ</span>
+              <div class="view-more" onclick="openCommitteeModal('UNSC')">
+                View More <small><i class="fa-solid fa-eye"></i></small>
+              </div>
               <span class="committee-size">15 delegates</span>
             </div>
           </div>
-
-          <div class="committee-card" onclick="openCommitteeModal('WHO')">
+          <div class="committee-card">
             <h3>World Health Organization</h3>
             <p class="committee-description">
               Promoting global health security and addressing public health
               emergencies in an interconnected world.
             </p>
             <div class="committee-meta">
-              <span class="committee-type">Specialized Agency</span>
+              <div class="view-more" onclick="openCommitteeModal('WHO')">
+                View More <small><i class="fa-solid fa-eye"></i></small>
+              </div>
               <span class="committee-size">32 delegates</span>
             </div>
           </div>
-
-          <div class="committee-card" onclick="openCommitteeModal('UNHRC')">
+          <div class="committee-card">
             <h3>UN Human Rights Council</h3>
             <p class="committee-description">
               Protecting and promoting human rights worldwide, addressing
               violations and strengthening international law.
             </p>
             <div class="committee-meta">
-              <span class="committee-type">Subsidiary Body</span>
+              <div class="view-more" onclick="openCommitteeModal('UNHRC')">
+                View More <small><i class="fa-solid fa-eye"></i></small>
+              </div>
               <span class="committee-size">47 delegates</span>
             </div>
           </div>
-
-          <div class="committee-card" onclick="openCommitteeModal('UNODC')">
+          <div class="committee-card">
             <h3>UN Office on Drugs and Crime</h3>
             <p class="committee-description">
               Combating transnational organized crime, drug trafficking, and
               corruption through international cooperation.
             </p>
             <div class="committee-meta">
-              <span class="committee-type">UN Office</span>
+              <div class="view-more" onclick="openCommitteeModal('UNODC')">
+                View More <small><i class="fa-solid fa-eye"></i></small>
+              </div>
               <span class="committee-size">28 delegates</span>
             </div>
           </div>
-
-          <div class="committee-card" onclick="openCommitteeModal('UNEP')">
+          <div class="committee-card">
             <h3>UN Environment Programme</h3>
             <p class="committee-description">
               Leading global environmental action and promoting sustainable
               development for future generations.
             </p>
             <div class="committee-meta">
-              <span class="committee-type">Programme</span>
+              <div class="view-more" onclick="openCommitteeModal('UNEP')">
+                View More <small><i class="fa-solid fa-eye"></i></small>
+              </div>
               <span class="committee-size">36 delegates</span>
             </div>
           </div>
@@ -324,9 +192,9 @@
     </section>
 
     <!-- Schedule Section -->
-    <section id="schedule" class="section bg-gray">
+    <section id="schedule" class="section">
       <div class="container">
-        <h2 class="section-title">Conference Schedule</h2>
+        <h2 class="section-title-right">Conference Schedule</h2>
         <div class="schedule-tabs">
           <button class="tab-button active" onclick="showDay(1)">
             Day 1 - March 15
@@ -335,7 +203,6 @@
             Day 2 - March 16
           </button>
         </div>
-
         <div id="day1" class="schedule-day active">
           <div class="schedule-item">
             <div class="schedule-time">9:00 AM</div>
@@ -373,7 +240,6 @@
             </div>
           </div>
         </div>
-
         <div id="day2" class="schedule-day">
           <div class="schedule-item">
             <div class="schedule-time">9:00 AM</div>
@@ -430,9 +296,8 @@
               href="downloads/position-paper-guide.pdf"
               class="download-button"
               download
+              >Download Guide</a
             >
-              Download Guide
-            </a>
           </div>
           <div class="resource-card">
             <div class="card-icon">📚</div>
@@ -445,9 +310,8 @@
               href="downloads/research-materials.zip"
               class="download-button"
               download
+              >Download Materials</a
             >
-              Download Materials
-            </a>
           </div>
           <div class="resource-card">
             <div class="card-icon">🎯</div>
@@ -460,10 +324,8 @@
               class="download-button"
               target="_blank"
               rel="noopener noreferrer"
+              >View Checklist</a
             >
-              View Checklist
-            </a>
-            <!-- Paste the link of teh file here ⬆️ -->
           </div>
           <div class="resource-card">
             <div class="card-icon">👥</div>
@@ -483,9 +345,8 @@
               href="downloads/conference-etiquette.pdf"
               class="download-button"
               download
+              >Download Guide</a
             >
-              Download Guide
-            </a>
           </div>
           <div class="resource-card">
             <div class="card-icon">👔</div>
@@ -498,7 +359,7 @@
     </section>
 
     <!-- Student Portal -->
-    <section id="portal" class="section bg-gray">
+    <section id="portal" class="section">
       <div class="container">
         <h2 class="section-title">Student Portal</h2>
         <div class="portal-content">
@@ -506,9 +367,9 @@
             <h3>Check Your Registration</h3>
             <p>
               Enter your student mail to view your committee assignment and
-              download documents. <br />
-              <br />
-              <em>Example: cquirosm@noordwijk.edu.mx</em>
+              download documents. <br /><br /><em
+                >Example: cquirosm@noordwijk.edu.mx</em
+              >
             </p>
             <br />
             <form id="studentForm">
@@ -524,7 +385,6 @@
               </div>
               <button type="submit" class="submit-button">Search</button>
             </form>
-
             <div id="searchResult" class="search-result">
               <div class="student-info">
                 <h4>Student Information</h4>
@@ -544,11 +404,101 @@
                 >
               </div>
             </div>
-
             <div id="searchError" class="search-error">
               <p>
                 Student not found. Please check your ID or name and try again.
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview" class="event-overview-section">
+      <div class="container">
+        <div class="event-overview-grid">
+          <div class="event-text-content">
+            <h2 class="event-main-title">MUN 2025 Event Overview</h2>
+            <div class="event-content-blocks">
+              <div class="event-theme-block">
+                <h3 class="event-theme-title">
+                  Theme: "Building Bridges in a Divided World"
+                </h3>
+                <p class="event-theme-description">
+                  In an era of increasing global challenges, this year's MUN
+                  focuses on fostering understanding, cooperation, and
+                  innovative solutions to bridge divides between nations,
+                  cultures, and ideologies.
+                </p>
+              </div>
+              <div class="event-date-block">
+                <div class="event-date-icon">📅</div>
+                <h4 class="event-section-title">Event Dates</h4>
+                <div class="event-date-info">
+                  <h3>March 15-16, 2025</h3>
+                  <p>Two intensive days of diplomatic engagement</p>
+                </div>
+              </div>
+              <div class="event-objectives-block">
+                <h4 class="event-section-title">Objectives</h4>
+                <ul class="event-objectives-list">
+                  <li class="event-objective-item">
+                    <span class="event-check-icon">✓</span>
+                    <span>Enhance diplomatic and negotiation skills</span>
+                  </li>
+                  <li class="event-objective-item">
+                    <span class="event-check-icon">✓</span>
+                    <span
+                      >Foster cross-cultural understanding and cooperation</span
+                    >
+                  </li>
+                  <li class="event-objective-item">
+                    <span class="event-check-icon">✓</span>
+                    <span
+                      >Develop practical solutions to global challenges</span
+                    >
+                  </li>
+                  <li class="event-objective-item">
+                    <span class="event-check-icon">✓</span>
+                    <span>Build leadership and public speaking confidence</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="event-why-matters-block">
+                <h4 class="event-section-title">Why This Event Matters</h4>
+                <p class="event-description">
+                  As future leaders, today's students need platforms to engage
+                  with complex global issues. MUN 2025 provides an immersive
+                  experience that bridges academic learning with real-world
+                  application, preparing participants for leadership roles in an
+                  interconnected world.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="event-visual-content">
+            <img
+              src="https://iili.io/3mCdl3b.md.jpg"
+              alt="UN headquarters with international flags"
+              class="event-main-image"
+            />
+            <div class="event-stats-grid">
+              <div class="event-stat-card blue">
+                <div class="event-stat-number">500+</div>
+                <div class="event-stat-label">Participants</div>
+              </div>
+              <div class="event-stat-card blue2">
+                <div class="event-stat-number">8</div>
+                <div class="event-stat-label">Committees</div>
+              </div>
+              <div class="event-stat-card blue3">
+                <div class="event-stat-number">193</div>
+                <div class="event-stat-label">Countries</div>
+              </div>
+              <div class="event-stat-card blue4">
+                <div class="event-stat-number">2</div>
+                <div class="event-stat-label">Days</div>
+              </div>
             </div>
           </div>
         </div>
@@ -575,7 +525,6 @@
               </p>
             </div>
           </div>
-
           <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
               <h3>What should I bring to the conference?</h3>
@@ -590,7 +539,6 @@
               </p>
             </div>
           </div>
-
           <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
               <h3>How are awards determined?</h3>
@@ -605,7 +553,6 @@
               </p>
             </div>
           </div>
-
           <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
               <h3>What is the dress code?</h3>
@@ -620,7 +567,6 @@
               </p>
             </div>
           </div>
-
           <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
               <h3>Can I change my committee assignment?</h3>
