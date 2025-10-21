@@ -1,89 +1,185 @@
-// Smooth scrolling function
-function scrollToSection(sectionId, yOffset = -30) {
+function scrollToSection(sectionId, yOffset = -80) {
   const element = document.getElementById(sectionId);
-  if (element) {
-    const yPosition =
-      element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({
-      top: yPosition,
-      behavior: "smooth",
-    });
-  }
+  if (!element) return;
+
+  const targetPosition =
+    element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+  window.scrollTo({
+    top: targetPosition,
+    behavior: "smooth",
+  });
+
+  setActiveNavLink(sectionId);
 }
-// Initialize navigation
+
+function setActiveNavLink(sectionId) {
+  if (!sectionId) return;
+
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    const linkTarget = (link.getAttribute("href") || "").replace("#", "");
+    const isActive = linkTarget === sectionId;
+    link.classList.toggle("active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
 function initNavigation() {
-  // Add smooth scrolling to all navigation links
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
-      scrollToSection(targetId);
+  const navLinksContainer = document.querySelector(".nav-links");
+  const navLinks = navLinksContainer
+    ? Array.from(navLinksContainer.querySelectorAll(".nav-link"))
+    : [];
+  const menuToggle = document.querySelector(".menu-toggle");
+
+  const closeMobileMenu = () => {
+    if (navLinksContainer) {
+      navLinksContainer.classList.remove("open");
+    }
+    if (menuToggle) {
+      menuToggle.classList.remove("open");
+    }
+  };
+
+  navLinks.forEach((link) => {
+    const inlineHandler = link.getAttribute("onclick");
+    if (inlineHandler) {
+      link.removeAttribute("onclick");
+    }
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const targetId = (link.getAttribute("href") || "").replace("#", "");
+      if (targetId) {
+        scrollToSection(targetId);
+      }
+      closeMobileMenu();
     });
   });
-  // Add smooth scrolling to all hero buttons
-  document.querySelectorAll(".hero-button").forEach((button) => {
-    button.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("onclick").match(
-        /scrollToSection\('([^']+)\)/,
-      )[1];
-      scrollToSection(targetId);
-    });
-  });
-}
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialize navigation
-  initNavigation();
-  // Add hover effects to hero buttons
-  document.querySelectorAll(".hero-button").forEach((button) => {
-    button.addEventListener("mouseenter", function () {
-      this.style.transform = "scale(1.05)";
-    });
-    button.addEventListener("mouseleave", function () {
-      this.style.transform = "scale(1)";
-    });
-  });
-  // Additional hover effects for red button
-  const redButton = document.querySelector(".red-button");
-  if (redButton) {
-    redButton.addEventListener("mouseenter", function () {
-      this.style.backgroundColor = "#dc2626";
-    });
-    redButton.addEventListener("mouseleave", function () {
-      this.style.backgroundColor = "#ef4444";
+
+  if (menuToggle && navLinksContainer) {
+    menuToggle.addEventListener("click", () => {
+      navLinksContainer.classList.toggle("open");
+      menuToggle.classList.toggle("open");
     });
   }
-  // Additional hover effects for white buttons
-  document.querySelectorAll(".white-button").forEach((button) => {
-    button.addEventListener("mouseenter", function () {
-      this.style.backgroundColor = "#f3f4f6";
-    });
-    button.addEventListener("mouseleave", function () {
-      this.style.backgroundColor = "#ffffff";
-    });
-  });
-});
-// Schedule tab functionality
-function showDay(day) {
-  // Hide all schedule days
-  document.querySelectorAll(".schedule-day").forEach((dayEl) => {
-    dayEl.classList.remove("active");
-  });
-  // Remove active class from all tabs
-  document.querySelectorAll(".tab-button").forEach((tab) => {
-    tab.classList.remove("active");
-  });
-  // Show selected day
-  document.getElementById("day" + day).classList.add("active");
-  // Add active class to clicked tab
-  event.target.classList.add("active");
 }
-// FAQ toggle functionality
+
+function initHeroButtons() {
+  document.querySelectorAll(".hero-button").forEach((button) => {
+    let targetId = button.dataset.target;
+    const inlineHandler = button.getAttribute("onclick");
+    if (!targetId && inlineHandler) {
+      const match = inlineHandler.match(/scrollToSection\('([^']+)'/);
+      if (match) {
+        targetId = match[1];
+      }
+    }
+    if (inlineHandler) {
+      button.removeAttribute("onclick");
+    }
+    if (!targetId) return;
+
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      scrollToSection(targetId);
+    });
+  });
+}
+
+function showDay(day, trigger) {
+  document.querySelectorAll(".schedule-day").forEach((dayEl) => {
+    dayEl.classList.toggle("active", dayEl.id === `day${day}`);
+  });
+
+  const buttons = document.querySelectorAll(".tab-button");
+  buttons.forEach((button) => {
+    button.classList.toggle("active", button === trigger);
+  });
+
+  if (!trigger) {
+    const fallback = document.querySelector(`.tab-button[data-day="${day}"]`);
+    if (fallback) {
+      fallback.classList.add("active");
+    }
+  }
+}
+
+function initScheduleTabs() {
+  const tabButtons = document.querySelectorAll(".tab-button");
+  if (!tabButtons.length) return;
+
+  tabButtons.forEach((button, index) => {
+    let day = Number(button.dataset.day);
+    const inlineHandler = button.getAttribute("onclick");
+    if (!day && inlineHandler) {
+      const match = inlineHandler.match(/showDay\((\d+)/);
+      if (match) {
+        day = Number(match[1]);
+      }
+    }
+    if (!day) {
+      day = index + 1;
+    }
+    button.dataset.day = day.toString();
+    if (inlineHandler) {
+      button.removeAttribute("onclick");
+    }
+
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      showDay(day, button);
+    });
+  });
+}
+
+function initScrollSpy() {
+  const sections = Array.from(document.querySelectorAll("section[id]"));
+  const navbar = document.querySelector(".navbar");
+  if (!sections.length || !navbar) return;
+
+  const updateActiveSection = () => {
+    const scrollPosition = window.pageYOffset + 120;
+    let currentSectionId = sections[0].id;
+
+    for (const section of sections) {
+      if (scrollPosition >= section.offsetTop) {
+        currentSectionId = section.id;
+      }
+    }
+
+    setActiveNavLink(currentSectionId);
+    navbar.classList.toggle("is-scrolled", window.scrollY > 24);
+  };
+
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateActiveSection();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  updateActiveSection();
+}
+
 function toggleFaq(element) {
   const faqItem = element.parentElement;
   const answer = faqItem.querySelector(".faq-answer");
   faqItem.classList.toggle("active");
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  initNavigation();
+  initHeroButtons();
+  initScheduleTabs();
+  initScrollSpy();
+});
 // Committee modal data
 const committeeData = {
   CPD: {
@@ -399,8 +495,8 @@ const additionalCSS = `
   }
   
   .country-tag {
-      background: #e3f2fd;
-      color: #1976d2;
+      background: var(--primary-light);
+      color: var(--primary);
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
       font-size: 0.9rem;
@@ -410,12 +506,3 @@ const additionalCSS = `
 const style = document.createElement("style");
 style.textContent = additionalCSS;
 document.head.appendChild(style);
-// Navbar scroll effect
-window.addEventListener("scroll", function () {
-  const navbar = document.querySelector(".navbar");
-  if (window.scrollY > 100) {
-    navbar.style.background = "rgba(255, 255, 255, 0.98)";
-  } else {
-    navbar.style.background = "rgba(255, 255, 255, 0.95)";
-  }
-});
