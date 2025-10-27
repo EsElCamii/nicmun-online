@@ -212,7 +212,7 @@
       <div class="container">
         <h2 class="section-title">Committees</h2>
         <div class="committees-grid">
-          <div class="committee-card" onclick="openCommitteeModal('CPD')">
+          <div class="committee-card" data-committee="CPD">
             <h3>Commission on Population and Development</h3>
             <p class="committee-description">
               Addressing global population trends, demographic transitions, and
@@ -224,7 +224,7 @@
             </div>
           </div>
 
-          <div class="committee-card" onclick="openCommitteeModal('UNSC')">
+          <div class="committee-card" data-committee="UNSC">
             <h3>United Nations Security Council</h3>
             <p class="committee-description">
               Maintaining international peace and security through diplomatic
@@ -236,7 +236,7 @@
             </div>
           </div>
 
-          <div class="committee-card" onclick="openCommitteeModal('WHO')">
+          <div class="committee-card" data-committee="WHO">
             <h3>World Health Organization</h3>
             <p class="committee-description">
               Promoting global health security and addressing public health
@@ -248,7 +248,7 @@
             </div>
           </div>
 
-          <div class="committee-card" onclick="openCommitteeModal('UNHRC')">
+          <div class="committee-card" data-committee="UNHRC">
             <h3>UN Human Rights Council</h3>
             <p class="committee-description">
               Protecting and promoting human rights worldwide, addressing
@@ -260,7 +260,7 @@
             </div>
           </div>
 
-          <div class="committee-card" onclick="openCommitteeModal('UNODC')">
+          <div class="committee-card" data-committee="UNODC">
             <h3>UN Office on Drugs and Crime</h3>
             <p class="committee-description">
               Combating transnational organized crime, drug trafficking, and
@@ -272,7 +272,7 @@
             </div>
           </div>
 
-          <div class="committee-card" onclick="openCommitteeModal('UNEP')">
+          <div class="committee-card" data-committee="UNEP">
             <h3>UN Environment Programme</h3>
             <p class="committee-description">
               Leading global environmental action and promoting sustainable
@@ -286,6 +286,64 @@
         </div>
       </div>
     </section>
+    <article
+      id="committeeArticle"
+      class="committee-article"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="committeeTitle"
+    >
+      <div class="committee-article__inner">
+        <button
+          class="committee-article__close"
+          type="button"
+          data-committee-close
+          aria-label="Close committee details"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <header class="committee-article__header">
+          <p class="committee-article__eyebrow">Committee Spotlight</p>
+          <h2 id="committeeTitle"></h2>
+          <p id="committeeSubtitle" class="committee-article__subtitle"></p>
+        </header>
+        <section id="committeeSummary" class="committee-article__summary"></section>
+        <section id="committeeTakeaways" class="committee-article__takeaways">
+          <h3 id="committeeTakeawaysTitle">What to Bring to the Table</h3>
+          <ul class="committee-article__takeaways-list"></ul>
+        </section>
+        <section
+          id="committeeAgenda"
+          class="committee-article__agenda"
+          aria-labelledby="committeeAgendaTitle"
+        >
+          <h3 id="committeeAgendaTitle">Agenda Highlights</h3>
+          <div class="committee-article__agenda-items"></div>
+        </section>
+        <section
+          id="committeeResources"
+          class="committee-article__resources"
+          aria-labelledby="committeeResourcesTitle"
+        >
+          <div class="committee-article__resources-header">
+            <h3 id="committeeResourcesTitle">Preparation Essentials</h3>
+            <p class="committee-article__resources-note">
+              Suggested documents and focus areas to help you arrive ready.
+            </p>
+          </div>
+          <div class="committee-article__resources-list"></div>
+        </section>
+        <section
+          id="committeeCountries"
+          class="committee-article__countries"
+          aria-labelledby="committeeCountriesTitle"
+        >
+          <h3 id="committeeCountriesTitle">Member States</h3>
+          <div class="countries-grid"></div>
+        </section>
+      </div>
+    </article>
 
     <!-- Schedule Section -->
     <section id="schedule" class="section bg-gray">
@@ -385,32 +443,16 @@
         <div class="resources-grid">
           <div class="resource-card">
             <div class="card-icon">📝</div>
-            <h3>Position Paper Guide</h3>
+            <h3>MUN Handbook</h3>
             <p>
-              Learn how to write an effective position paper that will impress
-              your committee.
+              A comprehensive guide to help you prepare for the conference.
             </p>
             <a
-              href="downloads/position-paper-guide.pdf"
+              href="downloads/mun-handbook.pdf"
               class="download-button"
               download
             >
               Download Guide
-            </a>
-          </div>
-          <div class="resource-card">
-            <div class="card-icon">📚</div>
-            <h3>Research Materials</h3>
-            <p>
-              Access our curated collection of research materials for all
-              committees.
-            </p>
-            <a
-              href="downloads/research-materials.zip"
-              class="download-button"
-              download
-            >
-              Download Materials
             </a>
           </div>
           <div class="resource-card">
@@ -428,28 +470,6 @@
               View Checklist
             </a>
             <!-- Paste the link of teh file here ⬆️ -->
-          </div>
-          <div class="resource-card">
-            <div class="card-icon">👥</div>
-            <h3>Committee Assignments</h3>
-            <p>Check your committee assignment and country delegation.</p>
-            <button class="green-button download-button">
-              Check Assignment
-            </button>
-          </div>
-          <div class="resource-card">
-            <div class="card-icon">📢</div>
-            <h3>Conference Etiquette</h3>
-            <p>
-              Learn the rules and procedures for participating in committees.
-            </p>
-            <a
-              href="downloads/conference-etiquette.pdf"
-              class="download-button"
-              download
-            >
-              Download Guide
-            </a>
           </div>
           <div class="resource-card">
             <div class="card-icon">👔</div>
@@ -504,7 +524,7 @@
                   href="downloads/position-paper-template.docx"
                   class="download-button"
                   download
-                  >Download Template</a
+                  >Access Background Paper</a
                 >
               </div>
             </div>
@@ -635,16 +655,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- Committee Modal -->
-    <div id="committeeModal" class="modal" onclick="closeModal()">
-      <div class="modal-content" onclick="event.stopPropagation()">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="modalTitle"></h2>
-        <p id="modalDescription"></p>
-        <div id="modalCountries"></div>
-      </div>
-    </div>
 
     <script src="script.js"></script>
   </body>

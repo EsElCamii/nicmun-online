@@ -10,16 +10,16 @@
   --primary: #0057ff;
   --primary-dark: #003fcc;
   --primary-darker: #002a88;
-  --primary-light: #e8f0ff;
+  --primary-light: #d6e4ff;
   --neutral-900: #111827;
-  --neutral-800: #1f2937;
+  --neutral-800: #434b56;
   --neutral-700: #374151;
   --neutral-600: #4b5563;
   --neutral-500: #6b7280;
   --neutral-300: #d1d5db;
   --neutral-200: #e5e7eb;
   --neutral-100: #f5f7fb;
-  --accent-soft: #f0f4ff;
+  --accent-soft: #dfe6ff;
   --shadow-sm: 0 2px 8px rgba(17, 24, 39, 0.08);
   --shadow-md: 0 12px 40px rgba(17, 24, 39, 0.08);
 }
@@ -29,7 +29,7 @@ body {
     "Ubuntu", "Cantarell", sans-serif;
   line-height: 1.6;
   color: var(--neutral-700);
-  background-color: #ffffff;
+  background: linear-gradient(180deg, #f3f6ff 0%, #d8e2ff 100%);
 }
 
 .container {
@@ -317,6 +317,7 @@ body {
   padding: 2rem;
   box-shadow: var(--shadow-md);
   transition: transform 0.3s;
+  height: 50vh;
 }
 
 .resource-card:hover {
@@ -356,6 +357,7 @@ body {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  line-height: 1rem;
 }
 
 .download-button {
@@ -465,7 +467,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.45rem 0.9rem;
+  padding: .55rem 1.2rem;
   color: var(--neutral-600);
   text-decoration: none;
   font-weight: 500;
@@ -888,6 +890,251 @@ body {
   font-weight: 500;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
+.committee-article {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  padding: clamp(2rem, 5vh, 4rem) clamp(1rem, 5vw, 4rem);
+  background: radial-gradient(
+      circle at top,
+      rgba(0, 87, 255, 0.28),
+      transparent 52%
+    ),
+    linear-gradient(160deg, rgba(10, 18, 38, 0.88), rgba(10, 22, 55, 0.92));
+  color: var(--neutral-900);
+  overflow-y: auto;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.committee-article.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.committee-article__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(18px);
+  border-radius: 32px;
+  box-shadow: 0 40px 120px rgba(8, 20, 50, 0.4);
+  padding: clamp(2rem, 4vw, 3rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.committee-article__close {
+  position: absolute;
+  top: clamp(1.5rem, 3vw, 2rem);
+  right: clamp(1.5rem, 3vw, 2rem);
+  background: rgba(17, 24, 39, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 1.75rem;
+  color: var(--neutral-800);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.committee-article__close:hover {
+  transform: scale(1.05);
+  background: rgba(0, 87, 255, 0.14);
+  color: var(--primary);
+}
+
+.committee-article__eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.committee-article__header h2 {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  margin-top: 0.75rem;
+  color: var(--neutral-900);
+}
+
+.committee-article__subtitle {
+  font-size: 1.05rem;
+  color: var(--neutral-600);
+  margin-top: 0.5rem;
+  line-height: 1.7;
+}
+
+.committee-article__summary p {
+  font-size: 1.05rem;
+  color: var(--neutral-700);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.committee-article__summary p:last-child {
+  margin-bottom: 0;
+}
+
+.committee-article__takeaways {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.committee-article__takeaways h3 {
+  font-size: 1.4rem;
+  color: var(--neutral-900);
+}
+
+.committee-article__takeaways-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  list-style: none;
+  padding: 0;
+}
+
+.committee-article__takeaways-list li {
+  background: rgba(0, 87, 255, 0.08);
+  border-radius: 18px;
+  padding: 1rem 1.25rem;
+  color: var(--neutral-700);
+  line-height: 1.5;
+  border: 1px solid rgba(0, 87, 255, 0.12);
+}
+
+.committee-article__agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.committee-article__agenda h3,
+.committee-article__resources-header h3,
+.committee-article__countries h3 {
+  font-size: 1.4rem;
+  color: var(--neutral-900);
+}
+
+.committee-article__agenda-items {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.committee-article__agenda-item {
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+
+.committee-article__agenda-item h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+
+.committee-article__agenda-item p {
+  font-size: 0.98rem;
+  color: var(--neutral-600);
+  line-height: 1.6;
+}
+
+.committee-article__resources {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.committee-article__resources-note {
+  color: var(--neutral-500);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.committee-article__resources-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.committee-article__resource-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 87, 255, 0.12);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.committee-article__resource-card h4 {
+  font-size: 1.05rem;
+  color: var(--neutral-800);
+}
+
+.committee-article__resource-card p {
+  font-size: 0.95rem;
+  color: var(--neutral-600);
+  line-height: 1.6;
+}
+
+.committee-article__resource-card a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.committee-article__resource-card a:hover {
+  text-decoration: underline;
+}
+
+.committee-article__countries {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.countries-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.country-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.committee-article__footer-note {
+  font-size: 0.85rem;
+  color: var(--neutral-500);
+}
+
 /* Schedule Section */
 .schedule-tabs {
   display: flex;
@@ -1042,7 +1289,7 @@ body {
   margin-top: 1rem;
   min-width: auto;
 }
-}
+
 
 /* FAQ Section */
 .faq-list {
@@ -1147,45 +1394,33 @@ body {
   color: rgba(255, 255, 255, 0.65);
 }
 
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: white;
-  margin: 10% auto;
-  padding: 2rem;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 600px;
-  position: relative;
-}
-
-.close {
-  color: #AAA;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-}
-
-.close:hover {
-  color: black;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
+  .committee-article {
+    padding: 1.5rem;
+  }
+
+  .committee-article__inner {
+    border-radius: 20px;
+    padding: 1.75rem;
+    gap: 2rem;
+  }
+
+  .committee-article__takeaways-list {
+    grid-template-columns: 1fr;
+  }
+
+  .committee-article__agenda-items,
+  .committee-article__resources-list {
+    grid-template-columns: 1fr;
+  }
+
+  .committee-article__close {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
   .hero-title {
     font-size: 3rem;
   }
@@ -1233,6 +1468,22 @@ body {
 }
 
 @media (max-width: 480px) {
+  .committee-article {
+    padding: 1rem;
+  }
+
+  .committee-article__inner {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .committee-article__close {
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
