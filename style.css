@@ -940,14 +940,27 @@ body.no-scroll {
   background: rgba(17, 24, 39, 0.1);
   border: none;
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
+  width: clamp(2.75rem, 4vw, 3.25rem);
+  height: clamp(2.75rem, 4vw, 3.25rem);
   display: grid;
   place-items: center;
   font-size: 1.75rem;
   color: var(--neutral-800);
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease;
+  padding: 0;
+  z-index: 10;
+}
+
+.committee-article__close::after {
+  content: "";
+  position: absolute;
+  inset: -0.6rem;
+  border-radius: 50%;
+}
+
+.committee-article__close span {
+  pointer-events: none;
 }
 
 .committee-article__close:hover {
