@@ -200,32 +200,28 @@ const committeeData = {
     ],
     agenda: [
       {
-        title: "Safeguarding Climate Migrants Through Metropolitan Planning",
+        title: "Designing Climate-Responsive Urban Demographic Policies",
         description:
-          "Design adaptive housing, transport, and health systems in rapidly growing urban corridors while upholding human rights obligations.",
-      },
-      {
-        title: "Investing in Data Systems to Unlock the Demographic Dividend",
-        description:
-          "Strengthen civil registration, census technology, and data sharing to inform development strategies and inclusive labor markets.",
+          "Integrate population data with climate risk modeling so cities can plan inclusive housing, health, and social protection for incoming climate migrants.",
       },
     ],
     resources: [
       {
         title: "UN DESA World Population Prospects 2024",
         description:
-          "Authoritative demographic projections with scenario data for every region.",
+          "Provides demographic baselines and projections that underpin urban planning for climate-affected migration corridors.",
         link: "https://population.un.org/wpp/",
       },
       {
         title: "UNFPA State of World Population 2024",
         description:
-          "Explores how demographic trends intersect with health, rights, and climate resilience.",
+          "Explores how demographic trends, rights, and climate resilience intersect when designing people-centered population policies.",
         link: "https://www.unfpa.org/swop",
       },
       {
         title: "UN-Habitat World Cities Report 2024",
-        description: "Highlights policy tools for inclusive, sustainable urbanization.",
+        description:
+          "Details policy tools for sustainable urbanization and service delivery in rapidly growing climate destination cities.",
         link: "https://unhabitat.org/world-cities-report",
       },
     ],
@@ -272,33 +268,29 @@ const committeeData = {
     ],
     agenda: [
       {
-        title: "Safeguarding Maritime Security in the Red Sea and Gulf of Aden",
+        title: "Securing Maritime Corridors in the Red Sea and Gulf of Aden",
         description:
-          "Respond to piracy, armed drones, and collateral damage from regional conflicts that threaten global trade lanes.",
-      },
-      {
-        title: "Stabilizing Post Coup Transitions in the Sahel",
-        description:
-          "Align peacekeeping posture, counter terrorism efforts, and development support to prevent relapse into conflict.",
+          "Coordinate naval deconfliction, targeted sanctions, and humanitarian access to deter attacks on international shipping lanes.",
       },
     ],
     resources: [
       {
         title: "UN Security Council Resolution 2722 (2024)",
-        description: "Addresses Red Sea shipping security and outlines enforcement tools.",
+        description:
+          "Mandates collective action to protect commercial vessels transiting the Red Sea amid escalating attacks.",
         link: "https://undocs.org/S/RES/2722(2024)",
       },
       {
-        title: "UN Charter Chapter VII",
+        title: "IMO Djibouti Code of Conduct (Jeddah Amendment)",
         description:
-          "Defines the Council authority to maintain or restore international peace and security.",
-        link: "https://www.un.org/en/about-us/un-charter/chapter-7",
+          "Provides the regional counter-piracy framework for western Indian Ocean states coordinating maritime security operations.",
+        link: "https://wwwcdn.imo.org/localresources/en/OurWork/Security/Documents/DCoC%20JA%202017.pdf",
       },
       {
-        title: "Secretary General New Agenda for Peace Policy Brief",
+        title: "OCHA Red Sea Situation Update Hub",
         description:
-          "Summarizes preventive diplomacy priorities that can inform Council mandates.",
-        link: "https://www.un.org/en/common-agenda/new-agenda-for-peace",
+          "Consolidates humanitarian and security reporting on disruptions to Red Sea shipping lanes and affected coastal states.",
+        link: "https://reports.unocha.org/en/country/yemen/",
       },
     ],
     countries: [
@@ -335,34 +327,29 @@ const committeeData = {
     ],
     agenda: [
       {
-        title: "Reinforcing Climate Smart Primary Healthcare Networks",
+        title: "Building Climate-Resilient Primary Health Care Networks",
         description:
-          "Invest in resilient facilities, cold chain infrastructure, and community surveillance in high risk regions.",
-      },
-      {
-        title: "Building Regional Genomic and Wastewater Surveillance Consortia",
-        description:
-          "Coordinate data sharing, ethical safeguards, and sustainable financing for early warning systems.",
+          "Scale frontline facilities, surveillance, and supply chains that can operate through extreme weather and emerging disease threats.",
       },
     ],
     resources: [
       {
-        title: "International Health Regulations (2005)",
+        title: "WHO Operational Framework for Building Climate Resilient Health Systems",
         description:
-          "Sets legally binding core capacities for detection and response.",
-        link: "https://www.who.int/publications/i/item/9789241580496",
+          "Outlines actions ministries of health can take to climate-proof primary care, surveillance, and supply chains.",
+        link: "https://apps.who.int/iris/handle/10665/329438",
       },
       {
-        title: "WHO Pandemic Accord Zero Draft (2024)",
+        title: "WHO Guidance for Climate Resilient and Environmentally Sustainable Health Care Facilities",
         description:
-          "Negotiating text that frames equitable access and financing commitments.",
-        link: "https://apps.who.int/gb/wgpr/pdf_files/wgpr10/A_WGPR_10_7-en.pdf",
+          "Provides facility-level standards for climate-smart infrastructure, energy, and water systems.",
+        link: "https://apps.who.int/iris/handle/10665/335751",
       },
       {
-        title: "Pandemic Fund Project Portfolio",
+        title: "WHO Health Emergency Preparedness, Response and Resilience Global Report 2023",
         description:
-          "Profiles current financing gaps and country proposals for preparedness.",
-        link: "https://www.worldbank.org/en/programs/pandemic-fund",
+          "Tracks HEPR capacities that support resilient community health services before, during, and after shocks.",
+        link: "https://www.who.int/publications/m/item/health-emergency-preparedness-response-and-resilience-global-report-2023",
       },
     ],
     countries: [
@@ -416,34 +403,29 @@ const committeeData = {
     ],
     agenda: [
       {
-        title: "Countering Transnational Digital Repression",
+        title: "Protecting Climate-Displaced Communities through Human Rights Mechanisms",
         description:
-          "Address spyware, internet shutdowns, and intimidation of activists across borders.",
-      },
-      {
-        title: "Protecting Climate Displaced Communities",
-        description:
-          "Ensure rights based approaches to relocation, land tenure, and loss and damage support.",
+          "Leverage UN mandates to safeguard the rights of people relocating because of climate impacts, including access to justice, housing, and remedy.",
       },
     ],
     resources: [
       {
-        title: "Universal Periodic Review Database",
-        description:
-          "Consolidates recommendations issued to every UN Member State.",
-        link: "https://www.ohchr.org/en/hr-bodies/upr/upr-data",
-      },
-      {
         title: "OHCHR Fact Sheet on Human Rights and Climate Change",
         description:
-          "Outlines state obligations for people displaced by environmental harm.",
+          "Summarizes state obligations to respect, protect, and fulfill human rights when addressing climate-related displacement.",
         link: "https://www.ohchr.org/en/resources/educators/human-rights-education-training/fact-sheet-series/fact-sheet-no-36-human-rights-and-climate-change",
       },
       {
-        title: "UN Guiding Principles on Business and Human Rights",
+        title: "UNHCR Climate Change and Disasters Portal",
         description:
-          "Framework for regulating private actors involved in surveillance technologies.",
-        link: "https://www.ohchr.org/en/instruments-mechanisms/instruments/un-guiding-principles-business-and-human-rights",
+          "Provides guidance on protecting people displaced across borders by disasters and climate impacts.",
+        link: "https://www.unhcr.org/climate-change-and-disasters",
+      },
+      {
+        title: "UNFCCC Task Force on Displacement Recommendations",
+        description:
+          "Offers policy measures under the Warsaw International Mechanism to address climate-related displacement and human mobility.",
+        link: "https://unfccc.int/topics/adaptation-and-resilience/workstreams/loss-and-damage-related-to-climate-change-impacts/task-force-on-displacement",
       },
     ],
     countries: [
@@ -514,36 +496,27 @@ const committeeData = {
       {
         title: "Disrupting Synthetic Drug Supply Chains",
         description:
-          "Coordinate precursor controls, data sharing, and alternative livelihood programs in source regions.",
-      },
-      {
-        title: "Strengthening Financial Intelligence Against Digital Laundering",
-        description:
-          "Align regulations for virtual assets, trade based laundering, and public private partnerships.",
-      },
-      {
-        title: "Protecting Victims of Trafficking Along Migration Routes",
-        description:
-          "Improve identification, legal assistance, and safe return pathways for survivors.",
+          "Coordinate precursor monitoring, financial intelligence, and community partnerships to reduce the availability of synthetic narcotics.",
       },
     ],
     resources: [
       {
         title: "UNODC World Drug Report 2024",
         description:
-          "Provides global trends on synthetic drug markets and policy responses.",
+          "Provides global evidence on synthetic drug production, trafficking routes, and enforcement gaps.",
         link: "https://www.unodc.org/unodc/en/data-and-analysis/wdr.html",
       },
       {
-        title: "Ad Hoc Committee on Cybercrime Negotiations",
-        description: "Tracks progress on the new UN cybercrime convention text.",
-        link: "https://www.unodc.org/unodc/en/cybercrime/ad_hoc_committee/ahc-sessions.html",
+        title: "INCB Precursors and Chemicals Report",
+        description:
+          "Tracks the chemicals most frequently diverted into illicit manufacture, supporting targeted precursor control measures.",
+        link: "https://www.incb.org/incb/en/precursors/technical_reports.html",
       },
       {
-        title: "Global Report on Trafficking in Persons",
+        title: "UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances (1988)",
         description:
-          "Offers comparative data on trafficking flows and victim profiles.",
-        link: "https://www.unodc.org/unodc/en/data-and-analysis/glotip.html",
+          "Establishes the international legal framework for cooperation on precursor controls, mutual legal assistance, and asset forfeiture.",
+        link: "https://www.unodc.org/pdf/convention_1988_en.pdf",
       },
     ],
     countries: [
@@ -593,39 +566,29 @@ const committeeData = {
     ],
     agenda: [
       {
-        title: "Operationalizing Loss and Damage Funding for Small Island States",
+        title: "Negotiating a Global Treaty to End Plastic Pollution",
         description:
-          "Establish access criteria, monitoring, and rapid disbursement tools for climate vulnerable economies.",
-      },
-      {
-        title: "Negotiating a Global Treaty on Plastic Pollution",
-        description:
-          "Forge binding targets on production, design, and waste management across the plastics lifecycle.",
-      },
-      {
-        title: "Accelerating Clean Energy Transitions in Emerging Economies",
-        description:
-          "Expand grid integration, critical mineral supply chains, and workforce skilling for renewable deployment.",
+          "Advance binding measures on production, product design, and waste management to curb plastic leakage while supporting just transitions.",
       },
     ],
     resources: [
       {
-        title: "UNEP Emissions Gap Report 2024",
+        title: "UNEP INC on Plastic Pollution Negotiations Portal",
         description:
-          "Details the gap between current pledges and the 1.5 degree pathway.",
-        link: "https://www.unep.org/resources/emissions-gap-report-2024",
+          "Hosts official mandates, meeting reports, and technical papers guiding the plastics treaty negotiations.",
+        link: "https://www.unep.org/inc-plastic-pollution",
       },
       {
-        title: "IPCC AR6 Synthesis Report",
+        title: "UNEA Resolution 5/14: End Plastic Pollution",
         description:
-          "Synthesizes the latest scientific findings on climate risks and pathways.",
-        link: "https://www.ipcc.ch/report/ar6-syr/",
+          "Establishes the negotiating framework and timeline for a legally binding instrument to end plastic pollution.",
+        link: "https://wedocs.unep.org/bitstream/handle/20.500.11822/39825/K2200677.pdf",
       },
       {
-        title: "UNFCCC COP28 UAE Consensus",
+        title: "UNEP Turning off the Tap Report",
         description:
-          "Summarizes negotiated outcomes on finance, adaptation, and energy transitions.",
-        link: "https://unfccc.int/cop28",
+          "Details systems-change pathways and policy levers to reduce plastic pollution in line with treaty objectives.",
+        link: "https://www.unep.org/resources/report/turning-tide-negotiations-new-plastic-pollution-treaty",
       },
     ],
     countries: [
