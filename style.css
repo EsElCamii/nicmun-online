@@ -199,8 +199,7 @@ a {
 .background-image {
   position: absolute;
   inset: 0;
-  background: url("https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=3440&auto=format&fit=crop")
-    center/cover no-repeat;
+  background: url("https://iili.io/3mCdMuV.md.jpg") center/cover no-repeat;
   filter: brightness(0.55);
   transform: scale(1.02);
 }
@@ -331,6 +330,7 @@ a {
    Event Overview (already updated in markup)
 -------------------------------------------------------------------------- */
 .event-overview-section {
+  padding: clamp(72px, 10vw, 96px) 0;
   background: radial-gradient(circle at top left, rgba(52, 105, 255, 0.16), transparent 52%),
     var(--neutral-50);
 }
