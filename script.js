@@ -184,47 +184,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // Committee data for immersive article view
 const committeeData = {
-  CPD: {
-    name: "Commission on Population and Development",
-    council: "Economic and Social Council Commission",
-    delegateCount: 24,
-    format: "Double Delegation",
+  WFP: {
+    name: "World Food Programme",
+    council: "UN Programme",
+    delegateCount: 22,
+    format: "Single Delegation",
     summary: [
-      "The Commission on Population and Development monitors progress on the Programme of Action adopted at the International Conference on Population and Development. For NICMUN 2025 this body examines how demographic shifts intersect with climate migration, social protection, and inclusive economic growth.",
-      "Delegates should compare national census capacity, financing mechanisms, and cross-border partnerships that protect vulnerable communities while maintaining sustainable development momentum.",
+      "Moderator: Arantza Cruz · Chair: Guadalupe Esparza.",
+      "Coordinate emergency food relief while investing in resilient supply chains for food insecure communities.",
     ],
     takeaways: [
-      "Ground every solution in recent demographic data sets such as the World Population Prospects 2024 and SDG indicator 17.19 to demonstrate feasibility.",
-      "Balance national sovereignty concerns with the need for regional compacts that manage climate driven migration corridors.",
-      "Outline financing pathways such as domestic resource mobilization, development banks, or public private models that can scale social safety nets and resilient infrastructure.",
+      "Anchor proposals in logistics capacity, climate resilience, and nutrition outcomes.",
+      "Balance immediate humanitarian deliveries with long term agricultural development.",
+      "Work with regional partners to keep trade corridors open during crises.",
     ],
     agenda: [
       {
-        title: "Designing Climate-Responsive Urban Demographic Policies",
+        title: "Safeguarding Global Food Security",
         description:
-          "Integrate population data with climate risk modeling so cities can plan inclusive housing, health, and social protection for incoming climate migrants.",
+          "Design funding and logistics frameworks that stabilize vulnerable regions facing conflict or climate shocks.",
       },
     ],
-    resources: [
-      {
-        title: "UN DESA World Population Prospects 2024",
-        description:
-          "Provides demographic baselines and projections that underpin urban planning for climate-affected migration corridors.",
-        link: "https://population.un.org/wpp/",
-      },
-      {
-        title: "UNFPA State of World Population 2024",
-        description:
-          "Explores how demographic trends, rights, and climate resilience intersect when designing people-centered population policies.",
-        link: "https://www.unfpa.org/swop",
-      },
-      {
-        title: "UN-Habitat World Cities Report 2024",
-        description:
-          "Details policy tools for sustainable urbanization and service delivery in rapidly growing climate destination cities.",
-        link: "https://unhabitat.org/world-cities-report",
-      },
-    ],
+    resources: [],
     countries: [
       "Argentina",
       "Bangladesh",
@@ -250,170 +231,168 @@ const committeeData = {
       "Venezuela",
     ],
   },
-  UNSC: {
-    name: "United Nations Security Council",
-    council: "Principal Organ of the United Nations",
-    delegateCount: 15,
+  UNEP: {
+    name: "United Nations Environment Programme",
+    council: "United Nations Environment Programme",
+    delegateCount: 21,
     format: "Single Delegation",
     summary: [
-      "As the only UN organ that can issue binding resolutions, the Security Council simulation calls on delegates to de escalate concurrent security flashpoints in the Red Sea and Sahel regions.",
-      "Delegates will weigh targeted sanctions, peacekeeping mandates, and confidence building measures while safeguarding humanitarian access and compliance with international law.",
+      "Moderator: Camilo Quiros · Chair: Amaya de Diego.",
+      "Advance climate mitigation, adaptation, and plastics treaty negotiations with equitable finance pathways.",
     ],
     takeaways: [
-      "Reference Charter Chapters VI and VII when calibrating diplomatic, economic, and military tools.",
-      "Draft clear language on arms embargo enforcement, maritime security, and humanitarian corridors.",
-      "Coordinate with regional organizations such as the African Union and the League of Arab States to secure buy in for Council action.",
+      "Reference nationally determined contributions and emissions gap data to justify ambition.",
+      "Integrate just transition measures for communities affected by environmental policy shifts.",
+      "Promote science based monitoring tools for pollution and biodiversity loss.",
     ],
     agenda: [
       {
-        title: "Securing Maritime Corridors in the Red Sea and Gulf of Aden",
+        title: "Delivering a Just Global Plastics Treaty",
         description:
-          "Coordinate naval deconfliction, targeted sanctions, and humanitarian access to deter attacks on international shipping lanes.",
+          "Craft enforcement, finance, and capacity building tools that help all states cut plastic leakage.",
       },
     ],
-    resources: [
-      {
-        title: "UN Security Council Resolution 2722 (2024)",
-        description:
-          "Mandates collective action to protect commercial vessels transiting the Red Sea amid escalating attacks.",
-        link: "https://undocs.org/S/RES/2722(2024)",
-      },
-      {
-        title: "IMO Djibouti Code of Conduct (Jeddah Amendment)",
-        description:
-          "Provides the regional counter-piracy framework for western Indian Ocean states coordinating maritime security operations.",
-        link: "https://wwwcdn.imo.org/localresources/en/OurWork/Security/Documents/DCoC%20JA%202017.pdf",
-      },
-      {
-        title: "OCHA Red Sea Situation Update Hub",
-        description:
-          "Consolidates humanitarian and security reporting on disruptions to Red Sea shipping lanes and affected coastal states.",
-        link: "https://reports.unocha.org/en/country/yemen/",
-      },
-    ],
+    resources: [],
     countries: [
       "Australia",
-      "Austria",
-      "Belgium",
-      "Denmark",
-      "Findland",
+      "Brazil",
+      "Canada",
+      "Chile",
+      "China",
+      "Egypt",
+      "Ethiopia",
       "France",
       "Germany",
-      "Ireland",
+      "India",
+      "Indonesia",
+      "Japan",
+      "Mexico",
+      "New Zealand",
+      "Norway",
+      "Russia",
+      "South Africa",
+      "Sweden",
+      "Switzerland",
+      "United Kingdom",
+      "United States of America",
+    ],
+  },
+  UNICEF: {
+    name: "United Nations International Children's Emergency Fund",
+    council: "UNICEF",
+    delegateCount: 21,
+    format: "Single Delegation",
+    summary: [
+      "Moderator: Ramon Velazquez · Chair: Miel de Maria.",
+      "Champion child rights, health, and education in emergency and development settings.",
+    ],
+    takeaways: [
+      "Ensure proposals protect access to schooling, nutrition, and healthcare for displaced children.",
+      "Include data driven monitoring for child protection systems.",
+      "Coordinate with WHO, WFP, and local actors for integrated support.",
+    ],
+    agenda: [
+      {
+        title: "Restoring Essential Services for Children",
+        description:
+          "Expand vaccination, education, and protection programs in regions affected by conflict and disaster.",
+      },
+    ],
+    resources: [],
+    countries: [
+      "Afghanistan",
+      "Australia",
+      "Brazil",
+      "Canada",
+      "China",
+      "Colombia",
+      "Egypt",
+      "France",
+      "Germany",
+      "Japan",
+      "Mexico",
       "Netherlands",
-      "Portugal",
+      "New Zealand",
+      "Nigeria",
+      "Pakistan",
+      "Philippines",
+      "Spain",
+      "Sweden",
+      "Switzerland",
+      "United Kingdom",
+      "United States of America",
+    ],
+  },
+  UNESCO: {
+    name: "United Nations Educational, Scientific and Cultural Organization",
+    council: "UNESCO",
+    delegateCount: 23,
+    format: "Single Delegation",
+    summary: [
+      "Moderator: Regina Belchez · Chair: Sofia Tapia.",
+      "Protect cultural heritage and expand access to inclusive education and scientific collaboration.",
+    ],
+    takeaways: [
+      "Support initiatives that safeguard heritage sites while uplifting local communities.",
+      "Bridge digital divides in education and research.",
+      "Advance cultural diplomacy to prevent conflict and promote dialogue.",
+    ],
+    agenda: [
+      {
+        title: "Protecting Heritage and Learning in Crisis",
+        description:
+          "Mobilize resources to preserve culture and keep classrooms open amid conflict and climate disruption.",
+      },
+    ],
+    resources: [],
+    countries: [
+      "Afganistan",
+      "Argentina",
+      "Australia",
+      "Brazil",
+      "Canada",
+      "Colombia",
+      "Cuba",
+      "France",
+      "Germany",
+      "Iraq",
+      "Italy",
+      "Kenya",
+      "Mexico",
+      "Haiti",
+      "Morocco",
+      "Nigeria",
+      "Paraguay",
+      "Peru",
+      "South Korea",
+      "Spain",
       "Sweden",
       "United Kingdom",
       "United States of America",
     ],
   },
-  WHO: {
-    name: "World Health Organization",
-    council: "Specialized Agency",
-    delegateCount: 32,
-    format: "Double Delegation",
-    summary: [
-      "The World Health Organization committee examines how countries can build resilient health systems as climate shocks and zoonotic outbreaks grow more frequent.",
-      "Delegates should integrate financing, supply chain, and surveillance perspectives to strengthen preparedness while narrowing equity gaps.",
-    ],
-    takeaways: [
-      "Align proposals with the International Health Regulations core capacities and the Pandemic Accord negotiations.",
-      "Detail strategies for scaling digital health tools, frontline workforce training, and supply chain redundancy.",
-      "Prioritize equitable access to vaccines, diagnostics, and therapeutics for low and middle income countries.",
-    ],
-    agenda: [
-      {
-        title: "Building Climate-Resilient Primary Health Care Networks",
-        description:
-          "Scale frontline facilities, surveillance, and supply chains that can operate through extreme weather and emerging disease threats.",
-      },
-    ],
-    resources: [
-      {
-        title: "WHO Operational Framework for Building Climate Resilient Health Systems",
-        description:
-          "Outlines actions ministries of health can take to climate-proof primary care, surveillance, and supply chains.",
-        link: "https://apps.who.int/iris/handle/10665/329438",
-      },
-      {
-        title: "WHO Guidance for Climate Resilient and Environmentally Sustainable Health Care Facilities",
-        description:
-          "Provides facility-level standards for climate-smart infrastructure, energy, and water systems.",
-        link: "https://apps.who.int/iris/handle/10665/335751",
-      },
-      {
-        title: "WHO Health Emergency Preparedness, Response and Resilience Global Report 2023",
-        description:
-          "Tracks HEPR capacities that support resilient community health services before, during, and after shocks.",
-        link: "https://www.who.int/publications/m/item/health-emergency-preparedness-response-and-resilience-global-report-2023",
-      },
-    ],
-    countries: [
-      "Afghanistan",
-      "Australia",
-      "Bangladesh",
-      "Bolivia",
-      "Canada",
-      "France",
-      "Germany",
-      "Haiti",
-      "India",
-      "Indonesia",
-      "Iran",
-      "Japan",
-      "Myanmar",
-      "Nepal",
-      "Netherlands",
-      "Norway",
-      "Pakistan",
-      "South Korea",
-      "Switzerland",
-      "Thailand",
-      "United Kingdom",
-      "United States of America",
-    ],
-  },
-  UNHRC: {
-    name: "UN Human Rights Council",
-    council: "Subsidiary Body of the General Assembly",
-    delegateCount: 47,
+  UNHCR: {
+    name: "United Nations High Commissioner for Refugees",
+    council: "UNHCR",
+    delegateCount: 23,
     format: "Single Delegation",
     summary: [
-      "The Human Rights Council addresses emerging patterns of repression, digital surveillance, and environmental displacement through country specific and thematic mandates.",
-      "Delegates must balance state security narratives with the universality of rights while designing monitoring mechanisms that deliver accountability.",
+      "Moderator: Andrea Montes de Oca · Chair: Claudiel Jimenez.",
+      "Safeguard refugees and asylum seekers through protection regimes, durable solutions, and burden sharing.",
     ],
     takeaways: [
-      "Cite treaty body recommendations, Universal Periodic Review outcomes, and regional jurisprudence to evidence claims.",
-      "Design independent monitoring or fact finding mandates with feasible timelines, reporting channels, and protection measures for witnesses.",
-      "Center the voices of human rights defenders, journalists, Indigenous peoples, and other at risk groups during debate.",
+      "Align national asylum policies with international refugee law.",
+      "Strengthen resettlement, local integration, and voluntary repatriation pathways.",
+      "Guarantee humanitarian access and inclusive services for displaced people.",
     ],
     agenda: [
       {
-        title: "Protecting Climate-Displaced Communities through Human Rights Mechanisms",
+        title: "Building Durable Solutions for Displaced Communities",
         description:
-          "Leverage UN mandates to safeguard the rights of people relocating because of climate impacts, including access to justice, housing, and remedy.",
+          "Coordinate protection, livelihoods, and responsibility sharing for protracted refugee situations.",
       },
     ],
-    resources: [
-      {
-        title: "OHCHR Fact Sheet on Human Rights and Climate Change",
-        description:
-          "Summarizes state obligations to respect, protect, and fulfill human rights when addressing climate-related displacement.",
-        link: "https://www.ohchr.org/en/resources/educators/human-rights-education-training/fact-sheet-series/fact-sheet-no-36-human-rights-and-climate-change",
-      },
-      {
-        title: "UNHCR Climate Change and Disasters Portal",
-        description:
-          "Provides guidance on protecting people displaced across borders by disasters and climate impacts.",
-        link: "https://www.unhcr.org/climate-change-and-disasters",
-      },
-      {
-        title: "UNFCCC Task Force on Displacement Recommendations",
-        description:
-          "Offers policy measures under the Warsaw International Mechanism to address climate-related displacement and human mobility.",
-        link: "https://unfccc.int/topics/adaptation-and-resilience/workstreams/loss-and-damage-related-to-climate-change-impacts/task-force-on-displacement",
-      },
-    ],
+    resources: [],
     countries: [
       "Australia",
       "Bangladesh",
@@ -440,47 +419,170 @@ const committeeData = {
       "United States of America",
     ],
   },
-  UNODC: {
-    name: "UN Office on Drugs and Crime",
-    council: "United Nations Secretariat Programme",
-    delegateCount: 28,
-    format: "Single Delegation",
+  CSTD: {
+    name: "Commission on Science and Technology for Development",
+    council: "Economic and Social Council",
+    delegateCount: 23,
+    format: "Double Delegation",
     summary: [
-      "The UN Office on Drugs and Crime confronts synthetic drug proliferation, cyber enabled money laundering, and trafficking networks that exploit vulnerable populations.",
-      "Delegates are expected to integrate law enforcement cooperation, capacity building, and community based prevention to reduce harm.",
+      "Moderator: Mayte Lopez · Chair: Regina Torres.",
+      "Explore how innovation, connectivity, and emerging tech can accelerate sustainable development.",
     ],
     takeaways: [
-      "Map the entire illicit ecosystem from precursor chemicals to digital payment channels before proposing enforcement tools.",
-      "Pair interdiction with harm reduction, victim support, and reintegration services that address root causes.",
-      "Leverage regional conventions such as the Palermo Convention and coordinate intelligence sharing task forces.",
+      "Address the digital divide with inclusive infrastructure plans.",
+      "Evaluate ethical frameworks for frontier technologies.",
+      "Promote knowledge sharing partnerships between member states.",
     ],
     agenda: [
       {
-        title: "Disrupting Synthetic Drug Supply Chains",
+        title: "Harnessing Science for Inclusive Growth",
         description:
-          "Coordinate precursor monitoring, financial intelligence, and community partnerships to reduce the availability of synthetic narcotics.",
+          "Scale digital public goods, STEM education, and research collaboration for the Global South.",
       },
     ],
-    resources: [
+    resources: [],
+    countries: [
+      "Argentina",
+      "Australia",
+      "Australia",
+      "Brazil",
+      "Canada",
+      "China",
+      "El Salvador",
+      "France",
+      "Germany",
+      "India",
+      "India",
+      "Japan",
+      "Luxembourg",
+      "Mexico",
+      "Nigeria",
+      "Singapore",
+      "South Africa",
+      "South Kores",
+      "Sweden",
+      "Switzerland",
+      "Turkey",
+      "United Kingdom",
+      "United States of America",
+    ],
+  },
+  CSW: {
+    name: "Commission on the Status of Women",
+    council: "Economic and Social Council",
+    delegateCount: 22,
+    format: "Single Delegation",
+    summary: [
+      "Moderator: Ana Chiunti · Chair: Isabella Antunez.",
+      "Advance gender equality, women's leadership, and protection from violence across all regions.",
+    ],
+    takeaways: [
+      "Embed gender responsive budgeting and policy design.",
+      "Protect women human rights defenders and civic space.",
+      "Promote inclusive education and economic opportunities for women and girls.",
+    ],
+    agenda: [
       {
-        title: "UNODC World Drug Report 2024",
+        title: "Driving Gender-Responsive Recovery",
         description:
-          "Provides global evidence on synthetic drug production, trafficking routes, and enforcement gaps.",
-        link: "https://www.unodc.org/unodc/en/data-and-analysis/wdr.html",
-      },
-      {
-        title: "INCB Precursors and Chemicals Report",
-        description:
-          "Tracks the chemicals most frequently diverted into illicit manufacture, supporting targeted precursor control measures.",
-        link: "https://www.incb.org/incb/en/precursors/technical_reports.html",
-      },
-      {
-        title: "UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances (1988)",
-        description:
-          "Establishes the international legal framework for cooperation on precursor controls, mutual legal assistance, and asset forfeiture.",
-        link: "https://www.unodc.org/pdf/convention_1988_en.pdf",
+          "Design policies that safeguard women's rights during economic transitions and crises.",
       },
     ],
+    resources: [],
+    countries: [
+      "Australia",
+      "Belarus",
+      "Canada",
+      "Chile",
+      "Egypt",
+      "France",
+      "Germany",
+      "Iceland",
+      "India",
+      "Irak",
+      "Italy",
+      "Lithuania",
+      "Mongolia",
+      "Netherlands",
+      "Poland",
+      "Saudi Arabia",
+      "Singapore",
+      "Sweden",
+      "Turkey",
+      "United Arab Emirates",
+      "United Kingdom",
+      "United States of America",
+    ],
+  },
+  WHO: {
+    name: "World Health Organization",
+    council: "Specialized Agency",
+    delegateCount: 22,
+    format: "Single Delegation",
+    summary: [
+      "Moderator: Andrea Marin · Chair: Natalia Amaya.",
+      "Strengthen resilient health systems, preparedness, and equitable access to care.",
+    ],
+    takeaways: [
+      "Support primary healthcare investment and workforce development.",
+      "Address supply chain resilience for vaccines, diagnostics, and therapeutics.",
+      "Integrate climate adaptation into health system planning.",
+    ],
+    agenda: [
+      {
+        title: "Building Climate-Resilient Health Systems",
+        description:
+          "Enhance surveillance, financing, and service delivery to withstand emerging health threats.",
+      },
+    ],
+    resources: [],
+    countries: [
+      "Afghanistan",
+      "Australia",
+      "Bangladesh",
+      "Bolivia",
+      "Canada",
+      "France",
+      "Germany",
+      "Haiti",
+      "India",
+      "Indonesia",
+      "Iran",
+      "Japan",
+      "Myanmar",
+      "Nepal",
+      "Netherlands",
+      "Norway",
+      "Pakistan",
+      "South Korea",
+      "Switzerland",
+      "Thailand",
+      "United Kingdom",
+      "United States of America",
+    ],
+  },
+  INTERPOL: {
+    name: "International Criminal Police Organization",
+    council: "INTERPOL",
+    delegateCount: 20,
+    format: "Single Delegation",
+    summary: [
+      "Chair: Mathias Padron.",
+      "Enhance cross border policing cooperation to counter organized crime networks.",
+    ],
+    takeaways: [
+      "Prioritize intelligence sharing and mutual legal assistance agreements.",
+      "Support capacity building for cybercrime and financial investigation units.",
+      "Protect human rights while strengthening security cooperation.",
+    ],
+    agenda: [
+      {
+        title: "Coordinating Transnational Crime Enforcement",
+        description:
+          "Develop joint operations, data systems, and safeguards to dismantle international criminal organizations.",
+      },
+    ],
+    resources: [],
     countries: [
       "Australia",
       "Bolivia",
@@ -504,72 +606,82 @@ const committeeData = {
       "Venezuela",
     ],
   },
-  UNEP: {
-    name: "UN Environment Programme",
-    council: "United Nations Environment Programme",
-    delegateCount: 36,
-    format: "Double Delegation",
+  UNSC: {
+    name: "United Nations Security Council",
+    council: "Principal Organ of the United Nations",
+    delegateCount: 13,
+    format: "Single Delegation",
     summary: [
-      "The UN Environment Programme advances science based action on climate mitigation, adaptation, and pollution control to deliver the COP28 outcomes.",
-      "Delegates must align national contributions with finance mechanisms that protect frontline communities and accelerate the transition to net zero economies.",
+      "Chair: Oscar Fernandez.",
+      "Issue binding resolutions to maintain international peace and security.",
     ],
     takeaways: [
-      "Incorporate the latest Emissions Gap metrics and nationally determined contribution updates when setting ambition.",
-      "Identify innovative finance tools such as debt for nature swaps, blended finance, and green bonds to scale implementation.",
-      "Prioritize nature based solutions and Indigenous stewardship to deliver co benefits for biodiversity and resilience.",
+      "Balance sovereignty and collective security obligations under the UN Charter.",
+      "Use targeted sanctions, peacekeeping mandates, and diplomacy responsibly.",
+      "Coordinate with regional organizations to implement Council decisions.",
     ],
     agenda: [
       {
-        title: "Negotiating a Global Treaty to End Plastic Pollution",
+        title: "Responding to Emerging Security Flashpoints",
         description:
-          "Advance binding measures on production, product design, and waste management to curb plastic leakage while supporting just transitions.",
+          "Craft rapid yet sustainable solutions to protect civilians and stabilize conflict zones.",
       },
     ],
-    resources: [
-      {
-        title: "UNEP INC on Plastic Pollution Negotiations Portal",
-        description:
-          "Hosts official mandates, meeting reports, and technical papers guiding the plastics treaty negotiations.",
-        link: "https://www.unep.org/inc-plastic-pollution",
-      },
-      {
-        title: "UNEA Resolution 5/14: End Plastic Pollution",
-        description:
-          "Establishes the negotiating framework and timeline for a legally binding instrument to end plastic pollution.",
-        link: "https://wedocs.unep.org/bitstream/handle/20.500.11822/39825/K2200677.pdf",
-      },
-      {
-        title: "UNEP Turning off the Tap Report",
-        description:
-          "Details systems-change pathways and policy levers to reduce plastic pollution in line with treaty objectives.",
-        link: "https://www.unep.org/resources/report/turning-tide-negotiations-new-plastic-pollution-treaty",
-      },
-    ],
+    resources: [],
     countries: [
       "Australia",
-      "Brazil",
-      "Canada",
-      "Chile",
-      "China",
-      "Egypt",
-      "Ethiopia",
+      "Austria",
+      "Belgium",
+      "Denmark",
+      "Findland",
       "France",
       "Germany",
-      "India",
-      "Indonesia",
-      "Japan",
-      "Mexico",
-      "New Zealand",
-      "Norway",
-      "Russia",
-      "South Africa",
+      "Ireland",
+      "Netherlands",
+      "Portugal",
       "Sweden",
-      "Switzerland",
+      "United Kingdom",
+      "United States of America",
+    ],
+  },
+  GA: {
+    name: "General Assembly",
+    council: "Principal Organ of the United Nations",
+    delegateCount: 11,
+    format: "Single Delegation",
+    summary: [
+      "Moderator: Pia Zambrano.",
+      "Gather every member state to deliberate on global priorities and adopt resolutions.",
+    ],
+    takeaways: [
+      "Build broad coalitions that reflect regional and ideological diversity.",
+      "Align draft resolutions with existing UN frameworks and Sustainable Development Goals.",
+      "Ensure implementation mechanisms and funding pathways are realistic.",
+    ],
+    agenda: [
+      {
+        title: "Strengthening Multilateral Cooperation",
+        description:
+          "Advance inclusive solutions on development, security, and human rights challenges.",
+      },
+    ],
+    resources: [],
+    countries: [
+      "Australia",
+      "Bangladesh",
+      "Brazil",
+      "Canada",
+      "China",
+      "France",
+      "India",
+      "Singapore",
+      "South Korea",
       "United Kingdom",
       "United States of America",
     ],
   },
 };
+
 const committeeArticleState = {
   elements: null,
   lastFocusedElement: null,
