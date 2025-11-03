@@ -1673,7 +1673,7 @@ body.no-scroll {
 }
 
 .faq-item.active .faq-answer {
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
   max-height: 200px;
 }
 
@@ -1725,6 +1725,14 @@ body.no-scroll {
 @media (max-width: 768px) {
   .committee-article {
     padding: 1.5rem;
+  }
+
+  .section-intro--collapsible {
+    padding-right: 0;
+  }
+
+  .section-intro--collapsible::after {
+    content: none;
   }
 
   .committee-article__inner {
