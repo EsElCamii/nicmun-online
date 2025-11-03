@@ -1,3 +1,5 @@
+let scheduleCollapsibleController = null;
+
 function scrollToSection(sectionId, yOffset = -80) {
   const element = document.getElementById(sectionId);
   if (!element) return;
@@ -11,6 +13,10 @@ function scrollToSection(sectionId, yOffset = -80) {
   });
 
   setActiveNavLink(sectionId);
+
+  if (sectionId === "schedule" && scheduleCollapsibleController) {
+    scheduleCollapsibleController.setExpanded(true);
+  }
 }
 
 function setActiveNavLink(sectionId) {
@@ -135,10 +141,72 @@ function initScheduleTabs() {
   });
 }
 
+function initScheduleCollapsible() {
+  const scheduleSection = document.getElementById("schedule");
+  if (!scheduleSection) return;
+
+  const toggle = scheduleSection.querySelector("[data-schedule-toggle]");
+  const content = scheduleSection.querySelector("[data-schedule-content]");
+  const indicator = toggle.querySelector(".section-intro--collapsible-indicator");
+  if (!toggle || !content) return;
+
+  const setExpanded = (expanded) => {
+    toggle.setAttribute("aria-expanded", String(expanded));
+    toggle.classList.toggle("is-open", expanded);
+    content.hidden = !expanded;
+    if (indicator) {
+      indicator.textContent = expanded
+        ? "Click or tap to collapse"
+        : "Click or tap to expand";
+    }
+  };
+
+  const toggleExpanded = () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    setExpanded(!expanded);
+  };
+
+  toggle.addEventListener("click", (event) => {
+    // Avoid toggling when selecting text with modifier keys
+    if (event.defaultPrevented) return;
+    toggleExpanded();
+  });
+
+  toggle.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleExpanded();
+    }
+  });
+
+  scheduleCollapsibleController = {
+    setExpanded,
+    toggle: toggleExpanded,
+  };
+
+  setExpanded(false);
+
+  if (
+    window.location.hash.replace("#", "") === "schedule" ||
+    window.location.search.includes("schedule=open")
+  ) {
+    setExpanded(true);
+  }
+}
+
 function initScrollSpy() {
-  const sections = Array.from(document.querySelectorAll("section[id]"));
+  const navLinks = Array.from(document.querySelectorAll(".nav-link"));
   const navbar = document.querySelector(".navbar");
-  if (!sections.length || !navbar) return;
+  if (!navLinks.length || !navbar) return;
+
+  const sections = navLinks
+    .map((link) => {
+      const targetId = (link.getAttribute("href") || "").replace("#", "");
+      return targetId ? document.getElementById(targetId) : null;
+    })
+    .filter((section) => section);
+
+  if (!sections.length) return;
 
   const updateActiveSection = () => {
     const scrollPosition = window.pageYOffset + 120;
@@ -151,6 +219,9 @@ function initScrollSpy() {
     }
 
     setActiveNavLink(currentSectionId);
+    if (currentSectionId === "schedule" && scheduleCollapsibleController) {
+      scheduleCollapsibleController.setExpanded(true);
+    }
     navbar.classList.toggle("is-scrolled", window.scrollY > 24);
   };
 
@@ -170,14 +241,18 @@ function initScrollSpy() {
 
 function toggleFaq(element) {
   const faqItem = element.parentElement;
-  const answer = faqItem.querySelector(".faq-answer");
-  faqItem.classList.toggle("active");
+  const toggle = faqItem.querySelector(".faq-toggle");
+  const isActive = faqItem.classList.toggle("active");
+  if (toggle) {
+    toggle.textContent = isActive ? "-" : "+";
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initHeroButtons();
   initScheduleTabs();
+  initScheduleCollapsible();
   initScrollSpy();
   initCommitteeDetail();
   initStudentPortalLookup();
@@ -189,8 +264,9 @@ const committeeData = {
     council: "UN Programme",
     delegateCount: 22,
     format: "Single Delegation",
+    moderator: "Arantza Cruz",
+    president: "Guadalupe Esparza",
     summary: [
-      "Moderator: Arantza Cruz · Chair: Guadalupe Esparza.",
       "Coordinate emergency food relief while investing in resilient supply chains for food insecure communities.",
     ],
     takeaways: [
@@ -207,28 +283,94 @@ const committeeData = {
     ],
     resources: [],
     countries: [
-      "Argentina",
-      "Bangladesh",
-      "Brazil",
-      "China",
-      "Egypt",
-      "Ethiopia",
-      "France",
-      "Germany",
-      "India",
-      "Indonesia",
-      "Japan",
-      "Kenya",
-      "Mexico",
-      "Nigeria",
-      "Pakistan",
-      "Saudi Arabia",
-      "South Africa",
-      "South Sudan",
-      "Turkey",
-      "United Kingdom",
-      "United States of America",
-      "Venezuela",
+      {
+        country: "Argentina",
+        student: "Kerch Bragado, Daniela",
+      },
+      {
+        country: "Bangladesh",
+        student: "Expósito Ramos, Lucía Marié",
+      },
+      {
+        country: "Brazil",
+        student: "Martínez Salas, Valeria",
+      },
+      {
+        country: "China",
+        student: "Ariza Remes, Jose Manuel",
+      },
+      {
+        country: "Egypt",
+        student: "Novoa Gómez, Maximiliano",
+      },
+      {
+        country: "Ethiopia",
+        student: "Fierro Muñoz, Ana Paula",
+      },
+      {
+        country: "France",
+        student: "Diaz Vázquez, Luis Manuel",
+      },
+      {
+        country: "Germany",
+        student: "Rodríguez Mendoza, Bárbara",
+      },
+      {
+        country: "India",
+        student: "Medina Cardel, Layla Victoria",
+      },
+      {
+        country: "Indonesia",
+        student: "Cabrera Navarro, Alejandro",
+      },
+      {
+        country: "Japan",
+        student: "Villavicencio Ortiz, Fernanda",
+      },
+      {
+        country: "Kenya",
+        student: "González Meneses, Viridiana",
+      },
+      {
+        country: "Mexico",
+        student: "Merino Bañuelos, Carlos Antonio",
+      },
+      {
+        country: "Nigeria",
+        student: "Ricaño Rullán, Luca",
+      },
+      {
+        country: "Pakistan",
+        student: "Rodriguez, Sofia",
+      },
+      {
+        country: "Saudi Arabia",
+        student: "Morales Gutiérrez, Aarón",
+      },
+      {
+        country: "South Africa",
+        student: "Benítez Pérez, Alejandro",
+      },
+      {
+        country: "South Sudan",
+        student: "Pérez Castillo, José María",
+      },
+      {
+        country: "Turkey",
+        student: "Hernández García, Salvador",
+      },
+      {
+        country: "United Kingdom",
+        student: "Amores Gómez, Aranza Valentina",
+      },
+      {
+        country: "United States of America",
+        student: "Aldama Yaroslavtseva, Enrique",
+      },
+      {
+        country: "Venezuela",
+        student: "Cruz Cabrera, Daniela Nazareth",
+      },
     ],
   },
   UNEP: {
@@ -236,8 +378,9 @@ const committeeData = {
     council: "United Nations Environment Programme",
     delegateCount: 21,
     format: "Single Delegation",
+    moderator: "Camilo Quiros",
+    president: "Amaya de Diego",
     summary: [
-      "Moderator: Camilo Quiros · Chair: Amaya de Diego.",
       "Advance climate mitigation, adaptation, and plastics treaty negotiations with equitable finance pathways.",
     ],
     takeaways: [
@@ -254,27 +397,90 @@ const committeeData = {
     ],
     resources: [],
     countries: [
-      "Australia",
-      "Brazil",
-      "Canada",
-      "Chile",
-      "China",
-      "Egypt",
-      "Ethiopia",
-      "France",
-      "Germany",
-      "India",
-      "Indonesia",
-      "Japan",
-      "Mexico",
-      "New Zealand",
-      "Norway",
-      "Russia",
-      "South Africa",
-      "Sweden",
-      "Switzerland",
-      "United Kingdom",
-      "United States of America",
+      {
+        country: "Australia",
+        student: "Trujillo Morales, Andrea",
+      },
+      {
+        country: "Brazil",
+        student: "López Mendieta, María Isabel",
+      },
+      {
+        country: "Canada",
+        student: "Rivera Venta, Elian",
+      },
+      {
+        country: "Chile",
+        student: "Morales Tejada, Manuel Emiliano",
+      },
+      {
+        country: "China",
+        student: "Quintero Rodríguez, Cristiane Giselle",
+      },
+      {
+        country: "Egypt",
+        student: "Malpica Echeverría, Isabela",
+      },
+      {
+        country: "Ethiopia",
+        student: "Morales Rojas, Arianna María",
+      },
+      {
+        country: "France",
+        student: "Luna Peréz, Ethan",
+      },
+      {
+        country: "Germany",
+        student: "Baca Reyes, Luis Gerardo",
+      },
+      {
+        country: "India",
+        student: "Morfin Luna, Daniela",
+      },
+      {
+        country: "Indonesia",
+        student: "Hurtado Torres, Brianda",
+      },
+      {
+        country: "Japan",
+        student: "Cano Torres, Alejandro",
+      },
+      {
+        country: "Mexico",
+        student: "Ríos García, Natalia",
+      },
+      {
+        country: "New Zealand",
+        student: "Levet Peralta, David",
+      },
+      {
+        country: "Norway",
+        student: "Pérez Capitaine, Victoria",
+      },
+      {
+        country: "Russia",
+        student: "Santibañez Rodríguez, Isaac",
+      },
+      {
+        country: "South Africa",
+        student: "Sánchez Roa, Leonardo",
+      },
+      {
+        country: "Sweden",
+        student: "González Lutrillo, Lizette Alejandra",
+      },
+      {
+        country: "Switzerland",
+        student: "Sainz Ruiz De La Peña, Lorenzo",
+      },
+      {
+        country: "United Kingdom",
+        student: "Silva Carpinteyro, Franco Paolo",
+      },
+      {
+        country: "United States of America",
+        student: "Escobedo Benítez, Ximena",
+      },
     ],
   },
   UNICEF: {
@@ -282,8 +488,9 @@ const committeeData = {
     council: "UNICEF",
     delegateCount: 21,
     format: "Single Delegation",
+    moderator: "Ramon Velazquez",
+    president: "Miel de María",
     summary: [
-      "Moderator: Ramon Velazquez · Chair: Miel de Maria.",
       "Champion child rights, health, and education in emergency and development settings.",
     ],
     takeaways: [
@@ -300,27 +507,90 @@ const committeeData = {
     ],
     resources: [],
     countries: [
-      "Afghanistan",
-      "Australia",
-      "Brazil",
-      "Canada",
-      "China",
-      "Colombia",
-      "Egypt",
-      "France",
-      "Germany",
-      "Japan",
-      "Mexico",
-      "Netherlands",
-      "New Zealand",
-      "Nigeria",
-      "Pakistan",
-      "Philippines",
-      "Spain",
-      "Sweden",
-      "Switzerland",
-      "United Kingdom",
-      "United States of America",
+      {
+        country: "Afghanistan",
+        student: "Meyer Pérez, Christopher Anthony",
+      },
+      {
+        country: "Australia",
+        student: "Barquin Goris, Thiago",
+      },
+      {
+        country: "Brazil",
+        student: "Guevara Valerio, José Gael",
+      },
+      {
+        country: "Canada",
+        student: "Huerta León, Marco",
+      },
+      {
+        country: "China",
+        student: "Chirra, Camila Belén",
+      },
+      {
+        country: "Colombia",
+        student: "Jiménez Tello, Mauricio",
+      },
+      {
+        country: "Egypt",
+        student: "Guzmán Martínez, Frida",
+      },
+      {
+        country: "France",
+        student: "González Montero, Edgar Mateo",
+      },
+      {
+        country: "Germany",
+        student: "Hernández Retana, Julieta",
+      },
+      {
+        country: "Japan",
+        student: "Aguilar Galindo, Santiago",
+      },
+      {
+        country: "Mexico",
+        student: "Carrasco Cruz, María Inés",
+      },
+      {
+        country: "Netherlands",
+        student: "Velázquez López, José Manuel",
+      },
+      {
+        country: "New Zealand",
+        student: "Maldonado Cobo-Losey, Ana",
+      },
+      {
+        country: "Nigeria",
+        student: "Orozco Fernández, Carlos Antonio",
+      },
+      {
+        country: "Pakistan",
+        student: "Melchor Gamboa, Ivanna",
+      },
+      {
+        country: "Philippines",
+        student: "Baizabal Ortiz, Arya",
+      },
+      {
+        country: "Spain",
+        student: "Luna Arrevillaga, Elías",
+      },
+      {
+        country: "Sweden",
+        student: "Terlaud Osorno, Luca Jules",
+      },
+      {
+        country: "Switzerland",
+        student: "Linares Mora, Iker",
+      },
+      {
+        country: "United Kingdom",
+        student: "Aguilar López, Rodrigo",
+      },
+      {
+        country: "United States of America",
+        student: "Aróstegui Huerta, Ander",
+      },
     ],
   },
   UNESCO: {
@@ -328,8 +598,9 @@ const committeeData = {
     council: "UNESCO",
     delegateCount: 23,
     format: "Single Delegation",
+    moderator: "Regina Belchez",
+    president: "Sofia Tapia",
     summary: [
-      "Moderator: Regina Belchez · Chair: Sofia Tapia.",
       "Protect cultural heritage and expand access to inclusive education and scientific collaboration.",
     ],
     takeaways: [
@@ -346,29 +617,98 @@ const committeeData = {
     ],
     resources: [],
     countries: [
-      "Afganistan",
-      "Argentina",
-      "Australia",
-      "Brazil",
-      "Canada",
-      "Colombia",
-      "Cuba",
-      "France",
-      "Germany",
-      "Iraq",
-      "Italy",
-      "Kenya",
-      "Mexico",
-      "Haiti",
-      "Morocco",
-      "Nigeria",
-      "Paraguay",
-      "Peru",
-      "South Korea",
-      "Spain",
-      "Sweden",
-      "United Kingdom",
-      "United States of America",
+      {
+        country: "Afghanistan",
+        student: "Velázquez López, Juan Pablo",
+      },
+      {
+        country: "Argentina",
+        student: "Ramírez González, Regina",
+      },
+      {
+        country: "Australia",
+        student: "Torres Ochoa, Rodrigo",
+      },
+      {
+        country: "Brazil",
+        student: "Faibre Morales, Valeria",
+      },
+      {
+        country: "Canada",
+        student: "Palomba Rivera, Roberto",
+      },
+      {
+        country: "Colombia",
+        student: "Sánchez Vaillard, Elena",
+      },
+      {
+        country: "Cuba",
+        student: "Hernández Velázquez, Bruno",
+      },
+      {
+        country: "France",
+        student: "Chavez Garizurieta, Ana Paula",
+      },
+      {
+        country: "Germany",
+        student: "Romero Pérez, Nicolás",
+      },
+      {
+        country: "Iraq",
+        student: "Lagunes González, José Cruz",
+      },
+      {
+        country: "Italy",
+        student: "García Liñero, David",
+      },
+      {
+        country: "Kenya",
+        student: "Sosa Rodriguez, Santiago",
+      },
+      {
+        country: "Mexico",
+        student: "Yañez Muñoz, Aarón",
+      },
+      {
+        country: "Haiti",
+        student: "Medina Cardel, Eleanor",
+      },
+      {
+        country: "Morocco",
+        student: "López Mendieta, Ángel Gabriel",
+      },
+      {
+        country: "Nigeria",
+        student: "González Hernández, Gonzalo",
+      },
+      {
+        country: "Paraguay",
+        student: "Salama De Ochoa, Natalia Elisa",
+      },
+      {
+        country: "Peru",
+        student: "Chapa González, Juan Carlos",
+      },
+      {
+        country: "South Korea",
+        student: "Hernández Velázquez, Paula",
+      },
+      {
+        country: "Spain",
+        student: "Medina Díaz, Germán",
+      },
+      {
+        country: "Sweden",
+        student: "García García De León, Iñaki",
+      },
+      {
+        country: "United Kingdom",
+        student: "Calderon Sandoval, Valentina",
+      },
+      {
+        country: "United States of America",
+        student: "Amerena Lagunes, Ulises",
+      },
     ],
   },
   UNHCR: {
@@ -376,8 +716,9 @@ const committeeData = {
     council: "UNHCR",
     delegateCount: 23,
     format: "Single Delegation",
+    moderator: "Andrea Montes de Oca",
+    president: "Claudiel Jimenez",
     summary: [
-      "Moderator: Andrea Montes de Oca · Chair: Claudiel Jimenez.",
       "Safeguard refugees and asylum seekers through protection regimes, durable solutions, and burden sharing.",
     ],
     takeaways: [
@@ -394,29 +735,98 @@ const committeeData = {
     ],
     resources: [],
     countries: [
-      "Australia",
-      "Bangladesh",
-      "Brazil",
-      "Canada",
-      "Colombia",
-      "Egypt",
-      "Findland",
-      "France",
-      "Germany",
-      "Greece",
-      "Italy",
-      "Japan",
-      "Jordan",
-      "Lebanon",
-      "Mexico",
-      "Netherlands",
-      "Nigeria",
-      "Norway",
-      "Pakistan",
-      "Sweden",
-      "Switzerland",
-      "United Kingdom",
-      "United States of America",
+      {
+        country: "Australia",
+        student: "Linares Mora, Alberto",
+      },
+      {
+        country: "Bangladesh",
+        student: "López Vichi, Ramsés",
+      },
+      {
+        country: "Brazil",
+        student: "Goldsmith Lara, Maximiliano Rafael",
+      },
+      {
+        country: "Canada",
+        student: "Vázquez Cruz, Natalie",
+      },
+      {
+        country: "Colombia",
+        student: "Morales Gutiérrez, Rodrigo",
+      },
+      {
+        country: "Egypt",
+        student: "Hernández Gómez, Emmanuel",
+      },
+      {
+        country: "Finland",
+        student: "Aguirre, Luis Alonso",
+      },
+      {
+        country: "France",
+        student: "Guerrero Parra, Rodrigo",
+      },
+      {
+        country: "Germany",
+        student: "Marquínez Fuentes, Valeria",
+      },
+      {
+        country: "Greece",
+        student: "Del Rio Villa, Isabella",
+      },
+      {
+        country: "Italy",
+        student: "Ordoñez Kloss, Andrés",
+      },
+      {
+        country: "Japan",
+        student: "Castañeda Toxtega, Airana",
+      },
+      {
+        country: "Jordan",
+        student: "Sosa Castro, Carlos Fernando",
+      },
+      {
+        country: "Lebanon",
+        student: "Santos Ramírez, Emiliano",
+      },
+      {
+        country: "Mexico",
+        student: "Romero Hoyos, José Manuel",
+      },
+      {
+        country: "Netherlands",
+        student: "Díaz Zapata, Alan Guido",
+      },
+      {
+        country: "Nigeria",
+        student: "Garcia Valerio, Diego Rafael",
+      },
+      {
+        country: "Norway",
+        student: "García Nieto, Carlos Alfredo",
+      },
+      {
+        country: "Pakistan",
+        student: "Ariza Remes, Ian",
+      },
+      {
+        country: "Sweden",
+        student: "Zavala Domínguez, Arnoldo",
+      },
+      {
+        country: "Switzerland",
+        student: "Padrón Hernández, Ana Sofía",
+      },
+      {
+        country: "United Kingdom",
+        student: "Melchor Gamboa, Estefanía",
+      },
+      {
+        country: "United States of America",
+        student: "Aguilar Galindo, María José",
+      },
     ],
   },
   CSTD: {
@@ -424,8 +834,9 @@ const committeeData = {
     council: "Economic and Social Council",
     delegateCount: 23,
     format: "Double Delegation",
+    moderator: "Mayte Lopez",
+    president: "Regina Torres",
     summary: [
-      "Moderator: Mayte Lopez · Chair: Regina Torres.",
       "Explore how innovation, connectivity, and emerging tech can accelerate sustainable development.",
     ],
     takeaways: [
@@ -442,29 +853,98 @@ const committeeData = {
     ],
     resources: [],
     countries: [
-      "Argentina",
-      "Australia",
-      "Australia",
-      "Brazil",
-      "Canada",
-      "China",
-      "El Salvador",
-      "France",
-      "Germany",
-      "India",
-      "India",
-      "Japan",
-      "Luxembourg",
-      "Mexico",
-      "Nigeria",
-      "Singapore",
-      "South Africa",
-      "South Kores",
-      "Sweden",
-      "Switzerland",
-      "Turkey",
-      "United Kingdom",
-      "United States of America",
+      {
+        country: "Argentina",
+        student: "Albores Angulo, Rachel",
+      },
+      {
+        country: "Portugal",
+        student: "Sainz Ruiz De La Peña, Diego",
+      },
+      {
+        country: "Australia",
+        student: "Meneses Ruiz, Regina",
+      },
+      {
+        country: "Brazil",
+        student: "Castelan Mato, Jennifer Celeste",
+      },
+      {
+        country: "Canada",
+        student: "Carrillo López, Emir",
+      },
+      {
+        country: "China",
+        student: "Trillo Vega, Sofía",
+      },
+      {
+        country: "El Salvador",
+        student: "García Liñero, Rodrigo",
+      },
+      {
+        country: "France",
+        student: "González Alfaro, Ximena Marlene",
+      },
+      {
+        country: "Germany",
+        student: "Ruiz Torres, Emiliano",
+      },
+      {
+        country: "Norway",
+        student: "Núñez Quiñones, Rodrigo",
+      },
+      {
+        country: "India",
+        student: "Servin Mesinas, Oscar Ernesto",
+      },
+      {
+        country: "Japan",
+        student: "Mundo Tenorio, Alan",
+      },
+      {
+        country: "Luxembourg",
+        student: "Lozano González, Aarón Eduardo",
+      },
+      {
+        country: "Mexico",
+        student: "Maza Sánchez, Santiago",
+      },
+      {
+        country: "Nigeria",
+        student: "Lagunes Delon, Leonardo",
+      },
+      {
+        country: "Singapore",
+        student: "Razo Estudillo, Ximena",
+      },
+      {
+        country: "South Africa",
+        student: "Mariz Porres, Debbie",
+      },
+      {
+        country: "South Korea",
+        student: "Fernández Fernández, Juan",
+      },
+      {
+        country: "Sweden",
+        student: "Rueda Petriz, Rebeca",
+      },
+      {
+        country: "Switzerland",
+        student: "Rodríguez Gasperín, Paola",
+      },
+      {
+        country: "Turkey",
+        student: "Robles Zárate, Paula",
+      },
+      {
+        country: "United Kingdom",
+        student: "Reyes Marín, Cesar Emmanuel",
+      },
+      {
+        country: "United States of America",
+        student: "Ratia Galego, Lucia",
+      },
     ],
   },
   CSW: {
@@ -472,8 +952,9 @@ const committeeData = {
     council: "Economic and Social Council",
     delegateCount: 22,
     format: "Single Delegation",
+    moderator: "Ana Chunti",
+    president: "Isabella Antúnez",
     summary: [
-      "Moderator: Ana Chiunti · Chair: Isabella Antunez.",
       "Advance gender equality, women's leadership, and protection from violence across all regions.",
     ],
     takeaways: [
@@ -490,28 +971,94 @@ const committeeData = {
     ],
     resources: [],
     countries: [
-      "Australia",
-      "Belarus",
-      "Canada",
-      "Chile",
-      "Egypt",
-      "France",
-      "Germany",
-      "Iceland",
-      "India",
-      "Irak",
-      "Italy",
-      "Lithuania",
-      "Mongolia",
-      "Netherlands",
-      "Poland",
-      "Saudi Arabia",
-      "Singapore",
-      "Sweden",
-      "Turkey",
-      "United Arab Emirates",
-      "United Kingdom",
-      "United States of America",
+      {
+        country: "Australia",
+        student: "Gomez Reynaud, Vayda Josephine",
+      },
+      {
+        country: "Belarus",
+        student: "Andrade Sánchez, Jesús Roberto",
+      },
+      {
+        country: "Canada",
+        student: "Morales Tejada, Lia Fernanda",
+      },
+      {
+        country: "Chile",
+        student: "Zarrabal Montes, Regina",
+      },
+      {
+        country: "Egypt",
+        student: "Luna Arrevillaga, Valentina",
+      },
+      {
+        country: "France",
+        student: "Rivas Calderón, Aynara",
+      },
+      {
+        country: "Germany",
+        student: "Thorpe Romero, Patrick Adam",
+      },
+      {
+        country: "Iceland",
+        student: "García Pérez, Samantha Nicole",
+      },
+      {
+        country: "India",
+        student: "Novoa Gómez, José María",
+      },
+      {
+        country: "Iraq",
+        student: "Rivas Calderón, Alberto",
+      },
+      {
+        country: "Italy",
+        student: "Cordero Jiménez, José Daniel",
+      },
+      {
+        country: "Lithuania",
+        student: "Barrios Rivadeneyra, Valentina",
+      },
+      {
+        country: "Mongolia",
+        student: "Quintero Rodríguez, Christiane Carleigh",
+      },
+      {
+        country: "Netherlands",
+        student: "Lagunes Calvo, Denisse",
+      },
+      {
+        country: "Poland",
+        student: "Barón Barrera, Regina",
+      },
+      {
+        country: "Saudi Arabia",
+        student: "Aguilar López, Alejandro",
+      },
+      {
+        country: "Singapore",
+        student: "Castro Gonzalez, Maria José",
+      },
+      {
+        country: "Sweden",
+        student: "Rullan Lajud, Juan Arturo",
+      },
+      {
+        country: "Turkey",
+        student: "Ramón Jácome, Rodrigo",
+      },
+      {
+        country: "United Arab Emirates",
+        student: "Arciniega Mateos, Nina",
+      },
+      {
+        country: "United Kingdom",
+        student: "Lagunes Galaviz, Mia",
+      },
+      {
+        country: "United States of America",
+        student: "López Vichi, Adrian",
+      },
     ],
   },
   WHO: {
@@ -519,8 +1066,9 @@ const committeeData = {
     council: "Specialized Agency",
     delegateCount: 22,
     format: "Single Delegation",
+    moderator: "Andrea Marin",
+    president: "Natalia Amaya",
     summary: [
-      "Moderator: Andrea Marin · Chair: Natalia Amaya.",
       "Strengthen resilient health systems, preparedness, and equitable access to care.",
     ],
     takeaways: [
@@ -537,28 +1085,94 @@ const committeeData = {
     ],
     resources: [],
     countries: [
-      "Afghanistan",
-      "Australia",
-      "Bangladesh",
-      "Bolivia",
-      "Canada",
-      "France",
-      "Germany",
-      "Haiti",
-      "India",
-      "Indonesia",
-      "Iran",
-      "Japan",
-      "Myanmar",
-      "Nepal",
-      "Netherlands",
-      "Norway",
-      "Pakistan",
-      "South Korea",
-      "Switzerland",
-      "Thailand",
-      "United Kingdom",
-      "United States of America",
+      {
+        country: "Afghanistan",
+        student: "Domínguez Betancourt, Luis Carlos",
+      },
+      {
+        country: "Australia",
+        student: "Rodríguez Vila, Emma",
+      },
+      {
+        country: "Bangladesh",
+        student: "Campa Hernández, Rodrigo",
+      },
+      {
+        country: "Bolivia",
+        student: "Camacho Carmona, Mariana",
+      },
+      {
+        country: "Canada",
+        student: "Calderón Delgado, Andrea",
+      },
+      {
+        country: "France",
+        student: "Benítez Pérez, Valeria",
+      },
+      {
+        country: "Germany",
+        student: "Delfin Miranda, Mariano",
+      },
+      {
+        country: "Haiti",
+        student: "Robles Macias, Andrea",
+      },
+      {
+        country: "India",
+        student: "Marín Athié, Ariane",
+      },
+      {
+        country: "Indonesia",
+        student: "Tejeda Orozco, Jorge Manuel",
+      },
+      {
+        country: "Iran",
+        student: "Santos Ramírez, Quetzalli",
+      },
+      {
+        country: "Japan",
+        student: "Ramírez Hernández, Erika Jaomara",
+      },
+      {
+        country: "Myanmar",
+        student: "González Córdova, Regina",
+      },
+      {
+        country: "Nepal",
+        student: "Ibarra Rangel, José María",
+      },
+      {
+        country: "Netherlands",
+        student: "Carvajal Medina, Emmanuel",
+      },
+      {
+        country: "Norway",
+        student: "Castelan Mato, Maximiliano",
+      },
+      {
+        country: "Pakistan",
+        student: "Girón Moreno, Florianne",
+      },
+      {
+        country: "South Korea",
+        student: "Miravete Arellano, Arath",
+      },
+      {
+        country: "Switzerland",
+        student: "Jiménez Méndez, Regina",
+      },
+      {
+        country: "Thailand",
+        student: "Vera Ramirez, Mateo",
+      },
+      {
+        country: "United Kingdom",
+        student: "Aguirre Vázquez, Héctor",
+      },
+      {
+        country: "United States of America",
+        student: "Montes De Oca Gómez, Alan",
+      },
     ],
   },
   INTERPOL: {
@@ -747,6 +1361,28 @@ function buildCommitteeSubtitle(data) {
   return parts.join(" · ");
 }
 
+function buildCommitteeSummary(data) {
+  const hasSummary = Array.isArray(data && data.summary);
+  const summary = hasSummary ? [...data.summary] : [];
+
+  const leaders = [];
+  if (data && data.moderator) {
+    leaders.push(`Moderator: ${data.moderator}`);
+  }
+  if (data && data.president) {
+    leaders.push(`President: ${data.president}`);
+  }
+  if (data && data.chair && !data.president) {
+    leaders.push(`Chair: ${data.chair}`);
+  }
+
+  if (leaders.length) {
+    summary.unshift(leaders.join(" · "));
+  }
+
+  return summary;
+}
+
 function renderSummary(section, summary) {
   if (!section) {
     return;
@@ -901,10 +1537,25 @@ function renderCountries(section, countries) {
 
   section.hidden = false;
   const fragment = document.createDocumentFragment();
-  countries.forEach((country) => {
+  countries.forEach((entry) => {
     const badge = document.createElement("span");
     badge.className = "country-tag";
-    badge.textContent = country;
+    let label = "";
+
+    if (typeof entry === "string") {
+      label = entry;
+    } else if (entry && typeof entry === "object") {
+      label = entry.country || "";
+    } else if (entry != null) {
+      label = String(entry);
+    }
+
+    label = label.trim();
+    if (!label) {
+      return;
+    }
+
+    badge.textContent = label;
     fragment.appendChild(badge);
   });
   grid.appendChild(fragment);
@@ -928,7 +1579,7 @@ function openCommitteeArticle(committeeId) {
     elements.subtitle.textContent = subtitle;
   }
 
-  renderSummary(elements.summary, data.summary);
+  renderSummary(elements.summary, buildCommitteeSummary(data));
   renderTakeaways(elements.takeawaysSection, data.takeaways);
   renderAgenda(elements.agendaSection, data.agenda);
   renderResources(elements.resourcesSection, data.resources);

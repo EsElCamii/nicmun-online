@@ -67,12 +67,15 @@
     <!-- What is MUN Section -->
     <section id="about" class="section">
       <div class="container">
-        <h2 class="section-title">What is Model United Nations?</h2>
+        <div class="section-intro section-intro--center">
+          <h2 class="section-title">What is Model United Nations?</h2>
+          <p class="section-kicker">NICMUN 2025</p>
+        </div>
         <div class="mun-layout">
           <div class="mun-photo">
             <!-- Add your photo here -->
             <img
-              src="https://images.unsplash.com/photo-1732770246723-bb6267799251?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1681041882375-87b002ffe1c5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=987"
               alt="MUN Conference"
               class="mun-image"
             />
@@ -127,7 +130,7 @@
             </figure>
           </div>
           <div class="event-overview__content">
-            <p class="event-overview__eyebrow">NICMUN 2025</p>
+            <p class="section-kicker event-overview__eyebrow">NICMUN 2025</p>
             <h2 class="event-overview__title">Two Days of Diplomacy in Action</h2>
             <p class="event-overview__summary">
               Step into a fully immersive Model United Nations where every debate,
@@ -159,7 +162,10 @@
     <!-- Committees Section -->
     <section id="committees" class="section">
       <div class="container">
-        <h2 class="section-title">Committees</h2>
+        <div class="section-intro section-intro--center">
+          <h2 class="section-title">Committees</h2>
+          <p class="section-kicker">NICMUN 2025</p>
+        </div>
         <div class="committees-grid">
           <div class="committee-card" data-committee="WFP">
             <h3>World Food Programme</h3>
@@ -346,88 +352,157 @@
     <!-- Schedule Section -->
     <section id="schedule" class="section bg-gray">
       <div class="container">
-        <h2 class="section-title">Conference Schedule</h2>
-        <div class="schedule-tabs">
-          <button class="tab-button active" data-day="1">
-            Day 1 - March 15
-          </button>
-          <button class="tab-button" data-day="2">
-            Day 2 - March 16
-          </button>
+        <div
+          class="section-intro section-intro--center section-intro--collapsible"
+          data-schedule-toggle
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="scheduleContent"
+        >
+          <h2 class="section-title">Conference Schedule</h2>
+          <p class="section-kicker">NICMUN 2025</p>
+          <span class="section-intro--collapsible-indicator"
+            >Click or tap to expand</span
+          >
         </div>
+        <div
+          id="scheduleContent"
+          class="schedule-collapsible"
+          data-schedule-content
+          hidden
+        >
+          <div class="schedule-tabs">
+            <button class="tab-button active" data-day="1">
+              Day 1 - March 15
+            </button>
+            <button class="tab-button" data-day="2">
+              Day 2 - March 16
+            </button>
+          </div>
 
-        <div id="day1" class="schedule-day active">
-          <div class="schedule-item">
-            <div class="schedule-time">9:00 AM</div>
-            <div class="schedule-content">
-              <h3>Opening Ceremony</h3>
-              <p>Welcome address and conference overview</p>
+          <div id="day1" class="schedule-day active">
+            <div class="schedule-item">
+              <div class="schedule-time">7:30 - 8:15</div>
+              <div class="schedule-content">
+                <h3>Registration</h3>
+                <p>Check in, pick up materials, and settle into committee rooms</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">8:15 - 8:20</div>
+              <div class="schedule-content">
+                <h3>Transition</h3>
+                <p>Delegates move to their assigned chambers</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">8:20 - 10:00</div>
+              <div class="schedule-content">
+                <h3>1st Session</h3>
+                <p>Opening formal debate, speaker lists, and moderated caucus</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">10:00 - 10:05</div>
+              <div class="schedule-content">
+                <h3>Transition</h3>
+                <p>Quick reset and movement between breakout spaces</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">10:05 - 11:05</div>
+              <div class="schedule-content">
+                <h3>Lunch</h3>
+                <p>Delegate lunch break and informal caucusing</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">11:05 - 11:10</div>
+              <div class="schedule-content">
+                <h3>Transition</h3>
+                <p>Return to committee rooms</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">11:10 - 12:45</div>
+              <div class="schedule-content">
+                <h3>2nd Session</h3>
+                <p>Focused debate blocks and draft resolution collaboration</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">12:45 - 12:50</div>
+              <div class="schedule-content">
+                <h3>Transition</h3>
+                <p>Prep for afternoon agenda</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">12:50 - 13:15</div>
+              <div class="schedule-content">
+                <h3>Break</h3>
+                <p>Delegate wellness break and caucus regroup</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">13:15 - 13:20</div>
+              <div class="schedule-content">
+                <h3>Transition</h3>
+                <p>Return to chambers</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">13:20 - 14:30</div>
+              <div class="schedule-content">
+                <h3>3rd Session</h3>
+                <p>Final debate, amendments, and voting preparation</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">14:30 - 14:45</div>
+              <div class="schedule-content">
+                <h3>Dismissal</h3>
+                <p>Adjournment and day one wrap up</p>
+              </div>
             </div>
           </div>
-          <div class="schedule-item">
-            <div class="schedule-time">10:00 AM</div>
-            <div class="schedule-content">
-              <h3>Committee Session 1</h3>
-              <p>Opening statements and position presentations</p>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">12:00 PM</div>
-            <div class="schedule-content">
-              <h3>Lunch Break</h3>
-              <p>Networking lunch and informal discussions</p>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">1:30 PM</div>
-            <div class="schedule-content">
-              <h3>Committee Session 2</h3>
-              <p>Formal debate and discussion of agenda items</p>
-            </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">4:00 PM</div>
-            <div class="schedule-content">
-              <h3>Working Groups</h3>
-              <p>Drafting working papers and building coalitions</p>
-            </div>
-          </div>
-        </div>
 
-        <div id="day2" class="schedule-day">
-          <div class="schedule-item">
-            <div class="schedule-time">9:00 AM</div>
-            <div class="schedule-content">
-              <h3>Committee Session 3</h3>
-              <p>Continuation of formal debate</p>
+          <div id="day2" class="schedule-day">
+            <div class="schedule-item">
+              <div class="schedule-time">9:00 AM</div>
+              <div class="schedule-content">
+                <h3>Committee Session 3</h3>
+                <p>Continuation of formal debate</p>
+              </div>
             </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">11:00 AM</div>
-            <div class="schedule-content">
-              <h3>Crisis Updates</h3>
-              <p>Breaking news and emergency sessions</p>
+            <div class="schedule-item">
+              <div class="schedule-time">11:00 AM</div>
+              <div class="schedule-content">
+                <h3>Crisis Updates</h3>
+                <p>Breaking news and emergency sessions</p>
+              </div>
             </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">12:30 PM</div>
-            <div class="schedule-content">
-              <h3>Lunch Break</h3>
-              <p>Final networking and delegation meetings</p>
+            <div class="schedule-item">
+              <div class="schedule-time">12:30 PM</div>
+              <div class="schedule-content">
+                <h3>Lunch Break</h3>
+                <p>Final networking and delegation meetings</p>
+              </div>
             </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">2:00 PM</div>
-            <div class="schedule-content">
-              <h3>Voting Session</h3>
-              <p>Final presentations and resolution voting</p>
+            <div class="schedule-item">
+              <div class="schedule-time">2:00 PM</div>
+              <div class="schedule-content">
+                <h3>Voting Session</h3>
+                <p>Final presentations and resolution voting</p>
+              </div>
             </div>
-          </div>
-          <div class="schedule-item">
-            <div class="schedule-time">4:00 PM</div>
-            <div class="schedule-content">
-              <h3>Closing Ceremony</h3>
-              <p>Awards presentation and closing remarks</p>
+            <div class="schedule-item">
+              <div class="schedule-time">4:00 PM</div>
+              <div class="schedule-content">
+                <h3>Closing Ceremony</h3>
+                <p>Awards presentation and closing remarks</p>
+              </div>
             </div>
           </div>
         </div>
@@ -437,7 +512,10 @@
     <!-- Resources -->
     <section id="resources" class="section">
       <div class="container">
-        <h2 class="section-title">Student Resources</h2>
+        <div class="section-intro section-intro--center">
+          <h2 class="section-title">Student Resources</h2>
+          <p class="section-kicker">NICMUN 2025</p>
+        </div>
         <div class="resources-grid">
           <div class="resource-card">
             <div class="card-icon">📝</div>
@@ -470,10 +548,17 @@
             <!-- Paste the link of teh file here ⬆️ -->
           </div>
           <div class="resource-card">
-            <div class="card-icon">👔</div>
-            <h3>Dress Code</h3>
-            <p>Learn about the conference dress code and proper attire.</p>
-            <button class="download-button">Download Guide</button>
+            <div class="card-icon">📄</div>
+            <h3>Position Paper Rubric</h3>
+            <p>Learn how to write a winning position paper.</p>
+            <a
+              href="https://docs.google.com/document/d/10ULcvndnQfxyXgBN20FhhAEEZMa7uidmNeMnu_99upQ/edit?usp=sharing"
+              class="download-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Rubric
+            </a>
           </div>
         </div>
       </div>
@@ -482,7 +567,10 @@
     <!-- Student Portal -->
     <section id="portal" class="section bg-gray">
       <div class="container">
-        <h2 class="section-title">Student Portal</h2>
+        <div class="section-intro section-intro--center">
+          <h2 class="section-title">Student Portal</h2>
+          <p class="section-kicker">NICMUN 2025</p>
+        </div>
         <div class="portal-content">
           <div class="portal-form">
             <h3>Check Your Registration</h3>
@@ -540,7 +628,9 @@
     <!-- FAQ Section -->
     <section id="faq" class="section bg-gray">
       <div class="container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="section-intro section-intro--center">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
         <div class="faq-list">
           <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
