@@ -99,16 +99,24 @@ body {
 
 .section-intro--collapsible {
   position: relative;
-  padding-right: 36px;
+  width: 100%;
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(3.25rem, 5vw, 3.75rem)
+    clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 3vw, 1.75rem);
   cursor: pointer;
-  transition: color 0.2s ease;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-sm);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.2s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .section-intro--collapsible::after {
   content: "";
   position: absolute;
   top: 50%;
-  right: 0;
+  right: clamp(1.25rem, 3vw, 1.75rem);
   width: 12px;
   height: 12px;
   border-right: 2px solid var(--primary);
@@ -124,6 +132,8 @@ body {
 .section-intro--collapsible:hover,
 .section-intro--collapsible:focus {
   color: var(--primary-darker);
+  background: #ffffff;
+  box-shadow: var(--shadow-md);
 }
 
 .section-intro--collapsible:focus-visible {
@@ -144,8 +154,13 @@ body {
 }
 
 .section-intro--collapsible.is-open::after {
-  transform: translateY(-35%) rotate(-135deg);
+  transform: translateY(-50%) rotate(-135deg);
   border-color: var(--primary-dark);
+}
+
+.section-intro--collapsible.is-open {
+  background: #ffffff;
+  box-shadow: var(--shadow-md);
 }
 
 .section-intro--collapsible.is-open .section-intro--collapsible-indicator {
@@ -1835,7 +1850,7 @@ body.no-scroll {
   }
 
   .section-intro--collapsible {
-    padding-right: 0;
+    padding: 1.25rem 1.5rem;
   }
 
   .section-intro--collapsible::after {
