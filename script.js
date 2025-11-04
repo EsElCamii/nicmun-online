@@ -1880,51 +1880,523 @@ function initStudentPortalLookup() {
     return;
   }
 
-  const mockStudents = {
-    "cquirosm@noordwijk.edu.mx": {
-      name: "Camilo Quirós",
-      committee: "United Nations Security Council",
-      country: "United States",
-      template: "downloads/position-paper-template.docx",
-    },
-    "achiuntib@noordwijk.edu.mx": {
-      name: "Ana Chiunti",
-      committee: "World Health Organization",
-      country: "Germany",
-      template: "downloads/position-paper-template.docx",
-    },
-    "testmail@noordwijk.edu.mx": {
-      name: "DEMO",
-      committee: "DEMO",
-      country: "DEMO",
-      template: "downloads/position-paper-template.docx",
-    },
+  const normalizeStudentId = (value) =>
+    (value || "")
+      .trim()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, "");
+
+  const studentEntries = [];
+  const addCommitteeStudents = (committee, template, students) => {
+    students.forEach(({ email, name, country = null }) => {
+      const cleanedEmail = email.replace(/\s+/g, "");
+      const lookupKeys = Array.from(
+        new Set(
+          [cleanedEmail, name]
+            .map((identifier) => normalizeStudentId(identifier))
+            .filter((key) => key.length)
+        )
+      );
+
+      studentEntries.push({
+        email: cleanedEmail,
+        name,
+        committee,
+        country: country ?? null,
+        template,
+        lookupKeys,
+      });
+    });
   };
+
+  addCommitteeStudents("World Food Programme", "downloads/background-paper-WFP.pdf", [
+    { email: "acruza@noordwijk.edu.mx", name: "Arantza Cruz" },
+    { email: "gesparzag@noordwijk.edu.mx", name: "Guadalupe Esparza" },
+    { email: "dkersch@noordwijk.edu.mx", name: "Daniela Kerch Bragado", country: "Argentina" },
+    {
+      email: "lmexpositor@noordwijk.edu.mx",
+      name: "Lucía Marié Expósito Ramos",
+      country: "Bangladesh-Etiopia",
+    },
+    { email: "vmartinezs@noordwijk.edu.mx", name: "Valeria Martínez Salas", country: "Brazil" },
+    { email: "jarizae@noordwijk.edu.mx", name: "Jose Manuel Ariza Remes", country: "China" },
+    { email: "mnovoag@noordwijk.edu.mx", name: "Maximiliano Novoa Gómez", country: "Egypt" },
+    { email: "afierrom@noordwijk.edu.mx", name: "Ana Paula Fierro Muñoz", country: "Ethiopia" },
+    { email: "ldiazv@noordwijk.edu.mx", name: "Luis Manuel Diaz Vázquez", country: "France" },
+    { email: "brodriguezm@noordwijk.edu.mx", name: "Bárbara Rodríguez Mendoza", country: "Germany" },
+    { email: "lmedinac@noordwijk.edu.mx", name: "Layla Victoria Medina Cardel", country: "India" },
+    {
+      email: "acabreran@noordwijk.edu.mx",
+      name: "Alejandro Cabrera Navarro",
+      country: "Indonesia-Bolivia",
+    },
+    {
+      email: "fvillavicencioo@noordwijk.edu.mx",
+      name: "Fernanda Villavicencio Ortiz",
+      country: "Japan",
+    },
+    { email: "vgonzalezm@noordwijk.edu.mx", name: "Viridiana González Meneses", country: "Kenya" },
+    {
+      email: "cmerinob@noordwijk.edu.mx",
+      name: "Carlos Antonio Merino Bañuelos",
+      country: "Mexico",
+    },
+    { email: "lricanor@noordwijk.edu.mx", name: "Luca Ricaño Rullán", country: "Nigeria" },
+    { email: "srodriguez@noordwijk.edu.mx", name: "Sofia Rodriguez", country: "Pakistan" },
+    { email: "amoralesg@noordwijk.edu.mx", name: "Aarón Morales Gutiérrez", country: "Saudi Arabia" },
+    { email: "abenitezp@noordwijk.edu.mx", name: "Alejandro Benítez Pérez", country: "South Africa" },
+    { email: "jperezc@noordwijk.edu.mx", name: "José María Pérez Castillo", country: "South Sudan" },
+    { email: "shernandezg@noordwijk.edu.mx", name: "Salvador Hernández García", country: "Turkey" },
+    { email: "aamoresg@noordwijk.edu.mx", name: "Aranza Valentina Amores Gómez", country: "United Kingdom" },
+    {
+      email: "ealdamay@noordwijk.edu.mx",
+      name: "Enrique Aldama Yaroslavtseva",
+      country: "United States of America",
+    },
+    { email: "dcruzc@noordwijk.edu.mx", name: "Daniela Nazareth Cruz Cabrera", country: "Venezuela" },
+  ]);
+
+  addCommitteeStudents(
+    "United Nations Environment Programme",
+    "downloads/background-paper-UNEP.pdf",
+    [
+      { email: "cquirosm@noordwijk.edu.mx", name: "Camilo Quirós Mendoza" },
+      { email: "adediego@noordwijk.edu.mx", name: "Amaya de Diego" },
+      { email: "atrujillom@noordwijk.edu.mx", name: "Andrea Trujillo Morales", country: "Australia" },
+      { email: "mlopezm@noordwijk.edu.mx", name: "María Isabel López Mendieta", country: "Brazil" },
+      { email: "eriverav@noordwijk.edu.mx", name: "Elian Rivera Venta", country: "Canada" },
+      { email: "mmoralest@noordwijk.edu.mx", name: "Manuel Emiliano Morales Tejada", country: "Chile" },
+      { email: "cquinteror@noordwijk.edu.mx", name: "Cristiane Giselle Quintero Rodríguez", country: "China" },
+      { email: "imalpicae@noordwijk.edu.mx", name: "Isabela Malpica Echeverría", country: "Egypt" },
+      { email: "amoralesr@noordwijk.edu.mx", name: "Arianna María Morales Rojas", country: "Ethiopia" },
+      { email: "elunap@noordwijk.edu.mx", name: "Ethan Luna Peréz", country: "France" },
+      { email: "lbacareyes@noordwijk.edu.mx", name: "Luis Gerardo Baca Reyes", country: "Germany" },
+      { email: "dmorfinl@noordwijk.edu.mx", name: "Daniela Morfin Luna", country: "India" },
+      { email: "bhurtadot@noordwijk.edu.mx", name: "Brianda Hurtado Torres", country: "Indonesia" },
+      { email: "acano@noordwijk.edu.mx", name: "Alejandro Cano Torres", country: "Japan" },
+      { email: "nriosg@noordwijk.edu.mx", name: "Natalia Ríos García", country: "Mexico" },
+      { email: "dlevetp@noordwijk.edu.mx", name: "David Levet Peralta", country: "New Zealand" },
+      { email: "vperezc@noordwijk.edu.mx", name: "Victoria Pérez Capitaine", country: "Norway" },
+      { email: "isantibanezr@noordwijk.edu.mx", name: "Isaac Santibañez Rodríguez", country: "Russia" },
+      { email: "lsanchezr@noordwijk.edu.mx", name: "Leonardo Sánchez Roa", country: "South Africa" },
+      { email: "lgonzalezl@noordwijk.edu.mx", name: "Lizette Alejandra González Lutrillo", country: "Sweden" },
+      { email: "lsainzr@noordwijk.edu.mx", name: "Lorenzo Sainz Ruiz De La Peña", country: "Switzerland" },
+      { email: "fsilvac@noordwijk.edu.mx", name: "Franco Paolo Silva Carpinteyro", country: "United Kingdom" },
+      {
+        email: "xescobedob@noordwijk.edu.mx",
+        name: "Ximena Escobedo Benítez",
+        country: "United States of America",
+      },
+    ]
+  );
+
+  addCommitteeStudents(
+    "United Nations International Children's Emergency Fund",
+    "downloads/background-paper-UNICEF.pdf",
+    [
+      { email: "rvelazquez@noordwijk.edu.mx", name: "Ramon Velazquez" },
+      { email: "mdemaria@noordwijk.edu.mx", name: "Miel de María" },
+      {
+        email: "cmeyerp@noordwijk.edu.mx",
+        name: "Christopher Anthony Meyer Pérez",
+        country: "Afghanistan",
+      },
+      { email: "tbarquing@noordwijk.edu.mx", name: "Thiago Barquin Goris", country: "Australia" },
+      { email: "jguevarav@noordwijk.edu.mx", name: "José Gael Guevara Valerio", country: "Brasil" },
+      { email: "mhuertal@noordwijk.edu.mx", name: "Marco Huerta León", country: "Canada" },
+      { email: "cchirrab@noordwijk.edu.mx", name: "Camila Belén Chirra", country: "China" },
+      { email: "mjimenezt@noordwijk.edu.mx", name: "Mauricio Jiménez Tello", country: "Colombia" },
+      { email: "fguzmanm@noordwijk.edu.mx", name: "Frida Guzmán Martínez", country: "Egypt" },
+      { email: "egonzalezm@noordwijk.edu.mx", name: "Edgar Mateo González Montero", country: "France" },
+      { email: "jhernandezr@noordwijk.edu.mx", name: "Julieta Hernández Retana", country: "Germany" },
+      { email: "saguilarg@noordwijk.edu.mx", name: "Santiago Aguilar Galindo", country: "Japan" },
+      { email: "mcarrascoc@noordwijk.edu.mx", name: "María Inés Carrasco Cruz", country: "Mexico" },
+      { email: "jvelazquezl@noordwijk.edu.mx", name: "José Manuel Velázquez López", country: "Netherlands" },
+      { email: "amaldonadoc@noordwijk.edu.mx", name: "Ana Maldonado Cobo-Losey", country: "New Zealand" },
+      {
+        email: "corozcof@noordwijk.edu.mx",
+        name: "Carlos Antonio Orozco Fernández",
+        country: "Nigeria",
+      },
+      { email: "imelchorg@noordwijk.edu.mx", name: "Ivanna Melchor Gamboa", country: "Pakistan" },
+      { email: "abaizabalo@noordwijk.edu.mx", name: "Arya Baizabal Ortiz", country: "Philippines" },
+      { email: "elunaa@noordwijk.edu.mx", name: "Elías Luna Arrevillaga", country: "Spain" },
+      { email: "lterlaudo@noordwijk.edu.mx", name: "Luca Jules Terlaud Osorno", country: "Sweden" },
+      { email: "ilinaresm@noordwijk.edu.mx", name: "Iker Linares Mora", country: "Switzerland" },
+      { email: "raguilarl@noordwijk.edu.mx", name: "Rodrigo Aguilar López", country: "United Kingdom" },
+      {
+        email: "aarostegu h@noordwijk.edu.mx",
+        name: "Ander Aróstegui Huerta",
+        country: "United States of America",
+      },
+    ]
+  );
+
+  addCommitteeStudents(
+    "United Nations Educational, Scientific and Cultural Organization",
+    "downloads/background-paper-UNESCO.pdf",
+    [
+      { email: "rbelchez@noordwijk.edu.mx", name: "Regina Belchez" },
+      { email: "stapia@noordwijk.edu.mx", name: "Sofia Tapia" },
+      {
+        email: "jvelazquezl@noordwijk.edu.mx",
+        name: "Juan Pablo Velázquez López",
+        country: "Afganistan",
+      },
+      { email: "rramirezg@noordwijk.edu.mx", name: "Regina Ramírez González", country: "Argentina" },
+      { email: "rtorreso@noordwijk.edu.mx", name: "Rodrigo Torres Ochoa", country: "Australia" },
+      { email: "vfaibrem@noordwijk.edu.mx", name: "Valeria Faibre Morales", country: "Brazil" },
+      { email: "rpalombar@noordwijk.edu.mx", name: "Roberto Palomba Rivera", country: "Canada" },
+      { email: "esanchezv@noordwijk.edu.mx", name: "Elena Sánchez Vaillard", country: "Colombia" },
+      { email: "bhernandezv@noordwijk.edu.mx", name: "Bruno Hernández Velázquez", country: "Cuba" },
+      { email: "achavezg@noordwijk.edu.mx", name: "Ana Paula Chavez Garizurieta", country: "France" },
+      { email: "nromerop@noordwijk.edu.mx", name: "Nicolás Romero Pérez", country: "Germany" },
+      { email: "jlagunesg@noordwijk.edu.mx", name: "José Cruz Lagunes González", country: "Iraq" },
+      { email: "dgarcial@noordwijk.edu.mx", name: "David García Liñero", country: "Italy" },
+      { email: "ssosar@noordwijk.edu.mx", name: "Santiago Sosa Rodriguez", country: "Kenya" },
+      { email: "ayanezm@noordwijk.edu.mx", name: "Aarón Yañez Muñoz", country: "Mexico" },
+      { email: "emedinac@noordwijk.edu.mx", name: "Eleanor Medina Cardel", country: "Haiti" },
+      { email: "alopezm@noordwijk.edu.mx", name: "Ángel Gabriel López Mendieta", country: "Morocco" },
+      { email: "ggonzalezh@noordwijk.edu.mx", name: "Gonzalo González Hernández", country: "Nigeria" },
+      { email: "nsalamad@noordwijk.edu.mx", name: "Natalia Elisa Salama De Ochoa", country: "Paraguay" },
+      { email: "jchapag@noordwijk.edu.mx", name: "Juan Carlos Chapa González", country: "Peru" },
+      { email: "phernandezv@noordwijk.edu.mx", name: "Paula Hernández Velázquez", country: "South Korea" },
+      { email: "gmedinad@noordwijk.edu.mx", name: "Germán Medina Díaz", country: "Spain" },
+      { email: "igarciag@noordwijk.edu.mx", name: "Iñaki García García De León", country: "Sweden" },
+      { email: "vcalderons@noordwijk.edu.mx", name: "Valentina Calderon Sandoval", country: "United Kingdom" },
+      {
+        email: "uamerena l@noordwijk.edu.mx",
+        name: "Ulises Amerena Lagunes",
+        country: "United States of America",
+      },
+    ]
+  );
+
+  addCommitteeStudents(
+    "United Nations High Commissioner for Refugees",
+    "downloads/background-paper-UNHCR.pdf",
+    [
+      { email: "amontesd@noordwijk.edu.mx", name: "Andrea Montes de Oca" },
+      { email: "cjimenez@noordwijk.edu.mx", name: "Claudiel Jimenez" },
+      { email: "alinaresm@noordwijk.edu.mx", name: "Alberto Linares Mora", country: "Australia" },
+      { email: "rlopezv@noordwijk.edu.mx", name: "Ramsés López Vichi", country: "Bangladesh" },
+      {
+        email: "mrgoldsmithl@noordwijk.edu.mx",
+        name: "Maximiliano Rafael Goldsmith Lara",
+        country: "Brazil",
+      },
+      { email: "nvazquezc@noordwijk.edu.mx", name: "Natalie Vázquez Cruz", country: "Canada" },
+      { email: "rmoralesg@noordwijk.edu.mx", name: "Rodrigo Morales Gutiérrez", country: "Colombia" },
+      { email: "ehernandezg@noordwijk.edu.mx", name: "Emmanuel Hernández Gómez", country: "Egypt" },
+      { email: "laaguirre@noordwijk.edu.mx", name: "Luis Alonso Aguirre", country: "Findland" },
+      { email: "rguerrerop@noordwijk.edu.mx", name: "Rodrigo Guerrero Parra", country: "France" },
+      { email: "vmarquinezf@noordwijk.edu.mx", name: "Valeria Marquínez Fuentes", country: "Germany" },
+      { email: "idelriov@noordwijk.edu.mx", name: "Isabella Del Rio Villa", country: "Greece" },
+      { email: "aordonezk@noordwijk.edu.mx", name: "Andrés Ordoñez Kloss", country: "Italy" },
+      { email: "acastanedat@noordwijk.edu.mx", name: "Airana Castañeda Toxtega", country: "Japan" },
+      { email: "cfsosac@noordwijk.edu.mx", name: "Carlos Fernando Sosa Castro", country: "Jordan" },
+      { email: "esantosr@noordwijk.edu.mx", name: "Emiliano Santos Ramírez", country: "Lebanon" },
+      { email: "jmromeroh@noordwijk.edu.mx", name: "José Manuel Romero Hoyos", country: "Mexico" },
+      { email: "agdiazz@noordwijk.edu.mx", name: "Alan Guido Díaz Zapata", country: "Netherlands" },
+      { email: "drgarciav@noordwijk.edu.mx", name: "Diego Rafael Garcia Valerio", country: "Nigeria" },
+      { email: "cagarcian@noordwijk.edu.mx", name: "Carlos Alfredo García Nieto", country: "Norway" },
+      { email: "iarizar@noordwijk.edu.mx", name: "Ian Ariza Remes", country: "Pakistan" },
+      { email: "azavalad@noordwijk.edu.mx", name: "Arnoldo Zavala Domínguez", country: "Sweden" },
+      { email: "aspadronh@noordwijk.edu.mx", name: "Ana Sofía Padrón Hernández", country: "Switzerland" },
+      { email: "emelchorg@noordwijk.edu.mx", name: "Estefanía Melchor Gamboa", country: "United Kingdom" },
+      {
+        email: "mjaguilarg@noordwijk.edu.mx",
+        name: "María José Aguilar Galindo",
+        country: "United States of America",
+      },
+    ]
+  );
+
+  addCommitteeStudents(
+    "Commission on Science and Technology for Development",
+    "downloads/background-paper-CSTD.pdf",
+    [
+      { email: "mlopez@noordwijk.edu.mx", name: "Mayte Lopez" },
+      { email: "rtorres@noordwijk.edu.mx", name: "Regina Torres" },
+      { email: "ralboresa@noordwijk.edu.mx", name: "Rachel Albores Angulo", country: "Argentina" },
+      { email: "dsainzr@noordwijk.edu.mx", name: "Diego Sainz Ruiz De La Peña", country: "Portugal" },
+      { email: "rmenesesr@noordwijk.edu.mx", name: "Regina Meneses Ruiz", country: "Australia" },
+      { email: "jccastelanm@noordwijk.edu.mx", name: "Jennifer Celeste Castelan Mato", country: "Brazil" },
+      { email: "ecarrillol@noordwijk.edu.mx", name: "Emir Carrillo López", country: "Canada" },
+      { email: "strillov@noordwijk.edu.mx", name: "Sofía Trillo Vega", country: "China" },
+      { email: "rgarcial@noordwijk.edu.mx", name: "Rodrigo García Liñero", country: "El Salvador" },
+      {
+        email: "xmgonzaleza@noordwijk.edu.mx",
+        name: "Ximena Marlene González Alfaro",
+        country: "France",
+      },
+      { email: "eruizt@noordwijk.edu.mx", name: "Emiliano Ruiz Torres", country: "Germany" },
+      { email: "rnunezq@noordwijk.edu.mx", name: "Rodrigo Núñez Quiñones", country: "Norway" },
+      { email: "oeservinm@noordwijk.edu.mx", name: "Oscar Ernesto Servin Mesinas", country: "India" },
+      { email: "amundot@noordwijk.edu.mx", name: "Alan Mundo Tenorio", country: "Japan" },
+      {
+        email: "aelozanog@noordwijk.edu.mx",
+        name: "Aarón Eduardo Lozano González",
+        country: "Luxembourg",
+      },
+      { email: "smazas@noordwijk.edu.mx", name: "Santiago Maza Sánchez", country: "Mexico" },
+      { email: "llagunesd@noordwijk.edu.mx", name: "Leonardo Lagunes Delon", country: "Nigeria" },
+      { email: "xrazoe@noordwijk.edu.mx", name: "Ximena Razo Estudillo", country: "Singapore" },
+      { email: "dmarizp@noordwijk.edu.mx", name: "Debbie Mariz Porres", country: "South Africa" },
+      { email: "jfernandezf@noordwijk.edu.mx", name: "Juan Fernández Fernández", country: "South Kores" },
+      { email: "rruedap@noordwijk.edu.mx", name: "Rebeca Rueda Petriz", country: "Sweden" },
+      { email: "prodriguezg@noordwijk.edu.mx", name: "Paola Rodríguez Gasperín", country: "Switzerland" },
+      { email: "problesz@noordwijk.edu.mx", name: "Paula Robles Zárate", country: "Turkey" },
+      { email: "cereyesm@noordwijk.edu.mx", name: "Cesar Emmanuel Reyes Marín", country: "United Kingdom" },
+      { email: "lratiag@noordwijk.edu.mx", name: "Lucia Ratia Galego", country: "United States of America" },
+    ]
+  );
+
+  addCommitteeStudents(
+    "Commission on the Status of Women",
+    "downloads/background-paper-CSW.pdf",
+    [
+      { email: "achunti@noordwijk.edu.mx", name: "Ana Chunti" },
+      { email: "iantunez@noordwijk.edu.mx", name: "Isabella Antúnez" },
+      { email: "vjgomezr@noordwijk.edu.mx", name: "Vayda Josephine Gomez Reynaud", country: "Australia" },
+      { email: "jrandrades@noordwijk.edu.mx", name: "Jesús Roberto Andrade Sánchez", country: "Belarus" },
+      { email: "lfmoralest@noordwijk.edu.mx", name: "Lia Fernanda Morales Tejada", country: "Canada" },
+      { email: "rzarrabalm@noordwijk.edu.mx", name: "Regina Zarrabal Montes", country: "Chile" },
+      { email: "vlunaa@noordwijk.edu.mx", name: "Valentina Luna Arrevillaga", country: "Egypt" },
+      { email: "arivasc@noordwijk.edu.mx", name: "Aynara Rivas Calderón", country: "France" },
+      { email: "pathorper@noordwijk.edu.mx", name: "Patrick Adam Thorpe Romero", country: "Germany" },
+      { email: "sngarciap@noordwijk.edu.mx", name: "Samantha Nicole García Pérez", country: "Iceland" },
+      { email: "jmnovoag@noordwijk.edu.mx", name: "José María Novoa Gómez", country: "India" },
+      { email: "arivas c@noordwijk.edu.mx", name: "Alberto Rivas Calderón", country: "Irak" },
+      { email: "jdcorderoj@noordwijk.edu.mx", name: "José Daniel Cordero Jiménez", country: "Italy" },
+      { email: "vbarriosr@noordwijk.edu.mx", name: "Valentina Barrios Rivadeneyra", country: "Lithuania" },
+      {
+        email: "ccquinteror@noordwijk.edu.mx",
+        name: "Christiane Carleigh Quintero Rodríguez",
+        country: "Mongolia",
+      },
+      { email: "dlagunesc@noordwijk.edu.mx", name: "Denisse Lagunes Calvo", country: "Netherlands" },
+      { email: "rbaronb@noordwijk.edu.mx", name: "Regina Barón Barrera", country: "Poland" },
+      { email: "aaguilarl@noordwijk.edu.mx", name: "Alejandro Aguilar López", country: "Saudi Arabia" },
+      { email: "mjcastrog@noordwijk.edu.mx", name: "Maria José Castro Gonzalez", country: "Singapore" },
+      { email: "jarullanl@noordwijk.edu.mx", name: "Juan Arturo Rullan Lajud", country: "Sweden" },
+      { email: "rramonj@noordwijk.edu.mx", name: "Rodrigo Ramón Jácome", country: "Turkey" },
+      { email: "narciniegam@noordwijk.edu.mx", name: "Nina Arciniega Mateos", country: "United Arab Emirates" },
+      { email: "mlagunesg@noordwijk.edu.mx", name: "Mia Lagunes Galaviz", country: "United Kingdom" },
+      { email: "alopezv@noordwijk.edu.mx", name: "Adrian López Vichi", country: "United States of America" },
+    ]
+  );
+
+  addCommitteeStudents(
+    "World Health Organization",
+    "downloads/background-paper-WHO.pdf",
+    [
+      { email: "amarin@noordwijk.edu.mx", name: "Andrea Marin" },
+      { email: "namaya@noordwijk.edu.mx", name: "Natalia Amaya" },
+      {
+        email: "lcdominguezb@noordwijk.edu.mx",
+        name: "Luis Carlos Domínguez Betancourt",
+        country: "Afghanistan",
+      },
+      { email: "erodriguezv@noordwijk.edu.mx", name: "Emma Rodríguez Vila", country: "Australia" },
+      { email: "rcampah@noordwijk.edu.mx", name: "Rodrigo Campa Hernández", country: "Bangladesh" },
+      { email: "mcamachoc@noordwijk.edu.mx", name: "Mariana Camacho Carmona", country: "Bolivia" },
+      { email: "acalderond@noordwijk.edu.mx", name: "Andrea Calderón Delgado", country: "Canada" },
+      { email: "vbenitezp@noordwijk.edu.mx", name: "Valeria Benítez Pérez", country: "France" },
+      { email: "mdelfinm@noordwijk.edu.mx", name: "Mariano Delfin Miranda", country: "Germany" },
+      { email: "aroblesm@noordwijk.edu.mx", name: "Andrea Robles Macias", country: "Haiti" },
+      { email: "amarina@noordwijk.edu.mx", name: "Ariane Marín Athié", country: "India" },
+      { email: "jmtejedao@noordwijk.edu.mx", name: "Jorge Manuel Tejeda Orozco", country: "Indonesia" },
+      { email: "qsantosr@noordwijk.edu.mx", name: "Quetzalli Santos Ramírez", country: "Iran" },
+      {
+        email: "ejramirezh@noordwijk.edu.mx",
+        name: "Erika Jaomara Ramírez Hernández",
+        country: "Japan",
+      },
+      { email: "rgonzalezc@noordwijk.edu.mx", name: "Regina González Córdova", country: "Myanmar" },
+      { email: "jmibarrar@noordwijk.edu.mx", name: "José María Ibarra Rangel", country: "Nepal" },
+      { email: "ecarvajalm@noordwijk.edu.mx", name: "Emmanuel Carvajal Medina", country: "Netherlands" },
+      { email: "mcastelanm@noordwijk.edu.mx", name: "Maximiliano Castelan Mato", country: "Norway" },
+      { email: "fgironm@noordwijk.edu.mx", name: "Florianne Girón Moreno", country: "Pakistan" },
+      { email: "amiravetea@noordwijk.edu.mx", name: "Arath Miravete Arellano", country: "South Korea" },
+      { email: "rjimenezm@noordwijk.edu.mx", name: "Regina Jiménez Méndez", country: "Switzerland" },
+      { email: "mverar@noordwijk.edu.mx", name: "Mateo Vera Ramirez", country: "Thailand" },
+      { email: "haguirrev@noordwijk.edu.mx", name: "Héctor Aguirre Vázquez", country: "United Kingdom" },
+      {
+        email: "amontesdeocag@noordwijk.edu.mx",
+        name: "Alan Montes De Oca Gómez",
+        country: "United States of America",
+      },
+    ]
+  );
+
+  addCommitteeStudents(
+    "International Criminal Police Organization",
+    "downloads/background-paper-INTERPOL.pdf",
+    [
+      { email: "mpadron@noordwijk.edu.mx", name: "Mathias Padrón" },
+      { email: "gbarradast@noordwijk.edu.mx", name: "Gregorio Barradas Tress", country: "Australia" },
+      { email: "xcamberop@noordwijk.edu.mx", name: "Xareni Cambero Pérez Salazar", country: "Bolivia" },
+      { email: "dsoquif@noordwijk.edu.mx", name: "Diego Soqui Fernández", country: "Brazil" },
+      { email: "vbeldag@noordwijk.edu.mx", name: "Valentina Belda García", country: "Canada" },
+      { email: "pferreiram@noordwijk.edu.mx", name: "Paulina Ferreira Martínez", country: "Colombia" },
+      { email: "mpenar@noordwijk.edu.mx", name: "Mauricio Peña Rico Utreta", country: "El Salvador" },
+      { email: "chuescaf@noordwijk.edu.mx", name: "Camila Huesca Fernández", country: "France" },
+      { email: "smenesesr@noordwijk.edu.mx", name: "Santiago Meneses Ruiz", country: "Germany" },
+      { email: "agomeza@noordwijk.edu.mx", name: "Arley Gómez Amador", country: "Guatemala" },
+      { email: "psfloresc@noordwijk.edu.mx", name: "Paloma Sara María Flores Castro", country: "Honduras" },
+      { email: "aroblesm@noordwijk.edu.mx", name: "Anllela Robles Macias", country: "Italia" },
+      { email: "capensamientor@noordwijk.edu.mx", name: "Camila Azul Pensamiento Ramírez", country: "Morocco" },
+      { email: "ivelazquezt@noordwijk.edu.mx", name: "Ivanna Velázquez Tejeda", country: "Nigeria" },
+      { email: "omartinezr@noordwijk.edu.mx", name: "Omar Martínez Rivera", country: "Panama" },
+      { email: "kdelahuertal@noordwijk.edu.mx", name: "Katalina De La Huerta López", country: "Peru" },
+      { email: "pcanop@noordwijk.edu.mx", name: "Paulina Cano Pérez", country: "Sierra Leone" },
+      { email: "mjimenezg@noordwijk.edu.mx", name: "Mateo Jiménez González", country: "Spain" },
+      { email: "rgarciam@noordwijk.edu.mx", name: "Rogelio García Martínez", country: "United Kingdom" },
+      { email: "mvillegasm@noordwijk.edu.mx", name: "María Villegas Martínez", country: "United States of America" },
+      { email: "rvillavicencioo@noordwijk.edu.mx", name: "Renata Villavicencio Ortiz", country: "Venezuela" },
+    ]
+  );
+
+  addCommitteeStudents(
+    "United Nations Security Council",
+    "downloads/background-paper-UNSC.pdf",
+    [
+      { email: "ofernandez@noordwijk.edu.mx", name: "Oscar Fernandez" },
+      {
+        email: "jfbritog@noordwijk.edu.mx",
+        name: "Juan Fernando Brito García",
+        country: "Australia",
+      },
+      {
+        email: "fgramirezm@noordwijk.edu.mx",
+        name: "Fernando Guadalupe Ramírez Méndez",
+        country: "Austria",
+      },
+      { email: "deeliass@noordwijk.edu.mx", name: "David Eduardo Elías Sánchez", country: "Belgium" },
+      { email: "aahuedr@noordwijk.edu.mx", name: "Alexandra Ahued Rodríguez", country: "Denmark" },
+      { email: "epedrerol@noordwijk.edu.mx", name: "Emilio Pedrero Lara", country: "Findland" },
+      { email: "nfaibrem@noordwijk.edu.mx", name: "Natalia Faibre Morales", country: "France" },
+      { email: "epfrancol@noordwijk.edu.mx", name: "Edgar Paolo Franco López", country: "Germany" },
+      { email: "gmayam@noordwijk.edu.mx", name: "Gabriel Amaya Morales", country: "Ireland" },
+      { email: "egmunozp@noordwijk.edu.mx", name: "Edher Gael Muñoz Prado", country: "Netherlands" },
+      { email: "dponcef@noordwijk.edu.mx", name: "Diego Ponce Figueroa", country: "Portugal" },
+      { email: "imoralesr@noordwijk.edu.mx", name: "Ivanna Morales Rojas", country: "Sweden" },
+      { email: "iromeroh@noordwijk.edu.mx", name: "Israel Romero Hoyos", country: "United Kingdom" },
+      { email: "amundot@noordwijk.edu.mx", name: "André Mundo Tenorio", country: "United States of America" },
+    ]
+  );
+
+  addCommitteeStudents(
+    "General Assembly",
+    "downloads/background-paper-GA.pdf",
+    [
+      { email: "pzambrano@noordwijk.edu.mx", name: "Pia Zambrano" },
+      { email: "abchiuntio@noordwijk.edu.mx", name: "Ana Chiunti" },
+      { email: "emjimenezg@noordwijk.edu.mx", name: "Estrella Mariel Jiménez Gallegos", country: "Australia" },
+      { email: "envelazquezt@noordwijk.edu.mx", name: "Elba Nabila Velázquez Tejeda", country: "Bangladesh" },
+      { email: "msanchezr@noordwijk.edu.mx", name: "Miranda Sánchez Roa", country: "Brazil" },
+      { email: "esanchezv@noordwijk.edu.mx", name: "Emma Sánchez Vaillard", country: "Canada" },
+      { email: "nvikhrovh@noordwijk.edu.mx", name: "Natalia Vikhrov Hermida", country: "China" },
+      { email: "iponcedeleonm@noordwijk.edu.mx", name: "Ivana Ponce de León Martínez", country: "France" },
+      { email: "ftinocog@noordwijk.edu.mx", name: "Fabricio Tinoco González", country: "India" },
+      { email: "mmthorper@noordwijk.edu.mx", name: "Meghan Martha Thorpe Romero", country: "Singapore" },
+      { email: "emoralese@noordwijk.edu.mx", name: "Elan Morales Elvira", country: "South Korea" },
+      { email: "anunezq@noordwijk.edu.mx", name: "Alejandro Núñez Quiñones", country: "United Kingdom" },
+      { email: "jratiag@noordwijk.edu.mx", name: "Javier Ratia Galego", country: "United States of America" },
+    ]
+  );
+
+  const studentDirectory = studentEntries.reduce((acc, entry) => {
+    const { lookupKeys, ...record } = entry;
+    lookupKeys.forEach((key) => {
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(record);
+    });
+    return acc;
+  }, {});
+
+  const resultDiv = document.getElementById("searchResult");
+  const errorDiv = document.getElementById("searchError");
+
+  if (resultDiv) {
+    resultDiv.style.display = "none";
+    resultDiv.innerHTML = "";
+  }
+  if (errorDiv) {
+    errorDiv.style.display = "none";
+  }
 
   studentForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const studentId = document
-      .getElementById("studentId")
-      .value.trim()
-      .toLowerCase();
-    const student = mockStudents[studentId];
-    const resultDiv = document.getElementById("searchResult");
-    const errorDiv = document.getElementById("searchError");
+    const input = document.getElementById("studentId");
+    const normalizedId = normalizeStudentId(input?.value || "");
+    const matches =
+      normalizedId && Object.prototype.hasOwnProperty.call(studentDirectory, normalizedId)
+        ? studentDirectory[normalizedId]
+        : undefined;
 
-    resultDiv.style.display = "none";
-    errorDiv.style.display = "none";
+    if (resultDiv) {
+      resultDiv.innerHTML = "";
+      resultDiv.style.display = "none";
+    }
+    if (errorDiv) {
+      errorDiv.style.display = "none";
+    }
 
-    if (student) {
-      document.getElementById("studentName").textContent = student.name;
-      document.getElementById("studentCommittee").textContent =
-        student.committee;
-      document.getElementById("studentCountry").textContent =
-        student.country;
+    if (matches && matches.length && resultDiv) {
+      if (matches.length > 1) {
+        const notice = document.createElement("p");
+        notice.className = "search-result__notice";
+        notice.textContent =
+          "Multiple assignments found for this email or name. Please review each entry below.";
+        resultDiv.appendChild(notice);
+      }
 
-      const templateLink = resultDiv.querySelector(".download-button");
-      templateLink.href = student.template;
+      matches.forEach((student, index) => {
+        const card = document.createElement("div");
+        card.className = "student-info";
+
+        const heading = document.createElement("h4");
+        heading.textContent =
+          matches.length > 1
+            ? `Student Information ${index + 1}`
+            : "Student Information";
+        card.appendChild(heading);
+
+        const emailPara = document.createElement("p");
+        emailPara.innerHTML = `<strong>Email:</strong> ${student.email}`;
+        card.appendChild(emailPara);
+
+        const namePara = document.createElement("p");
+        namePara.innerHTML = `<strong>Name:</strong> ${student.name}`;
+        card.appendChild(namePara);
+
+        const committeePara = document.createElement("p");
+        committeePara.innerHTML = `<strong>Committee:</strong> ${student.committee}`;
+        card.appendChild(committeePara);
+
+        const countryPara = document.createElement("p");
+        const countryValue = student.country ?? "Pending Assignment";
+        countryPara.innerHTML = `<strong>Country:</strong> ${countryValue}`;
+        card.appendChild(countryPara);
+
+        const downloadLink = document.createElement("a");
+        downloadLink.className = "download-button";
+        downloadLink.href = student.template;
+        downloadLink.textContent = "Access Background Paper";
+        downloadLink.setAttribute("download", "");
+        card.appendChild(downloadLink);
+
+        resultDiv.appendChild(card);
+      });
+
       resultDiv.style.display = "block";
-    } else {
+    } else if (errorDiv) {
       errorDiv.style.display = "block";
     }
   });

@@ -161,7 +161,7 @@
                 alt="UN headquarters with international flags"
               />
               <figcaption class="event-overview__date-badge">
-                <span class="event-overview__date-label">March 15–16, 2025</span>
+                <span class="event-overview__date-label">November 12 - 13, 2025</span>
                 <span class="event-overview__date-sub">Grand Convention Center</span>
               </figcaption>
             </figure>
@@ -612,21 +612,22 @@
           <div class="portal-form">
             <h3>Check Your Registration</h3>
             <p>
-              Enter your student mail to view your committee assignment and
-              download documents. <br />
+              Enter your NICMUN email or your full name to view your committee
+              assignment and download documents. <br />
               <br />
-              <em>Example: cquirosm@noordwijk.edu.mx</em>
+              <em>Examples: cquirosm@noordwijk.edu.mx · Camilo Quiros Mendoza</em>
             </p>
             <br />
             <form id="studentForm">
               <div class="form-group">
-                <label for="studentId">Student Mail Adress</label>
+                <label for="studentId">Student Email or Full Name</label>
                 <input
                   type="text"
                   id="studentId"
                   name="studentId"
                   required
-                  placeholder="@noordwijk.edu.mx"
+                  maxlength="40"
+                  placeholder="Email or Full Name"
                 />
               </div>
               <button type="submit" class="submit-button">Search</button>
@@ -654,7 +655,8 @@
 
             <div id="searchError" class="search-error">
               <p>
-                Student not found. Please check your ID or name and try again.
+                Student not found. Please check the email or full name and try
+                again.
               </p>
             </div>
           </div>

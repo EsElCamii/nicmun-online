@@ -1585,11 +1585,31 @@ body.no-scroll {
 
 .search-result {
   margin-top: 2rem;
-  padding: 1.5rem;
   background: var(--accent-soft);
   border-radius: 16px;
   border: 1px solid rgba(0, 87, 255, 0.1);
   display: none;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.search-result__notice {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--primary-darker);
+}
+
+#searchResult .student-info {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 10px 25px rgba(14, 38, 78, 0.08);
+  width: 100%;
+}
+
+#searchResult .student-info + .student-info {
+  margin-top: 1.5rem;
 }
 
 .search-error {
