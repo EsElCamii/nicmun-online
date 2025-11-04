@@ -1083,9 +1083,11 @@ body {
 /* Committees Section */
 .committees-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  justify-content: center;
+  justify-items: center;
 }
 
 .committee-card {
@@ -1433,7 +1435,7 @@ body.no-scroll {
 }
 
 .country-tag {
-  background: var(--primary-light);
+  background: var(--neutral-200);
   color: var(--primary);
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
