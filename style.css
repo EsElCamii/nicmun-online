@@ -1006,9 +1006,9 @@ body {
 }
 
 .mun-image {
-  max-width: 500px;
-  min-width: 400px;
-  height: 600px;
+  width: 100%;
+  max-width: 480px;
+  min-width: 0;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -1048,10 +1048,26 @@ body {
 @media (max-width: 768px) {
   .mun-layout {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .mun-photo {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  .mun-image {
+    max-width: 100%;
   }
 
   .mun-cards {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .mun-card {
+    text-align: left;
+    padding: 1.75rem;
   }
 }
 
@@ -1744,6 +1760,14 @@ body.no-scroll {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section-intro {
+    margin-bottom: 2.25rem;
+  }
+
   .committee-article {
     padding: 1.5rem;
   }
@@ -1805,6 +1829,19 @@ body.no-scroll {
 
   .section-title {
     font-size: 2rem;
+  }
+
+  .overview-grid {
+    gap: 1.5rem;
+  }
+
+  .committees-grid {
+    gap: 1.5rem;
+  }
+
+  .committee-card {
+    width: 100%;
+    padding: 1.75rem;
   }
 
   .schedule-tabs {
