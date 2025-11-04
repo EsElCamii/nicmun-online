@@ -1887,10 +1887,10 @@ function initStudentPortalLookup() {
       country: "United States",
       template: "downloads/position-paper-template.docx",
     },
-    "abchiuntio@noordwijk.edu.mx": {
-      name: "Ana Chiunti 123",
-      committee: "General Assembly",
-      country: "The Best President",
+    "achiuntib@noordwijk.edu.mx": {
+      name: "Ana Chiunti",
+      committee: "World Health Organization",
+      country: "Germany",
       template: "downloads/position-paper-template.docx",
     },
     "testmail@noordwijk.edu.mx": {
