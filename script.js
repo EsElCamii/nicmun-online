@@ -263,42 +263,41 @@ const committeeData = {
     name: "World Food Programme",
     council: "UN Programme",
     delegateCount: 22,
-    format: "Single Delegation",
-    moderator: "Elena Navarro",
-    president: "Javier Beltrán",
+    moderator: "Arantza Cruz",
+    chair: "Guadalupe Esparza",
     summary: [
-      "Lead strategic food security partnerships that keep humanitarian supply lines open and resilient.",
+      "Mobilize rapid, climate-smart food relief when disasters disrupt local supply chains and livelihoods.",
     ],
     takeaways: [
-      "Connect emergency food relief with long-term nutrition and livelihood investments.",
-      "Use data on crop yields, logistics capacity, and funding gaps to target interventions.",
-      "Coordinate with regional blocs and NGOs to prevent food corridor disruptions.",
+      "Pre-position emergency rations and deploy logistics hubs that withstand extreme-weather events.",
+      "Coordinate joint assessments with disaster agencies to target the most food-insecure households.",
+      "Blend immediate food aid with cash, nutrition, and resilience programs that speed community recovery.",
     ],
     agenda: [
       {
-        title: "Securing Food Corridors in Conflict-Affected Regions",
+        title: "Providing Food Aid in Areas Affected by Natural Disasters",
         description:
-          "Develop adaptive supply-chain agreements that protect humanitarian access amid insecurity and climate shocks.",
+          "Design multi-phase response packages that deliver immediate rations, restore logistics corridors, and support medium-term recovery after floods, hurricanes, or earthquakes.",
       },
     ],
     resources: [
       {
-        title: "WFP Global Operational Response Plan 2024",
+        title: "WFP Emergency Preparedness Handbook",
         description:
-          "Outlines priority operations, funding requirements, and logistics for food assistance in high-risk contexts.",
-        link: "https://www.wfp.org/publications/wfp-global-operational-response-plan",
-      },
-      {
-        title: "FAO Crop Prospects and Food Situation Report",
-        description:
-          "Provides quarterly analysis of production trends and countries requiring external food assistance.",
-        link: "https://www.fao.org/giews/reports/crop-prospects-and-food-situation/en/",
+          "Operational guidance on pre-positioning, logistics, and coordination for rapid-onset emergencies.",
+        link: "https://www.wfp.org/publications/emergency-preparedness-handbook",
       },
       {
         title: "UN OCHA Global Humanitarian Overview",
         description:
-          "Summarizes humanitarian needs, response plans, and financing gaps affecting food security worldwide.",
+          "Summarizes humanitarian needs, funding requirements, and disaster response priorities worldwide.",
         link: "https://gho.unocha.org/",
+      },
+      {
+        title: "Global Report on Food Crises 2024",
+        description:
+          "Analyzes acute food insecurity drivers, including climate shocks, and recommends targeted relief actions.",
+        link: "https://www.fsinplatform.org/report/global-report-food-crises-2024",
       },
     ],
     countries: [
@@ -396,42 +395,42 @@ const committeeData = {
     name: "United Nations Environment Programme",
     council: "United Nations Environment Programme",
     delegateCount: 21,
-    format: "Single Delegation",
-    moderator: "Luciana Torres",
-    president: "Mateo Hernández",
+    moderator: "Camilo Quiros",
+    chair: "Amaya de Diego",
     summary: [
-      "Drive global environmental action by aligning science, policy, and finance on climate and biodiversity goals.",
+      "Accelerate an equitable shift to electric mobility while reducing the environmental footprint of lithium battery supply chains.",
     ],
     takeaways: [
-      "Link national commitments to measurable emission and nature targets backed by sound data.",
-      "Champion just transitions that expand clean jobs while protecting frontline communities.",
-      "Strengthen multilateral monitoring systems to track restoration and conservation progress.",
+      "Align EV incentives with renewable-powered grids and lifecycle emission standards.",
+      "Strengthen environmental and social safeguards across battery mineral extraction, processing, and recycling.",
+      "Support developing economies with technology transfer, finance, and workforce training for clean transport systems.",
     ],
     agenda: [
       {
-        title: "Implementing the Kunming-Montreal Global Biodiversity Framework",
+        title:
+          "Promoting the Transition to Electric Vehicles While Addressing Lithium Battery Impacts",
         description:
-          "Design financing, reporting, and capacity-building tools that enable countries to deliver 30x30 conservation pledges.",
+          "Craft policies that expand EV adoption, improve charging infrastructure, and mitigate mining and waste impacts from lithium-ion batteries.",
       },
     ],
     resources: [
       {
-        title: "Kunming-Montreal Global Biodiversity Framework",
+        title: "UNEP Global Electric Mobility Programme",
         description:
-          "Official overview of global targets and action areas adopted by parties to the Convention on Biological Diversity.",
-        link: "https://www.unep.org/resources/kunming-montreal-global-biodiversity-framework",
+          "Highlights UN support for policy, finance, and technology pathways that scale clean transport worldwide.",
+        link: "https://www.unep.org/explore-topics/transport/what-we-do/electric-mobility",
       },
       {
-        title: "UNEP Emissions Gap Report 2023",
+        title: "International Resource Panel: Sustainability of Lithium-ion Batteries",
         description:
-          "Analyzes the mitigation shortfall and pathways needed to align national plans with the Paris Agreement.",
-        link: "https://www.unep.org/resources/emissions-gap-report-2023",
+          "Assesses environmental pressures from the lithium battery lifecycle and options for circular value chains.",
+        link: "https://www.resourcepanel.org/reports/sustainability-lithium-ion-batteries",
       },
       {
-        title: "State of Finance for Nature 2023",
+        title: "IEA Global EV Outlook 2024",
         description:
-          "Explores investment trends and policy tools to scale nature-positive finance worldwide.",
-        link: "https://www.unep.org/resources/report/state-finance-nature-2023",
+          "Provides data on EV deployment, charging infrastructure, and policy measures that enable rapid adoption.",
+        link: "https://www.iea.org/reports/global-ev-outlook-2024",
       },
     ],
     countries: [
@@ -525,42 +524,41 @@ const committeeData = {
     name: "United Nations International Children's Emergency Fund",
     council: "UNICEF",
     delegateCount: 21,
-    format: "Single Delegation",
-    moderator: "Sofía Villalobos",
-    president: "Andrés Calderón",
+    moderator: "Ramon Velazquez",
+    chair: "Miel de Maria",
     summary: [
-      "Advance comprehensive child protection, health, and learning responses for communities emerging from crises.",
+      "Guarantee continuous, safe learning opportunities for children living amid armed conflict.",
     ],
     takeaways: [
-      "Design integrated service packages that link education, nutrition, water, and protection systems.",
-      "Ground negotiations in the Convention on the Rights of the Child and evidence on child wellbeing.",
-      "Engage youth networks and local partners to co-create resilient support structures for children.",
+      "Establish protected learning spaces that pair education with psychosocial and child-protection services.",
+      "Coordinate with local authorities and the Global Education Cluster to deploy trained teachers and adaptable curricula.",
+      "Secure flexible funding for learning materials, digital tools, and emergency infrastructure restoration.",
     ],
     agenda: [
       {
-        title: "Restoring Childhood Services in Protracted Emergencies",
+        title: "Providing Education to Children in Conflict Zones",
         description:
-          "Scale safe learning spaces, immunization, and psychosocial care for children displaced by conflict and disaster.",
+          "Plan multi-sector responses that protect schools, support educators, and deliver inclusive education during crises.",
       },
     ],
     resources: [
       {
-        title: "State of the World's Children 2023",
+        title: "UNICEF Core Commitments for Children in Humanitarian Action",
         description:
-          "Examines the global outlook on child health, nutrition, and protection with region-specific data.",
-        link: "https://www.unicef.org/reports/state-of-worlds-children-2023",
+          "Defines minimum standards for delivering education and protection services in emergencies.",
+        link: "https://www.unicef.org/emergencies/core-commitments-children",
       },
       {
-        title: "Humanitarian Action for Children 2024",
+        title: "Global Education Cluster: Guide to Education in Emergencies Coordination",
         description:
-          "Details UNICEF's crisis response priorities, required resources, and country appeal updates.",
-        link: "https://www.unicef.org/reports/humanitarian-action-children-2024",
+          "Provides tools for joint needs assessments, response planning, and partner coordination in conflict settings.",
+        link: "https://educationcluster.app/resources/guide-education-emergencies-coordination",
       },
       {
-        title: "UNICEF Child Protection Strategy 2021–2030",
+        title: "Education Cannot Wait Strategic Plan 2023-2026",
         description:
-          "Provides the agency's framework for preventing and responding to violence, abuse, and exploitation of children.",
-        link: "https://www.unicef.org/media/122151/file/Child-Protection-Strategy-2021-2030.pdf",
+          "Details financing priorities and program models for educating children affected by crises.",
+        link: "https://www.educationcannotwait.org/resource-library/strategy-2023-2026",
       },
     ],
     countries: [
@@ -654,42 +652,42 @@ const committeeData = {
     name: "United Nations Educational, Scientific and Cultural Organization",
     council: "UNESCO",
     delegateCount: 23,
-    format: "Single Delegation",
-    moderator: "Daniela Pineda",
-    president: "Héctor Zamora",
+    moderator: "Regina Belchez",
+    chair: "Sofia Tapia",
     summary: [
-      "Promote inclusive education, open science, and heritage protection as foundations for peaceful societies.",
+      "Safeguard national cultural heritage while fostering inclusive identities in societies shaped by migration.",
     ],
     takeaways: [
-      "Champion equitable access to quality learning and cultural participation worldwide.",
-      "Safeguard heritage while supporting community-led resilience and recovery.",
-      "Leverage scientific cooperation to inform sustainable development policy.",
+      "Promote policies that preserve tangible and intangible heritage alongside diverse cultural expressions.",
+      "Invest in community-based programs and cultural institutions that connect newcomers with host communities.",
+      "Strengthen intercultural education and media initiatives that counter discrimination and celebrate shared values.",
     ],
     agenda: [
       {
-        title: "Protecting Education and Culture After Disasters",
+        title:
+          "Protecting National Cultural Heritage and Identity Amid the Rise of Global Immigration",
         description:
-          "Coordinate risk-reduction, financing, and heritage rescue strategies that keep classrooms and cultural sites alive.",
+          "Develop cooperative frameworks that conserve heritage sites and traditions while supporting inclusive cultural participation.",
       },
     ],
     resources: [
       {
-        title: "UNESCO Education in Emergencies",
+        title: "UNESCO Convention for the Safeguarding of the Intangible Cultural Heritage",
         description:
-          "Outlines approaches to maintain learning continuity and rebuild education systems during crises.",
-        link: "https://www.unesco.org/en/education/emergencies",
+          "Provides legal tools and best practices for protecting living heritage in diverse societies.",
+        link: "https://ich.unesco.org/en/convention",
       },
       {
-        title: "UNESCO Heritage Emergency Fund",
+        title: "UNESCO Culture|2030 Indicators: Migration Module",
         description:
-          "Describes rapid-response mechanisms to safeguard cultural heritage threatened by conflict or disaster.",
-        link: "https://www.unesco.org/en/heritage/heritage-emergency-fund",
+          "Offers indicators and policy guidance on integrating culture and migration into sustainable development planning.",
+        link: "https://www.unesco.org/en/culture2030indicators/migration",
       },
       {
-        title: "UNESCO Recommendation on Open Science",
+        title: "UN Alliance of Civilizations: Intercultural Dialogue Toolkit",
         description:
-          "Presents principles and actions for fostering open, collaborative science in support of sustainable development.",
-        link: "https://www.unesco.org/en/science-for-sustainable-future/open-science",
+          "Highlights initiatives that build social cohesion and mutual understanding in multicultural contexts.",
+        link: "https://www.unaoc.org/resource/intercultural-dialogue-toolkit/",
       },
     ],
     countries: [
@@ -791,42 +789,42 @@ const committeeData = {
     name: "United Nations High Commissioner for Refugees",
     council: "UNHCR",
     delegateCount: 23,
-    format: "Single Delegation",
-    moderator: "María Fernanda León",
-    president: "Rafael Cuevas",
+    moderator: "Andrea Montes de Oca",
+    chair: "Claudiel Jimenez",
     summary: [
-      "Protect displaced populations by strengthening asylum systems, responsibility sharing, and durable solutions.",
+      "Scrutinize detention practices in the United States to ensure migrants and asylum-seekers are treated in line with international refugee law.",
     ],
     takeaways: [
-      "Defend access to territory and fair asylum procedures grounded in international refugee law.",
-      "Promote complementary pathways including resettlement, sponsorship, and labor mobility options.",
-      "Invest in host community services and climate resilience to support refugees and local residents alike.",
+      "Evaluate detention conditions against UNHCR standards on dignity, medical care, and family unity.",
+      "Recommend oversight, accountability, and alternatives to detention that uphold due process and protection needs.",
+      "Strengthen access to legal counsel, interpretation, and asylum procedures for individuals in ICE custody.",
     ],
     agenda: [
       {
-        title: "Addressing Climate-Induced Displacement and Protection Gaps",
+        title:
+          "Addressing the Treatment of Immigrants in U.S. ICE Detention Centers Under International Refugee Law",
         description:
-          "Craft cooperative frameworks that safeguard people uprooted by climate impacts while bolstering host-country capacity.",
+          "Assess compliance gaps and propose coordinated reforms to safeguard the rights of asylum-seekers and migrants in detention.",
       },
     ],
     resources: [
       {
-        title: "UNHCR Global Trends Report 2023",
+        title: "UNHCR Detention Guidelines (2012)",
         description:
-          "Provides statistics and analysis on displacement patterns, solutions, and host country responsibilities.",
-        link: "https://www.unhcr.org/global-trends-report-2023",
+          "Defines international standards on the detention of asylum-seekers and alternatives to detention.",
+        link: "https://www.unhcr.org/publications/legal-and-protection-policy-and-guidance-unhcr-detention-guidelines",
       },
       {
-        title: "Legal Considerations on Climate Change and Displacement",
+        title: "US DHS Office of Inspector General: ICE Detention Facility Oversight Reports",
         description:
-          "Sets out UNHCR guidance on protecting people displaced across borders by the effects of climate change.",
-        link: "https://www.unhcr.org/publications/legal-considerations-on-climate-change-and-displacement",
+          "Provides findings on conditions, medical care, and compliance issues within ICE detention centers.",
+        link: "https://www.oig.dhs.gov/reports/roc/ice-detention-facility-inspections",
       },
       {
-        title: "Global Compact on Refugees Digital Platform",
+        title: "Inter-American Commission on Human Rights: Report on Immigration Detention in the United States",
         description:
-          "Highlights pledges, best practices, and support mechanisms to advance responsibility sharing for refugees.",
-        link: "https://www.globalcompactrefugees.org/",
+          "Examines detention practices and offers recommendations consistent with human rights obligations.",
+        link: "https://www.oas.org/en/iachr/reports/pdfs/ImmigrationDetentionUS.pdf",
       },
     ],
     countries: [
@@ -928,42 +926,42 @@ const committeeData = {
     name: "Commission on Science and Technology for Development",
     council: "Economic and Social Council",
     delegateCount: 23,
-    format: "Double Delegation",
-    moderator: "Isabel Gómez",
-    president: "Pablo Serrano",
+    moderator: "Mayte Lopez",
+    chair: "Regina Torres",
     summary: [
-      "Leverage science, technology, and innovation to unlock inclusive and sustainable development pathways.",
+      "Examine how cryptocurrency adoption influences financial stability, inclusion, and development outcomes.",
     ],
     takeaways: [
-      "Advance universal, affordable connectivity as the foundation for digital transformation.",
-      "Embed ethical and human rights safeguards into frontier technology deployment.",
-      "Scale South-South and triangular cooperation on research, skills, and open data.",
+      "Assess macroeconomic and regulatory risks stemming from national-level cryptocurrency adoption.",
+      "Strengthen consumer protection, anti-money-laundering, and prudential oversight frameworks for digital assets.",
+      "Identify inclusive digital payment solutions that support remittances and financial access without undermining stability.",
     ],
     agenda: [
       {
-        title: "Bridging the Global AI Capacity Gap for Development",
+        title:
+          "Evaluating the Impact of Cryptocurrency on Global Financial Stability and Development with a Focus on El Salvador's Adoption of Bitcoin",
         description:
-          "Coordinate investment, governance, and skills initiatives that let all countries harness trustworthy artificial intelligence.",
+          "Review El Salvador's experience to inform international guidelines on digital currencies, financial resilience, and development finance.",
       },
     ],
     resources: [
       {
-        title: "UNCTAD Technology and Innovation Report 2023",
+        title: "IMF 2024 Article IV Consultation with El Salvador",
         description:
-          "Assesses the readiness of developing countries to adopt frontier technologies and policy priorities for inclusion.",
-        link: "https://unctad.org/publication/technology-and-innovation-report-2023",
+          "Analyzes macroeconomic developments, including risks linked to Bitcoin adoption and policy recommendations.",
+        link: "https://www.imf.org/en/Publications/CR/Issues/2024/03/25/El-Salvador-2024-Article-IV-Consultation-Press-Release-Staff-Report-and-Statement-by-the-533504",
       },
       {
-        title: "UNESCO Ethics of Artificial Intelligence",
+        title: "BIS Annual Economic Report 2022: Cryptoassets",
         description:
-          "Summarizes global normative guidance for responsible, human-centered AI governance.",
-        link: "https://www.unesco.org/en/artificial-intelligence/recommendation-ethics",
+          "Discusses vulnerabilities in crypto markets and regulatory approaches to safeguard financial stability.",
+        link: "https://www.bis.org/publ/arpdf/ar2022e3.htm",
       },
       {
-        title: "World Bank Digital Development Overview",
+        title: "UNCTAD Policy Brief: All that Glitters is not Gold",
         description:
-          "Highlights programs and financing tools that expand broadband, digital public infrastructure, and skills.",
-        link: "https://www.worldbank.org/en/topic/digital",
+          "Highlights the development challenges of widespread crypto use in emerging economies and policy options.",
+        link: "https://unctad.org/publication/policy-brief-unctad-no-100",
       },
     ],
     countries: [
@@ -1065,42 +1063,42 @@ const committeeData = {
     name: "Commission on the Status of Women",
     council: "Economic and Social Council",
     delegateCount: 22,
-    format: "Single Delegation",
-    moderator: "Valentina Duarte",
-    president: "Camila Ríos",
+    moderator: "Alejandro Nunez",
+    chair: "Isabella Atunez",
     summary: [
-      "Advance women's rights, leadership, and economic justice in sustainable development efforts.",
+      "Expand education, training, and STEM pathways for women and girls across Middle Eastern countries.",
     ],
     takeaways: [
-      "Integrate gender-responsive budgeting and social protection into climate and economic policies.",
-      "Champion women's leadership in green industries, care systems, and public decision-making.",
-      "Ensure intersectional data guides programs for women and girls facing multiple forms of discrimination.",
+      "Dismantle legal and social barriers that limit girls’ access to secondary and tertiary schooling.",
+      "Invest in gender-responsive STEM curricula, scholarships, and mentorship programs linked to the digital economy.",
+      "Partner with civil society and private-sector leaders to provide safe learning environments and career pipelines.",
     ],
     agenda: [
       {
-        title: "Securing Women's Economic Agency in the Green Transition",
+        title:
+          "Access and Participation of Women and Girls in Education, Training, Science, and Technology in the Middle East",
         description:
-          "Craft policies that create decent work, finance, and safety nets for women driving climate solutions.",
+          "Design regional frameworks that expand digital infrastructure, teacher training, and financial support for women in STEM fields.",
       },
     ],
     resources: [
       {
-        title: "Progress on the Sustainable Development Goals: The Gender Snapshot 2023",
+        title: "UN Women: Progress on the Sustainable Development Goals – The Gender Snapshot 2023",
         description:
-          "Tracks global progress on gender equality indicators and highlights priority actions for governments.",
+          "Provides regional data on gender gaps in education, technology access, and workforce participation.",
         link: "https://www.unwomen.org/en/digital-library/publications/2023/09/progress-on-the-sustainable-development-goals-the-gender-snapshot-2023",
       },
       {
-        title: "Feminist Climate Justice",
+        title: "UNESCO Cracking the Code: Girls’ and Women’s Education in STEM",
         description:
-          "Explores policy pathways to integrate gender equality across climate finance, mitigation, and adaptation.",
-        link: "https://www.unwomen.org/en/digital-library/publications?search=feminist%20climate%20justice",
+          "Analyzes barriers to STEM education and offers policy recommendations for gender-transformative approaches.",
+        link: "https://unesdoc.unesco.org/ark:/48223/pf0000253479",
       },
       {
-        title: "Introduction to Gender and Climate Change",
+        title: "World Bank: Education for Employment in the Middle East and North Africa",
         description:
-          "Provides UNFCCC guidance on mainstreaming gender considerations in climate policy and action.",
-        link: "https://unfccc.int/topics/gender/the-big-picture/introduction-to-gender-and-climate-change",
+          "Examines skills gaps and strategies to align women’s training with labor-market opportunities in the region.",
+        link: "https://openknowledge.worldbank.org/entities/publication/7e01b8b3-8447-53e6-b073-803ca4f26463",
       },
     ],
     countries: [
@@ -1198,42 +1196,42 @@ const committeeData = {
     name: "World Health Organization",
     council: "Specialized Agency",
     delegateCount: 22,
-    format: "Single Delegation",
-    moderator: "Gabriela Méndez",
-    president: "Diego Rosas",
+    moderator: "Andy Marin",
+    chair: "Natalia Amaya",
     summary: [
-      "Coordinate global health leadership to expand universal, resilient, and people-centered care.",
+      "Lead coordinated action to contain antimicrobial resistance driven by inappropriate antibiotic use in South Asia.",
     ],
     takeaways: [
-      "Prioritize primary health care investments that deliver essential services close to communities.",
-      "Close workforce and supply chain gaps through joint procurement and training initiatives.",
-      "Integrate climate risk management and digital tools into national health strategies.",
+      "Scale stewardship programs that curb overprescription across community clinics, hospitals, and pharmacies.",
+      "Align human, animal, and environmental health regulations to reduce misuse of medically important antimicrobials.",
+      "Invest in surveillance, laboratory capacity, and public awareness to detect resistance trends early.",
     ],
     agenda: [
       {
-        title: "Expanding Universal Health Coverage in Low-Resource Settings",
+        title:
+          "Addressing Antimicrobial Resistance in South Asia Caused by Overprescription and Misuse",
         description:
-          "Mobilize financing, workforce, and community systems that ensure quality care is affordable for all.",
+          "Coordinate national action plans, regulatory reforms, and community outreach to slow the spread of drug-resistant infections.",
       },
     ],
     resources: [
       {
-        title: "WHO Universal Health Coverage Portal",
+        title: "WHO Global Action Plan on Antimicrobial Resistance",
         description:
-          "Provides data dashboards, policy guidance, and case studies on advancing universal health coverage.",
-        link: "https://www.who.int/health-topics/universal-health-coverage",
+          "Sets the five strategic objectives guiding national responses to AMR.",
+        link: "https://www.who.int/publications/i/item/9789241509763",
       },
       {
-        title: "World Health Statistics 2023",
+        title: "WHO South-East Asia Regional Strategy on AMR",
         description:
-          "Offers comparative indicators on health service coverage, life expectancy, and system performance.",
-        link: "https://www.who.int/data/gho/publications/world-health-statistics",
+          "Details regional priorities for stewardship, surveillance, and multisectoral coordination.",
+        link: "https://www.who.int/southeastasia/health-topics/antimicrobial-resistance",
       },
       {
-        title: "Tracking Universal Health Coverage: 2023 Global Monitoring Report",
+        title: "World Bank: Drug-Resistant Infections - A Threat to Our Economic Future",
         description:
-          "Assesses service and financial protection coverage trends and outlines policy priorities for UHC.",
-        link: "https://apps.who.int/iris/handle/10665/373456",
+          "Analyzes the economic burden of AMR and investment needs in low- and middle-income countries.",
+        link: "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/323311493396993758/",
       },
     ],
     countries: [
@@ -1331,42 +1329,42 @@ const committeeData = {
     name: "International Criminal Police Organization",
     council: "INTERPOL",
     delegateCount: 20,
-    format: "Single Delegation",
-    moderator: "Miguel Andrade",
-    chair: "Laura Benítez",
+    moderator: "Emma Vaillard",
+    chair: "Mathias Padron",
     summary: [
-      "Enhance cross-border policing partnerships to disrupt illicit finance and organized crime networks.",
+      "Strengthen multinational policing to dismantle drug trafficking networks and cartel operations impacting Mexico.",
     ],
     takeaways: [
-      "Strengthen secure intelligence sharing and joint investigative task forces across regions.",
-      "Promote capacity building on cybercrime, financial forensics, and asset recovery.",
-      "Embed human rights safeguards and accountability in transnational security cooperation.",
+      "Expand secure intelligence sharing and joint task forces with Mexican and regional law-enforcement agencies.",
+      "Target cartel logistics by tracing precursor chemicals, weapons flows, and financial supply chains.",
+      "Embed anti-corruption safeguards and human rights protections in cooperative enforcement operations.",
     ],
     agenda: [
       {
-        title: "Countering Illicit Finance Networks",
+        title:
+          "International Cooperation Against Drug Trafficking Networks and Cartel Operations in Mexico",
         description:
-          "Design cooperative investigations, data tools, and legal frameworks to detect and disrupt global money laundering.",
+          "Develop coordinated strategies for investigations, asset seizures, and community resilience across the Americas.",
       },
     ],
     resources: [
       {
-        title: "INTERPOL Global Crime Trend Report",
+        title: "INTERPOL Drug Trafficking Operations",
         description:
-          "Identifies emerging transnational crime threats and operational priorities for member countries.",
-        link: "https://www.interpol.int/How-we-work/Global-Crime-Trends",
+          "Overview of INTERPOL-led coordinated actions targeting transnational narcotics smuggling networks.",
+        link: "https://www.interpol.int/en/Crimes/Drug-trafficking",
       },
       {
-        title: "UNODC Global Report on Money-Laundering Risks",
+        title: "UNODC World Drug Report 2024",
         description:
-          "Reviews typologies, regional trends, and policy responses to illicit financial flows.",
-        link: "https://www.unodc.org/unodc/en/money-laundering/overview.html",
+          "Provides global and regional data on drug markets, trafficking routes, and cartel dynamics.",
+        link: "https://www.unodc.org/unodc/en/data-and-analysis/wdr.html",
       },
       {
-        title: "FATF Recommendations",
+        title: "International Narcotics Control Strategy Report 2024",
         description:
-          "Sets the international standards for combating money laundering, terrorist financing, and proliferation financing.",
-        link: "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/FATF-Recommendations.html",
+          "Analyzes national efforts, including Mexico and the United States, to disrupt drug production and trafficking.",
+        link: "https://www.state.gov/international-narcotics-control-strategy-report/",
       },
     ],
     countries: [
@@ -1396,42 +1394,42 @@ const committeeData = {
     name: "United Nations Security Council",
     council: "Principal Organ of the United Nations",
     delegateCount: 13,
-    format: "Single Delegation",
-    moderator: "Santiago Reyes",
-    president: "Isabella Cortés",
+    moderator: "Estefania Cerda",
+    chair: "Oscar Fernandez",
     summary: [
-      "Issue binding resolutions to prevent conflict, protect civilians, and sustain international peace and security.",
+      "Coordinate decisive, rights-respecting measures to counter terrorism threats impacting Europe amid complex migration dynamics.",
     ],
     takeaways: [
-      "Balance state sovereignty with collective security responsibilities under the UN Charter.",
-      "Coordinate sanctions, peace operations, and mediation mandates with regional partners.",
-      "Ensure civilian protection, humanitarian access, and accountability anchor every Council decision.",
+      "Strengthen intelligence sharing and border management partnerships that align with international refugee protections.",
+      "Address radicalization drivers through community engagement, integration policies, and strategic communications.",
+      "Ensure Security Council mandates reinforce UN counter-terrorism norms while safeguarding human rights and due process.",
     ],
     agenda: [
       {
-        title: "Stabilizing the Sahel Security Landscape",
+        title:
+          "Addressing Terrorist Threats in Europe Amid Rising Immigration",
         description:
-          "Forge integrated strategies on governance, counterterrorism, and humanitarian support for the Sahel region.",
+          "Debate coordinated border security, information sharing, and community resilience initiatives that balance security and humanitarian obligations.",
       },
     ],
     resources: [
       {
-        title: "UN Peacekeeping Support to the G5 Sahel Joint Force",
+        title: "UN Security Council Resolution 2396 (2017)",
         description:
-          "Explains UN assistance mechanisms that bolster regional security cooperation in the Sahel.",
-        link: "https://reports.unocha.org/en/country/sahel/",
+          "Sets obligations for member states on countering terrorist travel, information sharing, and reintegration support.",
+        link: "https://undocs.org/S/RES/2396(2017)",
       },
       {
-        title: "UNOCHA West and Central Africa Humanitarian Overview",
+        title: "UN Counter-Terrorism Committee Executive Directorate: Trends Alert on Terrorism in Europe",
         description:
-          "Provides situational updates on humanitarian needs, displacement, and response priorities across the Sahel.",
-        link: "https://www.unocha.org/west-and-central-africa",
+          "Summarizes emerging threat patterns, risk factors, and recommended responses for European states.",
+        link: "https://www.un.org/securitycouncil/ctc/content/trends-alerts",
       },
       {
-        title: "UN Africa Renewal: Sahel Security Crisis",
+        title: "EUROPOL European Union Terrorism Situation and Trend Report (TE-SAT)",
         description:
-          "Analyzes root causes and regional initiatives addressing instability across the Sahel belt.",
-        link: "https://africarenewal.un.org/en",
+          "Provides annual analysis of terrorism incidents, arrests, and prosecution trends across the EU.",
+        link: "https://www.europol.europa.eu/publications-events/main-reports/european-union-terrorism-situation-and-trend-report-te-sat",
       },
     ],
     countries: [
@@ -1454,42 +1452,42 @@ const committeeData = {
     name: "General Assembly",
     council: "Principal Organ of the United Nations",
     delegateCount: 11,
-    format: "Single Delegation",
-    moderator: "Adriana Valdés",
-    president: "Tomás Aguilera",
+    moderator: "Pia Zambrano",
+    chair: "Ana Chiunti",
     summary: [
-      "Provide the universal forum where every member state advances shared priorities for people and planet.",
+      "Shape multilateral guardrails that ensure artificial intelligence advances peace, security, and human rights.",
     ],
     takeaways: [
-      "Build broad, cross-regional coalitions that reflect the diversity of the UN membership.",
-      "Align draft resolutions with the 2030 Agenda, financing frameworks, and existing UN mandates.",
-      "Embed concrete implementation milestones and accountability mechanisms into negotiated outcomes.",
+      "Develop shared principles for responsible AI design, deployment, and oversight in security contexts.",
+      "Promote transparency, accountability, and risk assessments for cross-border AI applications.",
+      "Empower inclusive participation from member states, civil society, and industry in global AI governance.",
     ],
     agenda: [
       {
-        title: "Financing the Sustainable Development Goals",
+        title:
+          "Regulating the Development and Use of AI in International Security and Governance",
         description:
-          "Mobilize debt relief, innovative finance, and partnerships to close the SDG investment gap by 2030.",
+          "Debate norms, compliance mechanisms, and capacity-building to manage AI risks while harnessing opportunities for multilateral cooperation.",
       },
     ],
     resources: [
       {
-        title: "Financing for Sustainable Development Report 2024",
+        title: "UN Secretary-General’s Policy Brief: A New Agenda for Peace",
         description:
-          "UN DESA's flagship analysis of global finance trends, policy recommendations, and SDG investment needs.",
-        link: "https://financing.desa.un.org/iatf/home",
+          "Frames governance recommendations for emerging technologies, including AI, within collective security.",
+        link: "https://www.un.org/en/common-agenda/new-agenda-for-peace",
       },
       {
-        title: "SDG Stimulus",
+        title: "High-Level Advisory Body on Artificial Intelligence: Interim Report",
         description:
-          "Outlines the UN proposal to scale affordable long-term finance for sustainable development and climate action.",
-        link: "https://www.un.org/sustainabledevelopment/financing-for-development/",
+          "Outlines options for global AI governance, risk management, and institutional cooperation.",
+        link: "https://www.un.org/en/ai-advisory-body/interim-report",
       },
       {
-        title: "President of the 78th UN General Assembly Priorities",
+        title: "OECD Framework for the Classification of AI Systems",
         description:
-          "Highlights the thematic focus areas guiding current General Assembly deliberations and initiatives.",
-        link: "https://www.un.org/pga/78/priorities/",
+          "Provides criteria for assessing AI risk levels and aligning governance tools across jurisdictions.",
+        link: "https://oecd.ai/en/classification",
       },
     ],
     countries: [
@@ -1566,10 +1564,6 @@ function buildCommitteeSubtitle(data) {
     parts.push(`${data.delegateCount} delegates`);
   }
 
-  if (data.format) {
-    parts.push(data.format);
-  }
-
   return parts.join(" · ");
 }
 
@@ -1581,11 +1575,10 @@ function buildCommitteeSummary(data) {
   if (data && data.moderator) {
     leaders.push(`Moderator: ${data.moderator}`);
   }
-  if (data && data.president) {
-    leaders.push(`President: ${data.president}`);
-  }
-  if (data && data.chair && !data.president) {
+  if (data && data.chair) {
     leaders.push(`Chair: ${data.chair}`);
+  } else if (data && data.president) {
+    leaders.push(`Chair: ${data.president}`);
   }
 
   if (leaders.length) {

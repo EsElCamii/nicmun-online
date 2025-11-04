@@ -623,7 +623,6 @@ body {
 .check-button {
   display: inline-block;
   height: 2.5rem;
-  min-width: 12rem;
   padding: 0.75rem 1.5rem;
   border-radius: 5px;
   text-decoration: none;
