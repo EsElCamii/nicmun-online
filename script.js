@@ -1869,7 +1869,8 @@ function initCommitteeDetail() {
 
 function initStudentPortalLookup() {
   const studentForm = document.getElementById("studentForm");
-  if (!studentForm) {
+  const studentIdInput = document.getElementById("studentId");
+  if (!studentForm || !studentIdInput) {
     return;
   }
 
@@ -1884,12 +1885,12 @@ function initStudentPortalLookup() {
   const studentEntries = [];
   const addCommitteeStudents = (committee, template, students) => {
     students.forEach(({ email, name, country = null }) => {
-      const cleanedEmail = email.replace(/\s+/g, "");
+      const cleanedEmail = (email || "").trim().replace(/\s+/g, "");
+      const normalizedEmail = normalizeStudentId(cleanedEmail);
+      const normalizedName = normalizeStudentId(name);
       const lookupKeys = Array.from(
         new Set(
-          [cleanedEmail, name]
-            .map((identifier) => normalizeStudentId(identifier))
-            .filter((key) => key.length)
+          [normalizedEmail, normalizedName].filter((key) => key.length)
         )
       );
 
@@ -1900,6 +1901,8 @@ function initStudentPortalLookup() {
         country: country ?? null,
         template,
         lookupKeys,
+        normalizedEmail,
+        normalizedName,
       });
     });
   };
@@ -2303,7 +2306,7 @@ function initStudentPortalLookup() {
   );
 
   const studentDirectory = studentEntries.reduce((acc, entry) => {
-    const { lookupKeys, ...record } = entry;
+    const { lookupKeys, normalizedEmail, normalizedName, ...record } = entry;
     lookupKeys.forEach((key) => {
       if (!acc[key]) {
         acc[key] = [];
@@ -2324,10 +2327,289 @@ function initStudentPortalLookup() {
     errorDiv.style.display = "none";
   }
 
+  const suggestionPanel = document.createElement("div");
+  suggestionPanel.className = "portal-autocomplete";
+  const suggestionList = document.createElement("ul");
+  suggestionList.className = "portal-autocomplete__list";
+  suggestionList.id = "studentId-autocomplete-list";
+  suggestionList.setAttribute("role", "listbox");
+  suggestionPanel.appendChild(suggestionList);
+
+  studentIdInput.setAttribute("role", "combobox");
+  studentIdInput.setAttribute("aria-autocomplete", "list");
+  studentIdInput.setAttribute("aria-controls", suggestionList.id);
+  studentIdInput.setAttribute("aria-expanded", "false");
+  studentIdInput.setAttribute("autocomplete", "off");
+  studentIdInput.insertAdjacentElement("afterend", suggestionPanel);
+
+  const MIN_CHARACTERS = 2;
+  const MAX_SUGGESTIONS = 10;
+  let currentSuggestions = [];
+  let activeIndex = -1;
+  let blurTimeoutId = null;
+
+  const clearPendingBlur = () => {
+    if (blurTimeoutId !== null) {
+      window.clearTimeout(blurTimeoutId);
+      blurTimeoutId = null;
+    }
+  };
+
+  const closeSuggestions = () => {
+    clearPendingBlur();
+    suggestionPanel.classList.remove("is-open");
+    suggestionList.innerHTML = "";
+    currentSuggestions = [];
+    activeIndex = -1;
+    studentIdInput.setAttribute("aria-expanded", "false");
+    studentIdInput.removeAttribute("aria-activedescendant");
+  };
+
+  const focusOption = (index) => {
+    const options = suggestionList.querySelectorAll(".portal-autocomplete__option");
+    if (!options.length) {
+      activeIndex = -1;
+      studentIdInput.removeAttribute("aria-activedescendant");
+      return;
+    }
+
+    if (index < 0) {
+      options.forEach((option) => {
+        option.classList.remove("is-active");
+        option.setAttribute("aria-selected", "false");
+      });
+      activeIndex = -1;
+      studentIdInput.removeAttribute("aria-activedescendant");
+      return;
+    }
+
+    const boundedIndex = Math.max(0, Math.min(index, options.length - 1));
+
+    options.forEach((option, optionIndex) => {
+      const isActive = optionIndex === boundedIndex;
+      option.classList.toggle("is-active", isActive);
+      option.setAttribute("aria-selected", isActive ? "true" : "false");
+      if (isActive) {
+        studentIdInput.setAttribute("aria-activedescendant", option.id);
+        option.scrollIntoView({ block: "nearest" });
+      }
+    });
+
+    activeIndex = boundedIndex;
+  };
+
+  const selectSuggestion = (index) => {
+    const suggestion = currentSuggestions[index];
+    if (!suggestion) {
+      return;
+    }
+
+    studentIdInput.value = suggestion.value;
+    closeSuggestions();
+    studentIdInput.focus();
+    const { length } = studentIdInput.value;
+    studentIdInput.setSelectionRange(length, length);
+  };
+
+  const formatSecondaryText = (entry, type) => {
+    const details = [];
+    if (type === "email") {
+      details.push(entry.name);
+    } else {
+      details.push(entry.email);
+    }
+    if (entry.country) {
+      details.push(entry.country);
+    }
+    if (entry.committee) {
+      details.push(entry.committee);
+    }
+    return details.join(" • ");
+  };
+
+  const buildSuggestions = (query) => {
+    if (!query.length) {
+      return [];
+    }
+
+    const matches = [];
+
+    studentEntries.forEach((entry) => {
+      const emailIndex = entry.normalizedEmail.indexOf(query);
+      if (emailIndex !== -1) {
+        matches.push({
+          type: "email",
+          value: entry.email,
+          primary: entry.email,
+          secondary: formatSecondaryText(entry, "email"),
+          matchIndex: emailIndex,
+        });
+      }
+
+      const nameIndex = entry.normalizedName.indexOf(query);
+      if (nameIndex !== -1) {
+        matches.push({
+          type: "name",
+          value: entry.name,
+          primary: entry.name,
+          secondary: formatSecondaryText(entry, "name"),
+          matchIndex: nameIndex,
+        });
+      }
+    });
+
+    const unique = [];
+    const seen = new Set();
+    matches.forEach((suggestion) => {
+      const key = `${suggestion.type}:${suggestion.value.toLowerCase()}`;
+      if (!seen.has(key)) {
+        unique.push(suggestion);
+        seen.add(key);
+      }
+    });
+
+    unique.sort((a, b) => {
+      if (a.matchIndex !== b.matchIndex) {
+        return a.matchIndex - b.matchIndex;
+      }
+      return a.primary.localeCompare(b.primary);
+    });
+
+    return unique.slice(0, MAX_SUGGESTIONS);
+  };
+
+  const renderSuggestions = (suggestions) => {
+    currentSuggestions = suggestions;
+    suggestionList.innerHTML = "";
+
+    if (!suggestions.length) {
+      closeSuggestions();
+      return;
+    }
+
+    suggestions.forEach((suggestion, index) => {
+      const item = document.createElement("li");
+      item.className = "portal-autocomplete__item";
+
+      const option = document.createElement("button");
+      option.type = "button";
+      option.className = "portal-autocomplete__option";
+      option.id = `${suggestionList.id}-option-${index}`;
+      option.setAttribute("role", "option");
+      option.setAttribute("aria-selected", "false");
+      option.dataset.index = String(index);
+
+      const primary = document.createElement("span");
+      primary.className = "portal-autocomplete__primary";
+      primary.textContent = suggestion.primary;
+      option.appendChild(primary);
+
+      if (suggestion.secondary) {
+        const secondary = document.createElement("span");
+        secondary.className = "portal-autocomplete__meta";
+        secondary.textContent = suggestion.secondary;
+        option.appendChild(secondary);
+      }
+
+      option.addEventListener("mousedown", (event) => {
+        event.preventDefault();
+        selectSuggestion(index);
+      });
+
+      item.appendChild(option);
+      suggestionList.appendChild(item);
+    });
+
+    suggestionPanel.classList.add("is-open");
+    studentIdInput.setAttribute("aria-expanded", "true");
+    focusOption(-1);
+  };
+
+  const requestSuggestions = () => {
+    const normalizedValue = normalizeStudentId(studentIdInput.value);
+    if (normalizedValue.length < MIN_CHARACTERS) {
+      closeSuggestions();
+      return;
+    }
+
+    const suggestions = buildSuggestions(normalizedValue);
+    if (!suggestions.length) {
+      closeSuggestions();
+      return;
+    }
+
+    renderSuggestions(suggestions);
+  };
+
+  studentIdInput.addEventListener("input", () => {
+    clearPendingBlur();
+    requestSuggestions();
+  });
+
+  studentIdInput.addEventListener("focus", () => {
+    clearPendingBlur();
+    requestSuggestions();
+  });
+
+  studentIdInput.addEventListener("blur", () => {
+    blurTimeoutId = window.setTimeout(() => {
+      closeSuggestions();
+    }, 120);
+  });
+
+  studentIdInput.addEventListener("keydown", (event) => {
+    const isOpen = suggestionPanel.classList.contains("is-open");
+
+    if (event.key === "ArrowDown") {
+      if (!isOpen) {
+        const normalizedValue = normalizeStudentId(studentIdInput.value);
+        if (normalizedValue.length >= MIN_CHARACTERS) {
+          const suggestions = buildSuggestions(normalizedValue);
+          if (suggestions.length) {
+            renderSuggestions(suggestions);
+          }
+        }
+      }
+      if (currentSuggestions.length) {
+        event.preventDefault();
+        const nextIndex = activeIndex + 1 >= currentSuggestions.length ? 0 : activeIndex + 1;
+        focusOption(nextIndex);
+      }
+    } else if (event.key === "ArrowUp") {
+      if (isOpen && currentSuggestions.length) {
+        event.preventDefault();
+        const nextIndex =
+          activeIndex <= 0 ? currentSuggestions.length - 1 : activeIndex - 1;
+        focusOption(nextIndex);
+      }
+    } else if (event.key === "Enter") {
+      if (isOpen && activeIndex >= 0) {
+        event.preventDefault();
+        selectSuggestion(activeIndex);
+      } else {
+        closeSuggestions();
+      }
+    } else if (event.key === "Escape") {
+      if (isOpen) {
+        event.preventDefault();
+        closeSuggestions();
+      }
+    }
+  });
+
+  document.addEventListener("mousedown", (event) => {
+    if (
+      event.target !== studentIdInput &&
+      !suggestionPanel.contains(event.target)
+    ) {
+      closeSuggestions();
+    }
+  });
+
   studentForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const input = document.getElementById("studentId");
-    const normalizedId = normalizeStudentId(input?.value || "");
+    closeSuggestions();
+    const normalizedId = normalizeStudentId(studentIdInput.value || "");
     const matches =
       normalizedId && Object.prototype.hasOwnProperty.call(studentDirectory, normalizedId)
         ? studentDirectory[normalizedId]
