@@ -15,7 +15,7 @@ function scrollToSection(sectionId, yOffset = -80) {
   setActiveNavLink(sectionId);
 
   if (sectionId === "schedule" && scheduleCollapsibleController) {
-    scheduleCollapsibleController.setExpanded(true);
+    scheduleCollapsibleController.setExpanded(true, { force: true });
   }
 }
 
@@ -150,7 +150,9 @@ function initScheduleCollapsible() {
   const indicator = toggle.querySelector(".section-intro--collapsible-indicator");
   if (!toggle || !content) return;
 
-  const setExpanded = (expanded) => {
+  let manualPreference = null;
+
+  const applyExpandedState = (expanded) => {
     toggle.setAttribute("aria-expanded", String(expanded));
     toggle.classList.toggle("is-open", expanded);
     content.hidden = !expanded;
@@ -161,9 +163,26 @@ function initScheduleCollapsible() {
     }
   };
 
+  const setExpanded = (expanded, { userInitiated = false, force = false } = {}) => {
+    if (!force) {
+      if (manualPreference === false && expanded) {
+        return;
+      }
+      if (manualPreference === true && !expanded) {
+        return;
+      }
+    }
+
+    applyExpandedState(expanded);
+
+    if (userInitiated || force) {
+      manualPreference = expanded;
+    }
+  };
+
   const toggleExpanded = () => {
     const expanded = toggle.getAttribute("aria-expanded") === "true";
-    setExpanded(!expanded);
+    setExpanded(!expanded, { userInitiated: true });
   };
 
   toggle.addEventListener("click", (event) => {
@@ -190,7 +209,7 @@ function initScheduleCollapsible() {
     window.location.hash.replace("#", "") === "schedule" ||
     window.location.search.includes("schedule=open")
   ) {
-    setExpanded(true);
+    setExpanded(true, { force: true });
   }
 }
 
