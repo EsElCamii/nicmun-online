@@ -975,7 +975,8 @@ body {
   line-height: 1.5;
 }
 
-.button-wrapper {
+.button-wrapper,
+.button-wrapper-hero {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
@@ -1901,10 +1902,15 @@ body.no-scroll {
     margin-bottom: 30px;
   }
 
-  .button-wrapper {
+  .button-wrapper,
+  .button-wrapper-hero {
     flex-direction: column;
     align-items: center;
     gap: 12px;
+  }
+
+  .button-wrapper-hero {
+    margin-top: 1.7rem;
   }
 
   .hero-button {
