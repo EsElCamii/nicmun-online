@@ -700,7 +700,7 @@ const committeeData = {
         title: "UNESCO Culture|2030 Indicators: Migration Module",
         description:
           "Offers indicators and policy guidance on integrating culture and migration into sustainable development planning.",
-        link: "https://www.unesco.org/en/culture2030indicators/migration",
+        link: "https://www.unesco.org/en/no-racism-no-discrimination/migration",
       },
       {
         title: "UN Alliance of Civilizations: Intercultural Dialogue Toolkit",
@@ -1442,13 +1442,13 @@ const committeeData = {
         title: "UN Counter-Terrorism Committee Executive Directorate: Trends Alert on Terrorism in Europe",
         description:
           "Summarizes emerging threat patterns, risk factors, and recommended responses for European states.",
-        link: "https://www.un.org/securitycouncil/ctc/content/trends-alerts",
+        link: "https://www.un.org/securitycouncil/ctc/unite-web-topic/trends-alert",
       },
       {
         title: "EUROPOL European Union Terrorism Situation and Trend Report (TE-SAT)",
         description:
           "Provides annual analysis of terrorism incidents, arrests, and prosecution trends across the EU.",
-        link: "https://www.europol.europa.eu/publications-events/main-reports/european-union-terrorism-situation-and-trend-report-te-sat",
+        link: "https://www.europol.europa.eu/publications-events/main-reports/tesat-report",
       },
     ],
     countries: [
