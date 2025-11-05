@@ -304,7 +304,7 @@ const committeeData = {
         title: "WFP Emergency Preparedness Handbook",
         description:
           "Operational guidance on pre-positioning, logistics, and coordination for rapid-onset emergencies.",
-        link: "https://www.wfp.org/publications/emergency-preparedness-handbook",
+        link: "https://docs.wfp.org/api/documents/WFP-0000091066/download/",
       },
       {
         title: "UN OCHA Global Humanitarian Overview",
@@ -440,10 +440,10 @@ const committeeData = {
         link: "https://www.unep.org/explore-topics/transport/what-we-do/electric-mobility",
       },
       {
-        title: "International Resource Panel: Sustainability of Lithium-ion Batteries",
+        title: "IRENA Lithium-ion Battery Value Chain (2023)",
         description:
-          "Assesses environmental pressures from the lithium battery lifecycle and options for circular value chains.",
-        link: "https://www.resourcepanel.org/reports/sustainability-lithium-ion-batteries",
+          "Assesses environmental pressures from lithium-ion batteries and pathways for responsible, circular supply chains.",
+        link: "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2023/Sep/IRENA_Lithium-ion-battery_value_chain_2023.pdf",
       },
       {
         title: "IEA Global EV Outlook 2024",
@@ -565,19 +565,19 @@ const committeeData = {
         title: "UNICEF Core Commitments for Children in Humanitarian Action",
         description:
           "Defines minimum standards for delivering education and protection services in emergencies.",
-        link: "https://www.unicef.org/emergencies/core-commitments-children",
+        link: "https://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/documents/files/ccc_en.pdf",
       },
       {
         title: "Global Education Cluster: Guide to Education in Emergencies Coordination",
         description:
           "Provides tools for joint needs assessments, response planning, and partner coordination in conflict settings.",
-        link: "https://educationcluster.app/resources/guide-education-emergencies-coordination",
+        link: "https://resourcecentre.savethechildren.net/wp-content/uploads/2021/06/guide_to_eie_coordination_en.pdf",
       },
       {
         title: "Education Cannot Wait Strategic Plan 2023-2026",
         description:
           "Details financing priorities and program models for educating children affected by crises.",
-        link: "https://www.educationcannotwait.org/resource-library/strategy-2023-2026",
+        link: "https://www.educationcannotwait.org/sites/default/files/2022-09/f_ecw1016_strategic_report.pdf",
       },
     ],
     countries: [
@@ -837,7 +837,7 @@ const committeeData = {
         title: "US DHS Office of Inspector General: ICE Detention Facility Oversight Reports",
         description:
           "Provides findings on conditions, medical care, and compliance issues within ICE detention centers.",
-        link: "https://www.oig.dhs.gov/reports/roc/ice-detention-facility-inspections",
+        link: "https://www.oig.dhs.gov/sites/default/files/assets/2020-06/OIG-20-43-Jun20.pdf?source=govdelivery",
       },
       {
         title: "Inter-American Commission on Human Rights: Report on Immigration Detention in the United States",
@@ -967,8 +967,8 @@ const committeeData = {
       {
         title: "IMF 2024 Article IV Consultation with El Salvador",
         description:
-          "Analyzes macroeconomic developments, including risks linked to Bitcoin adoption and policy recommendations.",
-        link: "https://www.imf.org/en/Publications/CR/Issues/2024/03/25/El-Salvador-2024-Article-IV-Consultation-Press-Release-Staff-Report-and-Statement-by-the-533504",
+          "Provides IMF analysis and documents on El Salvador’s economy, including the latest Article IV consultation materials.",
+        link: "https://www.imf.org/en/Countries/SLV",
       },
       {
         title: "BIS Annual Economic Report 2022: Cryptoassets",
@@ -980,7 +980,7 @@ const committeeData = {
         title: "UNCTAD Policy Brief: All that Glitters is not Gold",
         description:
           "Highlights the development challenges of widespread crypto use in emerging economies and policy options.",
-        link: "https://unctad.org/publication/policy-brief-unctad-no-100",
+        link: "https://unctad.org/system/files/official-document/presspb2023d2_en.pdf",
       },
     ],
     countries: [
@@ -1383,7 +1383,7 @@ const committeeData = {
         title: "International Narcotics Control Strategy Report 2024",
         description:
           "Analyzes national efforts, including Mexico and the United States, to disrupt drug production and trafficking.",
-        link: "https://www.state.gov/international-narcotics-control-strategy-report/",
+        link: "https://www.state.gov/reports/2024-international-narcotics-control-strategy-report/",
       },
     ],
     countries: [
@@ -1494,13 +1494,13 @@ const committeeData = {
         title: "UN Secretary-General’s Policy Brief: A New Agenda for Peace",
         description:
           "Frames governance recommendations for emerging technologies, including AI, within collective security.",
-        link: "https://www.un.org/en/common-agenda/new-agenda-for-peace",
+        link: "https://digitallibrary.un.org/record/4019113/files/Our_Common_Agenda_Policy_Brief_6_A_New_Agenda_for_Peace.pdf?ln=en",
       },
       {
         title: "High-Level Advisory Body on Artificial Intelligence: Interim Report",
         description:
           "Outlines options for global AI governance, risk management, and institutional cooperation.",
-        link: "https://www.un.org/en/ai-advisory-body/interim-report",
+        link: "https://digitallibrary.un.org/record/4017518/files/Multistakeholder_Advisory_Body_on_AI_Interim_Report.pdf?ln=en",
       },
       {
         title: "OECD Framework for the Classification of AI Systems",
