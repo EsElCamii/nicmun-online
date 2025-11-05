@@ -145,16 +145,19 @@ function initScheduleCollapsible() {
   const scheduleSection = document.getElementById("schedule");
   if (!scheduleSection) return;
 
+  const container =
+    scheduleSection.querySelector("[data-schedule-toggle-container]") ||
+    scheduleSection.querySelector(".section-intro--collapsible");
   const toggle = scheduleSection.querySelector("[data-schedule-toggle]");
   const content = scheduleSection.querySelector("[data-schedule-content]");
-  const indicator = toggle.querySelector(".section-intro--collapsible-indicator");
-  if (!toggle || !content) return;
+  const indicator = scheduleSection.querySelector(".section-intro--collapsible-indicator");
+  if (!container || !toggle || !content) return;
 
   let manualPreference = null;
 
   const applyExpandedState = (expanded) => {
     toggle.setAttribute("aria-expanded", String(expanded));
-    toggle.classList.toggle("is-open", expanded);
+    container.classList.toggle("is-open", expanded);
     content.hidden = !expanded;
     if (indicator) {
       indicator.textContent = expanded
@@ -189,13 +192,6 @@ function initScheduleCollapsible() {
     // Avoid toggling when selecting text with modifier keys
     if (event.defaultPrevented) return;
     toggleExpanded();
-  });
-
-  toggle.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      toggleExpanded();
-    }
   });
 
   scheduleCollapsibleController = {

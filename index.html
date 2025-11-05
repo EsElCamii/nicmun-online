@@ -391,17 +391,19 @@
       <div class="container">
         <div
           class="section-intro section-intro--center section-intro--collapsible"
-          data-schedule-toggle
-          role="button"
-          tabindex="0"
-          aria-expanded="false"
-          aria-controls="scheduleContent"
+          data-schedule-toggle-container
         >
           <h2 class="section-title">Conference Schedule</h2>
           <p class="section-kicker">NICMUN 2025</p>
-          <span class="section-intro--collapsible-indicator"
-            >Click or tap to expand</span
+          <button
+            type="button"
+            class="section-intro--collapsible-indicator"
+            data-schedule-toggle
+            aria-expanded="false"
+            aria-controls="scheduleContent"
           >
+            Click or tap to expand
+          </button>
         </div>
         <div
           id="scheduleContent"
