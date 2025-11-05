@@ -123,13 +123,14 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.22em;
   color: var(--neutral-500);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.5rem;
-  width: 100%;
-  margin-top: 0.5rem;
-  padding: 0.65rem clamp(1.25rem, 3vw, 1.75rem) 0.65rem 0;
+  width: auto;
+  min-width: clamp(180px, 48vw, 260px);
+  margin: 0.75rem auto 0;
+  padding: 0.85rem 1.5rem;
   border: 0;
   border-radius: 999px;
   background: transparent;
@@ -137,13 +138,14 @@ body {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   appearance: none;
+  text-align: center;
   transition: color 0.2s ease, background-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .section-intro--collapsible-indicator::after {
   content: "";
-  margin-left: auto;
+  margin-left: 0;
   width: 12px;
   height: 12px;
   border-right: 2px solid var(--primary);
@@ -156,7 +158,11 @@ body {
 .section-intro--collapsible-indicator:focus-visible {
   color: var(--primary-darker);
   background: transparent;
-  outline: none;
+}
+
+.section-intro--collapsible-indicator:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
 }
 
 .section-intro--collapsible-indicator:hover::after,

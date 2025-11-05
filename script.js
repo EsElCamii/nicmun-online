@@ -166,8 +166,11 @@ function initScheduleCollapsible() {
     }
   };
 
-  const setExpanded = (expanded, { userInitiated = false, force = false } = {}) => {
-    if (!force) {
+  const setExpanded = (
+    expanded,
+    { userInitiated = false, force = false } = {}
+  ) => {
+    if (!force && !userInitiated) {
       if (manualPreference === false && expanded) {
         return;
       }
