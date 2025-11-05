@@ -983,6 +983,10 @@ body {
   justify-content: center;
 }
 
+.button-wrapper-hero {
+   margin-top: 1.5rem;
+}
+
 .hero-button {
   display: inline-flex;
   align-items: center;
