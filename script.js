@@ -1,3 +1,33 @@
+// Initialize Vercel Web Analytics without requiring a bundler
+(function initVercelAnalytics() {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+  if (window.va) return;
+
+  if (!("vam" in window)) {
+    window.vam = window.location.hostname === "localhost" ? "development" : "production";
+  }
+  window.va = (...params) => {
+    (window.vaq = window.vaq || []).push(params);
+  };
+
+  const script = document.createElement("script");
+  const isDev = window.vam === "development";
+  script.src = isDev
+    ? "https://va.vercel-scripts.com/v1/script.debug.js"
+    : "/_vercel/insights/script.js";
+  script.defer = true;
+  script.dataset.sdkn = "@vercel/analytics";
+  script.dataset.sdkv = "1.5.0";
+  script.onerror = () => {
+    const message = isDev
+      ? "Check if an ad blocker is preventing the analytics script from loading."
+      : "Enable Web Analytics for this project in Vercel and redeploy.";
+    console.log("[Vercel Web Analytics] Failed to load script. " + message);
+  };
+
+  document.head.appendChild(script);
+})();
+
 let scheduleCollapsibleController = null;
 
 function scrollToSection(sectionId, yOffset = -80) {
